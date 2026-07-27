@@ -1,0 +1,6 @@
+# Monitoramento de disponibilidade arguto.com.br (check a cada 5 min)
+# inicio: 2026-07-27 03:47:11    
+2026-07-27 03:47:11  FORA  (conexao recusada/fechada)
+2026-07-27 03:52:11  FORA  (conexao recusada/fechada)
+2026-07-27 03:57:11  FORA  (conexao recusada/fechada)
+2026-07-27 04:02:12  NO AR  http=200

@@ -53,6 +53,20 @@ jobs:
       # começa com underscore — inclusive /_next, ou seja, todo o CSS e JS.
       - run: touch out/.nojekyll
 
+      # Página de diagnóstico comercial (material de reunião, não faz parte
+      # do produto). Vai para /diagnostico/ — a home segue intacta em /.
+      # O `if` mantém o deploy funcionando enquanto o arquivo não existir.
+      - name: Publicar página de diagnóstico
+        working-directory: .
+        run: |
+          if [ -f apresentacao/diagnostico-arguto.html ]; then
+            mkdir -p arguto-web/out/diagnostico
+            cp apresentacao/diagnostico-arguto.html arguto-web/out/diagnostico/index.html
+            echo "diagnóstico publicado em /diagnostico/"
+          else
+            echo "apresentacao/diagnostico-arguto.html ausente — etapa ignorada"
+          fi
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: arguto-web/out
