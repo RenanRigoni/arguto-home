@@ -1,0 +1,36 @@
+/*
+ * Fonte de destaque (Big Shoulders, condensada) é opt-in via a classe
+ * .font-display-heading — NUNCA por seletor de elemento h1-h4. Um <h3>
+ * pode existir por hierarquia semântica/acessibilidade (ex.: nome de
+ * produto no ProductCard) sem ser um título de vitrine, e não deve herdar
+ * uma fonte condensada com tracking negativo pensada pra headline grande.
+ */
+.font-display-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink-700);
+}
+
+::selection {
+  background: var(--color-accent-100);
+  color: var(--color-brand-900);
+}
+
+/*
+ * accent-500 (#f2811d) contra branco dá 2,65:1 — abaixo do mínimo de 3:1
+ * que a WCAG 1.4.11 exige de indicador de foco, e quase toda superfície
+ * navegável por teclado aqui é branca. accent-600 (#c25e0a) dá 4,03:1 no
+ * branco e 4,04:1 no indigo brand-900 das faixas escuras: o mesmo anel
+ * passa nas duas superfícies, sem precisar de regra por contexto.
+ */
+:focus-visible {
+  outline: 2px solid var(--color-accent-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

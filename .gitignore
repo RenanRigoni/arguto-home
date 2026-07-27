@@ -1,0 +1,25 @@
+# dependências e build
+node_modules/
+.next/
+out/
+
+# artefatos de sessão de desenvolvimento
+.playwright-mcp/
+.impeccable/
+*.tsbuildinfo
+
+# capturas de tela usadas em revisão, não fazem parte do projeto
+*.jpeg
+*.jpg
+*.png
+!arguto-web/public/**/*.png
+!arguto-web/public/**/*.jpg
+!arguto-web/public/**/*.jpeg
+
+# env
+.env*
+!.env.example
+
+# sistema
+.DS_Store
+Thumbs.db

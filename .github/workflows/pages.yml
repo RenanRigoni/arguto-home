@@ -1,0 +1,68 @@
+name: Deploy da vitrine estática no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: arguto-web
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: arguto-web/package-lock.json
+
+      - run: npm ci
+
+      # GitHub Pages serve arquivo, não roda servidor: as Route Handlers
+      # (/api/search, /api/cart) não têm onde executar e travariam a
+      # exportação estática. São removidas só aqui, no build de vitrine —
+      # o código-fonte segue intacto para o alvo de produção com servidor.
+      - name: Remover rotas de servidor (sem backend no Pages)
+        run: rm -rf src/app/api
+
+      - name: Build estático
+        env:
+          STATIC_EXPORT: "true"
+          STATIC_BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          USE_FIXTURES: "true"
+          LEGACY_ORIGIN: https://arguto.com.br
+          NEXT_PUBLIC_LEGACY_ORIGIN: https://arguto.com.br
+          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: npm run build
+
+      # Sem isso o Pages passa o Jekyll no diretório e descarta tudo que
+      # começa com underscore — inclusive /_next, ou seja, todo o CSS e JS.
+      - run: touch out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: arguto-web/out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

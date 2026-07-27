@@ -1,0 +1,138 @@
+/*
+  Motion motivada (docs DESIGN.md §Elevation/Motion + /taste pass):
+  - reveal-up: entrada em cascata (hero, cards) — hierarquia/sequência
+  - menu-panel-in: abertura real do mega menu (estava com animate-none)
+  - scroll-reveal: revelação nativa via animation-timeline: view(),
+    sem JS, sem dependência — degrada para visível estático sem suporte
+  Tudo dentro de ease-out-expo, sem bounce/spring (DESIGN.md §Elevation).
+*/
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menu-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/*
+  Fornecedores: a faixa animada só existe onde o mecanismo de pausa dela
+  existe. A pausa é :hover/:focus-within — nenhum dos dois acontece em
+  toque, então no celular a faixa rodava sem parada possível (WCAG 2.2.2)
+  e era o único trilho lateral da home que o dedo não conseguia arrastar.
+  Fora do ponteiro fino, entra o mesmo trilho de rolagem nativa usado em
+  Categorias e nas vitrines. Condição por (hover: hover) e não por largura:
+  tablet grande também é toque.
+*/
+.supplier-marquee,
+.supplier-marquee-sr {
+  display: none;
+}
+
+.supplier-manual {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .supplier-marquee,
+  .supplier-marquee-sr {
+    display: block;
+  }
+
+  .supplier-manual {
+    display: none;
+  }
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-cascade > * {
+    animation: reveal-up var(--duration-normal) var(--ease-out-expo) both;
+  }
+
+  .reveal-cascade > *:nth-child(1) {
+    animation-delay: 0ms;
+  }
+  .reveal-cascade > *:nth-child(2) {
+    animation-delay: 60ms;
+  }
+  .reveal-cascade > *:nth-child(3) {
+    animation-delay: 120ms;
+  }
+  .reveal-cascade > *:nth-child(4) {
+    animation-delay: 180ms;
+  }
+
+  .badge-pop {
+    animation: badge-pop 320ms var(--ease-out-expo);
+  }
+
+  /*
+    Revelação nativa ao entrar no viewport. Sem @supports guard: navegador
+    sem suporte a animation-timeline simplesmente ignora a propriedade e
+    o elemento renderiza estático (opacity:1 seria o estado final da
+    animação, mas como a animação nunca roda, o valor inicial declarado
+    em @keyframes reveal-up nunca se aplica — o elemento fica no valor de
+    layout normal, visível). Progressive enhancement real, zero JS.
+  */
+  @supports (animation-timeline: view()) {
+    .scroll-reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+
+  /*
+    Marquee único da página (taste-skill: máx 1 por página — este é o
+    nosso). Conteúdo duplicado uma vez no DOM (real + aria-hidden) pra
+    looping sem costura via translateX(-50%). Pausa no hover/foco —
+    WCAG 2.2.2 exige poder parar conteúdo que se move sozinho, e os
+    fornecedores são links reais, precisam ser clicáveis parado.
+  */
+  .marquee-track {
+    animation: marquee-scroll 36s linear infinite;
+  }
+
+  .marquee-track:hover,
+  .marquee-track:focus-within {
+    animation-play-state: paused;
+  }
+}
