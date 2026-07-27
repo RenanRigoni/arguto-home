@@ -619,8 +619,8 @@
           <span class="step-n num">02</span>
           <div>
             <h3>Ele busca o produto que quer comprar</h3>
-            <p>Aqui está o ponto que mais me chamou atenção no site inteiro. Quem digita "leite" recebe dez resultados, e nenhum deles é leite. A busca encontra a palavra dentro do nome do produto, mas não entende o que o comprador quis dizer.</p>
-            <span class="step-ev num">"leite" → 10 resultados, 0 são leite</span>
+            <p>Aqui está o ponto que mais me chamou atenção no site inteiro. Quem digita "cola" recebe dez biscoitos e balas de chocolate, porque as letras c-o-l-a aparecem no meio da palavra "chocolate". A busca procura o pedaço de texto, sem enxergar onde a palavra começa e termina.</p>
+            <span class="step-ev num">"cola" → 10 resultados, todos de chocolate</span>
           </div>
         </div>
 
@@ -659,30 +659,32 @@
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">04 · O CASO DA BUSCA</span>
-        <h2>Um cliente procurando leite</h2>
-        <p>Reproduzi a busca do site exatamente como o cliente faz. Estes são os resultados reais que voltaram.</p>
+        <h2>A busca procura pedaços de palavra</h2>
+        <p>Reproduzi a busca do site exatamente como o cliente faz. Estes são os resultados reais que voltaram hoje.</p>
       </div>
 
       <div style="max-width:720px">
         <div class="search-demo rv">
           <div class="search-bar">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.3" y1="15.3" x2="21" y2="21"/></svg>
-            <span class="search-typed">leite<span class="search-caret" aria-hidden="true"></span></span>
+            <span class="search-typed">cola<span class="search-caret" aria-hidden="true"></span></span>
           </div>
           <ul class="search-results">
-            <li><span class="x" aria-hidden="true">✕</span><span>BALA ARCOR BUTTER TOFFEES <em>LEITE</em> 400G</span></li>
-            <li><span class="x" aria-hidden="true">✕</span><span>BALA ARCOR BUTTER TOFFEES <em>LEITE</em> 90G</span></li>
-            <li><span class="x" aria-hidden="true">✕</span><span>BALA BUTTER TOFFEE <em>LEITE</em> CONDENSADO 100G</span></li>
+            <li><span class="x" aria-hidden="true">✕</span><span>BALA ARCOR BUTTER TOFFEES CHO<em>COLA</em>TE 400G</span></li>
+            <li><span class="x" aria-hidden="true">✕</span><span>BISCOITO AYMORÉ MAIZENA CHO<em>COLA</em>TE 170G</span></li>
+            <li><span class="x" aria-hidden="true">✕</span><span>BISCOITO AYMORÉ DANIX RECHEADO CHO<em>COLA</em>TE 130G</span></li>
           </ul>
           <div class="search-foot">
-            <strong>10 resultados. Nenhum deles é leite.</strong><br>
-            A busca procura a palavra dentro do nome do produto. Como "leite" aparece no nome de várias balas, elas vêm na frente, e o leite de verdade não aparece.
+            <strong>Dez resultados, todos de chocolate.</strong><br>
+            A busca encontra as letras c-o-l-a no meio de "cho<strong>cola</strong>te" e trata isso como acerto. Ela não distingue uma palavra inteira de um pedaço de outra palavra.
           </div>
         </div>
 
-        <p style="margin-top:1.5rem">Testei outros termos para confirmar que não era caso isolado. Quem procura <strong>"cafe"</strong> recebe seis resultados: balas e um iogurte, nenhum café. Quem procura <strong>"coca"</strong> recebe bombom de paçoca, porque as letras c-o-c-a aparecem dentro de "paçoca".</p>
+        <p style="margin-top:1.5rem">Confirmei que não é caso isolado. Quem digita <strong>"coca"</strong> recebe quatro bombons de <strong>pa<em style="font-style:normal;color:var(--brand-400)">coca</em></strong>. Quem digita <strong>"ninho"</strong> recebe dez unidades de <strong>dano<em style="font-style:normal;color:var(--brand-400)">ninho</em></strong>. É sempre o mesmo mecanismo.</p>
 
-        <p style="margin-top:1.1rem">Num atacado, a busca é o balcão. O comprador que já sabe o que quer digita o nome e espera achar. Quando não acha, ele liga, manda no WhatsApp, ou procura em outro lugar.</p>
+        <p style="margin-top:1.1rem">Num atacado, a busca é o balcão. O comprador que já sabe o que quer digita o nome e espera achar. Quando o resultado não faz sentido, ele liga, manda no WhatsApp, ou procura em outro lugar.</p>
+
+        <p style="margin-top:1.1rem;font-size:.95rem;color:var(--content-muted)">Para ser preciso: isso não é uma afirmação sobre o que existe ou falta no catálogo de vocês. É sobre o critério que a busca usa para decidir o que mostrar.</p>
 
         <div class="fix fix-inv" style="max-width:720px">
           <i class="dot"></i>
@@ -692,7 +694,7 @@
         <details class="tech">
           <summary>Ver detalhe técnico</summary>
           <div class="tech-body">
-            Endpoint <code>/v1/_ajax_busca.aspx</code>, todas as consultas retornando HTTP 200 com resposta válida. O comportamento é compatível com uma consulta <code>LIKE %termo%</code> sem ranqueamento por relevância, sem peso de categoria, sem tolerância a erro de digitação e sem sinônimos. Além disso, não há <em>debounce</em>: digitar "arroz" dispara cinco requisições, uma por tecla. Observação de rigor: termos como "arroz" retornaram vazio, mas isso pode ser ausência real de estoque e por isso não entra como falha. Os casos de "leite", "cafe" e "coca" não dependem de estoque, porque o site devolve resultados, só que errados.
+            Endpoint <code>/v1/_ajax_busca.aspx</code>, consultas retornando HTTP 200 com resposta válida. O comportamento é compatível com <code>LIKE %termo%</code>: casamento de substring em qualquer posição, sem limite de palavra (<em>word boundary</em>), sem ranqueamento por relevância, sem peso de categoria e sem tolerância a erro de digitação. Verificado em 27/07/2026: <code>cola</code> devolve 10 produtos, todos contendo "cho<strong>cola</strong>te"; <code>coca</code> devolve 4, todos "pa<strong>coca</strong>"; <code>ninho</code> devolve 10, todos "dano<strong>ninho</strong>". Também não há <em>debounce</em>: digitar "arroz" dispara cinco requisições, uma por tecla. Ressalva de rigor: termos como <code>arroz</code> e <code>condensado</code> retornaram vazio, o que pode refletir o catálogo real e por isso <strong>não</strong> é apresentado como falha. Os três casos acima independem de estoque, porque o site devolve resultados, e o critério de correspondência é que está errado.
           </div>
         </details>
       </div>
@@ -1020,7 +1022,7 @@
         </div>
 
         <div class="ba-row">
-          <div class="ba-now"><b>Buscar um produto</b>"leite" devolve dez balas e nenhum leite</div>
+          <div class="ba-now"><b>Buscar um produto</b>"cola" devolve dez itens de chocolate</div>
           <span class="ba-arrow" aria-hidden="true">→</span>
           <div class="ba-next">A busca deixa de consultar a cada tecla. A relevância entra em diagnóstico dedicado, junto com o sistema interno</div>
         </div>
