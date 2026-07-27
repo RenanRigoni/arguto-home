@@ -230,6 +230,20 @@
     content: ''; position: absolute; inset: auto 0 0 0; height: 1px;
     background: linear-gradient(90deg, transparent, rgba(96,165,250,.35), transparent);
   }
+  /* Cabeçalho de documento: a marca de quem recebe, não a de quem assina.
+     A placa branca existe porque o logotipo da Arguto é índigo sobre branco
+     e desapareceria no navy — e de quebra dá cara de papel timbrado. */
+  .hero-for { display: flex; flex-direction: column; align-items: flex-start; gap: .85rem; margin-bottom: 2.5rem; }
+  .hero-for-label { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .14em; color: var(--fg-muted); }
+  .hero-plate {
+    display: inline-flex; background: #fff; border-radius: var(--radius-md);
+    padding: 1rem 1.5rem; box-shadow: 0 14px 36px rgba(0,0,0,.32);
+  }
+  /* 40px e não mais: o único arquivo que a Arguto tem do logotipo é
+     356×77, então acima disso começa a amolecer em tela retina. */
+  .hero-plate img { display: block; height: 40px; width: auto; }
+  @media (max-width: 480px) { .hero-plate img { height: 32px; } .hero-plate { padding: .8rem 1.1rem; } }
+
   .hero-kicker { font-size: 1.05rem; color: var(--fg); max-width: 54ch; margin-bottom: 1.75rem; }
   .hero h1 {
     font-family: var(--font-display); font-weight: 800;
@@ -606,6 +620,9 @@
     .logo { color: #0a1526; }
     .hero::after { display: none; }
     .hero { padding: 1.5rem 0 2rem; }
+    /* no papel a placa branca sumiria contra a folha: vira logotipo solto */
+    .hero-plate { box-shadow: none !important; padding: 0 !important; }
+    .hero-for { margin-bottom: 1.25rem; }
     .sec { padding: 1.75rem 0; page-break-inside: auto; }
     .find, .chart, .keep-box, .step, .figure, .ba-row, .ruler-row, .sources li { page-break-inside: avoid; }
     .bar-track { border: 1px solid #b9c3d2; }
@@ -656,9 +673,15 @@
   <!-- ═══ ABERTURA · escuro ═══ -->
   <section class="band band--dark hero">
     <div class="wrap">
-      <p class="hero-kicker rv" style="--d:0s">Antes de desenhar qualquer tela nova, eu quis entender uma coisa: o que acontece hoje quando um cliente de vocês entra no B2B da Arguto para fazer um pedido.</p>
-      <h1 class="rv" style="--d:.08s">Passei uma semana usando o site como se fosse seu cliente.</h1>
-      <p class="hero-lede rv" style="--d:.16s">Medi, cronometrei e naveguei página por página, no computador e no celular. O que encontrei está aqui, com a evidência de cada ponto do lado.</p>
+      <div class="hero-for rv" style="--d:0s">
+        <span class="hero-for-label">DIAGNÓSTICO PREPARADO PARA</span>
+        <span class="hero-plate">
+          <img src="data:image/png;base64,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" alt="Arguto Distribuidora" width="302" height="72">
+        </span>
+      </div>
+      <p class="hero-kicker rv" style="--d:.08s">Antes de desenhar qualquer tela nova, eu quis entender uma coisa: o que acontece hoje quando um cliente de vocês entra no B2B da Arguto para fazer um pedido.</p>
+      <h1 class="rv" style="--d:.16s">Passei uma semana usando o site como se fosse seu cliente.</h1>
+      <p class="hero-lede rv" style="--d:.24s">Medi, cronometrei e naveguei página por página, no computador e no celular. O que encontrei está aqui, com a evidência de cada ponto do lado.</p>
     </div>
   </section>
 
