@@ -4,18 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diagnóstico Técnico — arguto.com.br | dev.RR</title>
-<meta name="description" content="Diagnóstico técnico do site atual da Arguto: velocidade, segurança, LGPD e SEO, medido com Google Lighthouse. Cada achado com solução.">
+<meta name="description" content="Estudo do site B2B da Arguto: o que acontece hoje quando um cliente entra pelo celular, busca um produto e finaliza a compra. Medições, evidências e caminhos de melhoria.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#07070F">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Diagnóstico Técnico — arguto.com.br | dev.RR">
-<meta property="og:description" content="22,7s para abrir no celular. 24,3 MB de página. Nota 49/100 no Google. O diagnóstico completo do site atual, com solução para cada achado.">
+<meta property="og:description" content="O que acontece hoje quando um cliente entra no B2B da Arguto pelo celular. Estudo com medições reproduzíveis e caminhos práticos de melhoria.">
 <meta property="og:url" content="https://renanrigoni.github.io/arguto-home/diagnostico/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8IS0tIENyZWF0b3I6IENvcmVsRFJBVyAtLT4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iOTkuNDI1MW1tIiBoZWlnaHQ9Ijc5LjgyNjhtbSIgdmVyc2lvbj0iMS4xIiBzdHlsZT0ic2hhcGUtcmVuZGVyaW5nOmdlb21ldHJpY1ByZWNpc2lvbjsgdGV4dC1yZW5kZXJpbmc6Z2VvbWV0cmljUHJlY2lzaW9uOyBpbWFnZS1yZW5kZXJpbmc6b3B0aW1pemVRdWFsaXR5OyBmaWxsLXJ1bGU6ZXZlbm9kZDsgY2xpcC1ydWxlOmV2ZW5vZGQiDQp2aWV3Qm94PSIwIDAgNDk0LjEzIDM5Ni43MyINCiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayINCiB4bWxuczp4b2RtPSJodHRwOi8vd3d3LmNvcmVsLmNvbS9jb3JlbGRyYXcvb2RtLzIwMDMiPg0KIDxkZWZzPg0KICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KICAgPCFbQ0RBVEFbDQogICAgLmZpbDAge2ZpbGw6dXJsKCNpZDApO2ZpbGwtcnVsZTpub256ZXJvfQ0KICAgXV0+DQogIDwvc3R5bGU+DQogIDxsaW5lYXJHcmFkaWVudCBpZD0iaWQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ii0wIiB5MT0iMTk4LjM3IiB4Mj0iNDk0LjEzIiB5Mj0iMTk4LjM3Ij4NCiAgIDxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3Atb3BhY2l0eToxOyBzdG9wLWNvbG9yOiM3QzNBRUQiLz4NCiAgIDxzdG9wIG9mZnNldD0iMC40MjM1MjkiIHN0eWxlPSJzdG9wLW9wYWNpdHk6MTsgc3RvcC1jb2xvcjojNkU2RkYzIi8+DQogICA8c3RvcCBvZmZzZXQ9IjAuNjc4NDMxIiBzdHlsZT0ic3RvcC1vcGFjaXR5OjE7IHN0b3AtY29sb3I6IzYwQTVGQSIvPg0KICAgPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1vcGFjaXR5OjE7IHN0b3AtY29sb3I6IzNDNzVGMCIvPg0KICA8L2xpbmVhckdyYWRpZW50Pg0KIDwvZGVmcz4NCiA8ZyBpZD0iQ2FtYWRhX3gwMDIwXzEiPg0KICA8bWV0YWRhdGEgaWQ9IkNvcmVsQ29ycElEXzBDb3JlbC1MYXllciIvPg0KICA8cGF0aCBjbGFzcz0iZmlsMCIgZD0iTTMzMC4yMSAzOTYuNzNsMCAtNDIuNzYgNDguNyAwYzcuMTMsMCAxMC42OSwtMy45NiAxMC42OSwtMTEuODhsMCAtMTA4LjQ5YzAsLTguOTcgMi44NCwtMTYuNSA4LjUxLC0yMi41NyA1LjY4LC02LjA3IDEzLjEzLC05LjExIDIyLjM3LC05LjExbDYuMzMgMCAwIC03LjEzIC02LjMzIDBjLTkuMjQsMCAtMTYuNywtMy4wNCAtMjIuMzcsLTkuMTEgLTUuNjgsLTYuMDcgLTguNTEsLTEzLjU5IC04LjUxLC0yMi41N2wwIC0xMDguNDljMCwtNy45MiAtMy41NiwtMTEuODggLTEwLjY5LC0xMS44OGwtNDguNyAwIDAgLTQyLjc2IDY3LjMxIDBjMTEuODgsMCAyMS41OCwzLjc2IDI5LjEsMTEuMjggNy41Miw3LjUyIDExLjI4LDE3LjIyIDExLjI4LDI5LjFsMCAxMjIuNzRjMCw3LjY2IDMuNTYsMTEuNDggMTAuNjksMTEuNDhsNDUuNTMgMCAwIDQ3LjUxIC00NS41MyAwYy03LjEzLDAgLTEwLjY5LDMuODMgLTEwLjY5LDExLjQ4bDAgMTIyLjc0YzAsMTEuODggLTMuNzYsMjEuNTggLTExLjI4LDI5LjEgLTcuNTIsNy41MiAtMTcuMjIsMTEuMjkgLTI5LjEsMTEuMjlsLTY3LjMxIDB6bS0xNjYuMjkgLTE4LjIxbDExNi40MSAtMzU2LjM1IDQ5Ljg5IDAgLTExNi40MSAzNTYuMzUgLTQ5Ljg5IDB6bS02Ny4zMSAxOC4yMWMtMTEuODgsMCAtMjEuNTgsLTMuNzYgLTI5LjEsLTExLjI5IC03LjUyLC03LjUyIC0xMS4yOCwtMTcuMjIgLTExLjI4LC0yOS4xbDAgLTEyMi43NGMwLC03LjY2IC0zLjU2LC0xMS40OCAtMTAuNjksLTExLjQ4bC00NS41MyAwIDAgLTQ3LjUxIDQ1LjUzIDBjNy4xMywwIDEwLjY5LC0zLjgzIDEwLjY5LC0xMS40OGwwIC0xMjIuNzRjMCwtMTEuODggMy43NiwtMjEuNTggMTEuMjgsLTI5LjEgNy41MiwtNy41MiAxNy4yMiwtMTEuMjggMjkuMSwtMTEuMjhsNjcuMzEgMCAwIDQyLjc2IC00OC43IDBjLTcuMTMsMCAtMTAuNjksMy45NiAtMTAuNjksMTEuODhsMCAxMDguNDljMCw4Ljk3IC0yLjg0LDE2LjUgLTguNTEsMjIuNTcgLTUuNjcsNi4wNyAtMTMuMTMsOS4xMSAtMjIuMzcsOS4xMWwtNi4zNCAwIDAgNy4xMyA2LjM0IDBjOS4yNCwwIDE2LjcsMy4wNCAyMi4zNyw5LjExIDUuNjgsNi4wNyA4LjUxLDEzLjU5IDguNTEsMjIuNTdsMCAxMDguNDljMCw3LjkyIDMuNTYsMTEuODggMTAuNjksMTEuODhsNDguNyAwIDAgNDIuNzYgLTY3LjMxIDB6Ii8+DQogPC9nPg0KPC9zdmc+DQo=">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<!-- Marca que há JS. Sem isso, nada da página é escondido para animar:
+     se o script falhar ou estiver bloqueado, o conteúdo aparece normalmente. -->
+<script>document.documentElement.className += ' js';</script>
 <style>
   :root {
     --surface:          #07070F;
@@ -24,14 +27,12 @@
     --surface-card:     #0E1428;
     --surface-footer:   #080E1A;
 
-    --brand-50:  #0D1829;
     --brand-100: #152240;
     --brand-200: #1E3566;
     --brand-400: #60A5FA;
     --brand-500: #3B82F6;
     --brand-600: #2563EB;
     --brand-700: #1D4ED8;
-    --brand-900: #1E3A5F;
 
     --content-primary:   #F1F5F9;
     --content-secondary: #94A3B8;
@@ -50,838 +51,1121 @@
     --font-sans:    'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-mono:    'DM Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 
-    --radius-card:  2rem;
-    --radius-inner: 1.625rem;
-    --radius-pill:  9999px;
+    --radius-lg: 1.25rem;
+    --radius-md: .875rem;
+    --radius-sm: .5rem;
+    --radius-pill: 9999px;
 
-    --shadow-card: 0 4px 32px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.05);
-    --shadow-glow: 0 0 40px rgba(37,99,235,.4), 0 0 80px rgba(139,92,246,.2);
+    --measure: 64ch;
+    --ease: cubic-bezier(.16,1,.3,1);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; color-scheme: dark; }
+  html { scroll-behavior: smooth; color-scheme: dark; -webkit-text-size-adjust: 100%; }
   body {
     font-family: var(--font-sans);
     background: var(--surface);
     color: var(--content-secondary);
     -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
+    font-size: 1.0625rem;
+    line-height: 1.68;
     overflow-x: hidden;
   }
-  main { display: block; }
-  h1, h2, h3, h4 { color: var(--content-primary); }
+  h1, h2, h3, h4 { color: var(--content-primary); font-weight: 700; letter-spacing: -.015em; }
+  p { max-width: var(--measure); }
+  strong { color: var(--content-primary); font-weight: 600; }
   a { color: var(--brand-400); }
-  a:not(.btn-cta) { text-decoration: underline; text-decoration-color: rgba(96,165,250,.35); }
-  a:not(.btn-cta):hover { text-decoration-color: currentColor; }
-  img, svg { max-width: 100%; }
-
-  :focus-visible {
-    outline: 2px solid var(--brand-400);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
+  a:not(.cta):not(.footer-meta a) { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: rgba(96,165,250,.4); }
+  a:not(.cta):hover { text-decoration-color: currentColor; }
+  :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 3px; }
 
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: var(--surface); }
-  ::-webkit-scrollbar-thumb { background: var(--surface-elevated); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb { background: #232338; border-radius: 10px; }
 
-  .mono { font-family: var(--font-mono); }
-  .visually-hidden {
-    position: absolute; width: 1px; height: 1px;
-    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  .num { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .skip {
+    position: absolute; left: 1rem; top: -4rem; z-index: 300;
+    background: var(--brand-600); color: #fff; font-weight: 600;
+    padding: .7rem 1.1rem; border-radius: var(--radius-sm); text-decoration: none;
+    transition: top .2s var(--ease);
   }
-  .skip-link {
-    position: absolute; left: 1rem; top: -3rem;
-    background: var(--brand-600); color: #fff;
-    padding: .6rem 1rem; border-radius: .5rem;
-    font-weight: 600; font-size: .9rem;
-    transition: top .2s ease;
-    z-index: 200;
-  }
-  .skip-link:focus { top: 1rem; }
+  .skip:focus { top: 1rem; }
 
-  .dot-grid {
-    background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
-    background-size: 26px 26px;
-  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+  .col  { max-width: 720px; }
 
-  .container { max-width: 1220px; margin: 0 auto; padding: 0 1.5rem; }
-  .container-narrow { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
-
-  .icon { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-
-  /* ─── TOPO ────────────────────────────────────────────────── */
+  /* ── TOPO ─────────────────────────────────────────── */
   .topbar {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(7,7,15,.86);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(7,7,15,.9);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-soft);
-    padding: 1rem 0;
   }
-  .topbar-inner {
+  .topbar-in {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem 1.5rem; flex-wrap: wrap;
+    gap: .75rem 1.5rem; flex-wrap: wrap; padding: .95rem 0;
   }
-  .topbar-logo { height: 22px; width: auto; color: #fff; }
-  .topbar-eyebrow {
-    font-family: var(--font-mono); font-size: .68rem;
-    letter-spacing: .1em; text-transform: uppercase;
-    color: var(--brand-400); text-align: right;
-  }
-  @media (max-width: 560px) {
-    .topbar-eyebrow { text-align: left; font-size: .6rem; letter-spacing: .06em; }
+  .logo { height: 21px; width: auto; color: #fff; display: block; }
+  .topbar-meta {
+    font-family: var(--font-mono); font-size: .7rem; color: var(--content-muted);
+    letter-spacing: .02em;
   }
 
-  /* ─── HERO ────────────────────────────────────────────────── */
-  .hero {
-    position: relative; overflow: hidden;
-    padding: clamp(3.5rem, 8vw, 6rem) 0 4.5rem;
+  /* ── HERO ─────────────────────────────────────────── */
+  .hero { padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(3rem, 6vw, 4.5rem); }
+  .hero-kicker {
+    font-size: 1.05rem; color: var(--content-secondary);
+    max-width: 54ch; margin-bottom: 1.75rem;
   }
-  .hero-glow {
-    position: absolute; width: 640px; height: 640px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(37,99,235,.20) 0%, rgba(139,92,246,.08) 45%, transparent 72%);
-    top: -260px; left: -120px; pointer-events: none;
-  }
-  .hero-inner { position: relative; max-width: 760px; }
-  .hero-title {
+  .hero h1 {
     font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(2.75rem, 6vw, 5.5rem);
-    line-height: 1.04; letter-spacing: -.03em;
-    color: var(--content-primary);
-    margin-bottom: 1.25rem;
+    font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+    line-height: 1.05; letter-spacing: -.03em;
+    max-width: 17ch; margin-bottom: 1.5rem;
   }
-  .hero-sub { font-size: 1.15rem; max-width: 46ch; line-height: 1.65; }
+  .hero-lede { font-size: 1.14rem; max-width: 56ch; }
 
-  .stat-row {
-    margin-top: 3.5rem;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
+  /* ── SEÇÕES ───────────────────────────────────────── */
+  .sec { padding: clamp(3.25rem, 6.5vw, 5.5rem) 0; border-top: 1px solid var(--border-soft); }
+  .sec-muted { background: var(--surface-muted); }
+  .sec-head { margin-bottom: 2.5rem; }
+  .sec-index {
+    font-family: var(--font-mono); font-size: .72rem; color: var(--brand-400);
+    letter-spacing: .12em; display: block; margin-bottom: .9rem;
   }
-  .stat {
-    background: var(--surface-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-inner);
-    padding: 1.5rem 1.25rem;
+  .sec h2 {
+    font-size: clamp(1.6rem, 3.2vw, 2.25rem); line-height: 1.22;
+    max-width: 24ch; margin-bottom: .9rem;
   }
-  .stat-num {
+  .sec-head p { font-size: 1.05rem; }
+
+  /* ── PARÁGRAFOS EM SEQUÊNCIA ──────────────────────── */
+  .prose p + p { margin-top: 1.1rem; }
+  .prose { max-width: var(--measure); }
+
+  /* ── NÚMEROS DE DESTAQUE ──────────────────────────── */
+  .figures {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border-soft);
+    border: 1px solid var(--border-soft); border-radius: var(--radius-lg);
+    overflow: hidden; margin-top: 3rem;
+  }
+  .figure { background: var(--surface); padding: 1.75rem 1.5rem; }
+  .sec-muted .figure { background: var(--surface-muted); }
+  .figure-val {
     font-family: var(--font-mono); font-weight: 500;
-    font-size: clamp(1.6rem, 3vw, 2.1rem);
-    color: var(--content-primary);
-    line-height: 1;
-    margin-bottom: .55rem;
+    font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1;
+    color: var(--content-primary); margin-bottom: .7rem;
+    display: flex; align-items: baseline; gap: .12em;
   }
-  .stat-label { font-size: .82rem; color: var(--content-secondary); line-height: 1.4; }
+  .figure-unit { font-size: .5em; color: var(--content-secondary); }
+  .figure-cap { font-size: .9rem; line-height: 1.5; }
+  @media (max-width: 780px) { .figures { grid-template-columns: 1fr; } }
 
-  @media (max-width: 860px) {
-    .stat-row { grid-template-columns: repeat(2, 1fr); }
+  /* ── GRÁFICOS ─────────────────────────────────────── */
+  .chart {
+    background: var(--surface-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: clamp(1.4rem, 3vw, 2rem);
   }
-  @media (max-width: 480px) {
-    .stat-row { grid-template-columns: 1fr 1fr; gap: .75rem; }
-    .stat { padding: 1.1rem 1rem; }
+  .chart + .chart { margin-top: 1.25rem; }
+  .chart-q { font-size: 1.08rem; color: var(--content-primary); font-weight: 600; margin-bottom: .4rem; }
+  .chart-sub { font-size: .92rem; margin-bottom: 1.6rem; max-width: 58ch; }
+
+  .bar-row + .bar-row { margin-top: 1.5rem; }
+  .bar-label {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; margin-bottom: .5rem; flex-wrap: wrap;
+  }
+  .bar-name { font-size: .92rem; color: var(--content-primary); font-weight: 600; }
+  .bar-note { font-size: .82rem; color: var(--content-muted); }
+  .bar-val { font-family: var(--font-mono); font-size: 1.02rem; color: var(--content-primary); }
+  .bar-track {
+    height: 14px; background: rgba(255,255,255,.05);
+    border-radius: var(--radius-pill); overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; border-radius: var(--radius-pill);
+    transform: scaleX(var(--to, 1)); transform-origin: left center;
+  }
+  .bar-fill.is-anim { transform: scaleX(0); }
+  .in .bar-fill.is-anim { transform: scaleX(var(--to)); transition: transform 1.1s var(--ease) .1s; }
+  .bar-current { background: linear-gradient(90deg, var(--brand-700), var(--brand-500)); }
+  .bar-ref { background: rgba(16,185,129,.55); }
+  .bar-scale {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: .72rem; color: var(--content-muted);
+    margin-top: .7rem; padding-top: .6rem; border-top: 1px solid var(--border-soft);
   }
 
-  /* ─── SEÇÕES GERAIS ───────────────────────────────────────── */
-  .section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
-  .section-muted { background: var(--surface-muted); }
-  .section-tight { padding: clamp(2.75rem, 5vw, 4rem) 0; }
-  .section + .section { border-top: 1px solid var(--border-soft); }
-
-  h2.section-title {
-    font-size: clamp(1.7rem, 3.4vw, 2.35rem);
-    font-weight: 700; letter-spacing: -.015em;
-    line-height: 1.22; max-width: 40ch;
-    margin-bottom: 1rem;
+  /* barra empilhada de peso */
+  .stack { display: flex; height: 46px; border-radius: var(--radius-md); overflow: hidden; }
+  .stack-seg { display: flex; align-items: center; justify-content: center; min-width: 0; }
+  .stack-seg span {
+    font-family: var(--font-mono); font-size: .78rem; color: #fff;
+    padding: 0 .4rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .section-body { max-width: 62ch; font-size: 1.02rem; }
-  .section-body + .section-body { margin-top: .75rem; }
-
-  /* ─── O QUE EU FIZ ────────────────────────────────────────── */
-  .method-list { display: grid; gap: 1.5rem; margin-top: 2.25rem; grid-template-columns: repeat(3, 1fr); }
-  .method-item { border-left: 2px solid var(--brand-600); padding-left: 1.1rem; }
-  .method-item .mono { font-size: .78rem; color: var(--brand-400); letter-spacing: .04em; display: block; margin-bottom: .4rem; }
-  .method-item p { color: var(--content-secondary); font-size: .95rem; }
-  @media (max-width: 768px) { .method-list { grid-template-columns: 1fr; } }
-
-  /* ─── LEGENDA DE BALDES ───────────────────────────────────── */
-  .bucket-legend {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
-    margin: 2rem 0 3rem;
+  .seg-img { background: var(--brand-600); flex: 23.0; }
+  .seg-rest { background: #2A3550; flex: 1.3; }
+  .stack-legend {
+    display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; margin-top: 1rem;
+    font-size: .86rem;
   }
-  .bucket-legend-item {
-    border: 1px solid var(--border); border-radius: 1.1rem;
-    padding: 1.1rem 1.25rem; background: var(--surface-elevated);
-  }
-  .bucket-legend-item h4 { font-size: .95rem; margin-bottom: .35rem; }
-  .bucket-legend-item p { font-size: .85rem; color: var(--content-secondary); }
-  @media (max-width: 860px) { .bucket-legend { grid-template-columns: 1fr; } }
+  .stack-legend span { display: flex; align-items: center; gap: .5rem; }
+  .dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
 
-  .bucket-badge {
-    display: inline-flex; align-items: center; gap: .4rem;
-    font-family: var(--font-sans); font-size: .68rem; font-weight: 700;
-    letter-spacing: .08em; text-transform: uppercase;
-    padding: .3rem .7rem; border-radius: var(--radius-pill);
-    white-space: nowrap;
+  /* ── DEMONSTRAÇÃO DE BUSCA ────────────────────────── */
+  .search-demo {
+    background: var(--surface-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); overflow: hidden;
   }
-  .bucket-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-  .bucket-a { background: rgba(16,185,129,.13); color: var(--emerald); border: 1px solid rgba(16,185,129,.28); }
-  .bucket-b { background: rgba(251,191,36,.13); color: var(--amber); border: 1px solid rgba(251,191,36,.28); }
-  .bucket-c { background: rgba(96,165,250,.13); color: var(--brand-400); border: 1px solid rgba(96,165,250,.28); }
+  .search-bar {
+    display: flex; align-items: center; gap: .7rem;
+    padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
+    background: var(--surface-card);
+  }
+  .search-bar svg { width: 17px; height: 17px; stroke: var(--content-muted); fill: none; stroke-width: 2; flex-shrink: 0; }
+  .search-typed { font-family: var(--font-mono); font-size: 1.05rem; color: var(--content-primary); }
+  .search-caret {
+    display: inline-block; width: 1px; height: 1.05em; background: var(--brand-400);
+    vertical-align: text-bottom; margin-left: 1px;
+  }
+  .search-results { padding: .6rem 0; }
+  .search-results li {
+    list-style: none; display: flex; align-items: flex-start; gap: .75rem;
+    padding: .6rem 1.25rem; font-size: .92rem;
+  }
+  .search-results li .x {
+    font-family: var(--font-mono); color: var(--red); flex-shrink: 0; line-height: 1.6;
+  }
+  .search-results li em { font-style: normal; color: var(--brand-400); }
+  .search-foot {
+    padding: 1rem 1.25rem; border-top: 1px solid var(--border);
+    font-size: .92rem; background: rgba(248,113,113,.05);
+  }
+  .search-foot strong { color: var(--red); }
 
-  /* ─── BLOCOS DE ACHADOS ───────────────────────────────────── */
-  .impact-block { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
-  .impact-block:first-of-type { margin-top: 2.25rem; }
-  .impact-head {
-    display: flex; align-items: flex-start; gap: 1rem;
-    margin-bottom: 1.5rem; max-width: 62ch;
+  /* ── PREVIEW WHATSAPP ─────────────────────────────── */
+  .previews { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  @media (max-width: 760px) { .previews { grid-template-columns: 1fr; } }
+  .preview-col > h3 { font-size: .95rem; font-weight: 600; margin-bottom: .8rem; }
+  .wa-card {
+    background: #0F1B24; border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: .75rem;
+    border-left: 3px solid #2A3550;
   }
-  .impact-icon {
-    flex-shrink: 0; width: 44px; height: 44px; border-radius: 1rem;
-    background: var(--surface-card); border: 1px solid var(--border);
+  .wa-card.good { border-left-color: var(--emerald); }
+  .wa-thumb {
+    height: 92px; border-radius: var(--radius-sm); margin-bottom: .65rem;
+    background: linear-gradient(135deg, #152240, #1E3566);
     display: flex; align-items: center; justify-content: center;
-    color: var(--brand-400);
+    color: var(--brand-400); font-family: var(--font-mono); font-size: .72rem;
+    text-align: center; padding: .5rem;
   }
-  .impact-head h3 { font-size: 1.4rem; margin-bottom: .35rem; }
-  .impact-head p { font-size: .95rem; color: var(--content-secondary); }
+  .wa-title { font-size: .88rem; color: var(--content-primary); font-weight: 600; margin-bottom: .2rem; }
+  .wa-desc { font-size: .78rem; color: var(--content-secondary); line-height: 1.45; }
+  .wa-url { font-size: .74rem; color: var(--content-muted); font-family: var(--font-mono); margin-top: .4rem; word-break: break-all; }
+  .sim-note { font-size: .78rem; color: var(--content-muted); margin-top: 1rem; font-style: italic; }
 
-  .achado-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
-  .achado {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-inner);
-    box-shadow: var(--shadow-card);
-    padding: 1.5rem 1.6rem;
-    display: flex; flex-direction: column; gap: .65rem;
+  /* ── JORNADA ──────────────────────────────────────── */
+  .journey { display: grid; gap: 0; margin-top: .5rem; }
+  .step {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.5rem;
+    padding: 1.75rem 0; border-top: 1px solid var(--border-soft);
   }
-  .achado--lg { grid-column: span 2; }
-  @media (max-width: 768px) {
-    .achado-grid { grid-template-columns: 1fr; }
-    .achado--lg { grid-column: span 1; }
+  .step:last-child { border-bottom: 1px solid var(--border-soft); }
+  .step-n {
+    font-family: var(--font-mono); font-size: .82rem; color: var(--brand-400);
+    padding-top: .25rem; width: 2.5ch;
   }
-  .achado h4 { font-size: 1.05rem; line-height: 1.35; font-weight: 700; max-width: 46ch; }
-  .achado .evidence {
-    font-family: var(--font-mono); font-weight: 500; font-size: 1.05rem;
-    color: var(--brand-400);
+  .step h3 { font-size: 1.14rem; margin-bottom: .5rem; max-width: 34ch; }
+  .step p { font-size: .98rem; }
+  .step-ev {
+    display: inline-block; margin-top: .8rem;
+    font-family: var(--font-mono); font-size: .84rem; color: var(--content-primary);
+    background: rgba(96,165,250,.09); border: 1px solid rgba(96,165,250,.22);
+    padding: .35rem .7rem; border-radius: var(--radius-sm);
   }
-  .achado--lg .evidence { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
-  .achado p.translate { font-size: .92rem; color: var(--content-secondary); }
-  .achado-foot { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: .25rem; flex-wrap: wrap; }
-
-  .achado details { border-top: 1px solid var(--border-soft); margin-top: .25rem; }
-  .achado summary {
-    cursor: pointer; font-size: .8rem; color: var(--content-muted);
-    list-style: none; display: flex; align-items: center; gap: .35rem;
-    padding: .8rem 0; min-height: 24px;
-  }
-  .achado summary::-webkit-details-marker { display: none; }
-  .achado summary::before { content: '+'; font-family: var(--font-mono); color: var(--brand-400); font-size: .95rem; }
-  .achado details[open] summary::before { content: '\2212'; }
-  .achado details p {
-    margin-top: .6rem; font-size: .84rem; color: var(--content-secondary); line-height: 1.55;
+  @media (max-width: 600px) {
+    .step { grid-template-columns: 1fr; gap: .5rem; }
+    .step-n { padding-top: 0; }
   }
 
-  /* ─── DÁ PRA VER AGORA ────────────────────────────────────── */
-  .demo-list {
-    list-style: none; counter-reset: demo;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-    margin-top: 2.25rem;
+  /* ── ACHADOS ──────────────────────────────────────── */
+  .group { margin-top: 3rem; }
+  .group:first-of-type { margin-top: 2rem; }
+  .group > h3 {
+    font-size: 1.3rem; margin-bottom: .5rem; max-width: 34ch;
+    padding-bottom: .9rem; border-bottom: 2px solid var(--brand-700);
+    display: inline-block;
   }
-  .demo-list li {
-    counter-increment: demo;
-    background: var(--surface-card); border: 1px solid var(--border);
-    border-radius: 1.1rem; padding: 1.1rem 1.25rem 1.1rem 3.4rem;
-    position: relative; font-size: .95rem; color: var(--content-primary);
-  }
-  .demo-list li::before {
-    content: counter(demo);
-    font-family: var(--font-mono); font-weight: 500; color: var(--brand-400);
-    position: absolute; left: 1.1rem; top: 1.05rem;
-    font-size: 1rem;
-  }
-  .demo-list li .demo-effect { display: block; margin-top: .3rem; font-size: .85rem; color: var(--content-secondary); }
-  @media (max-width: 768px) { .demo-list { grid-template-columns: 1fr; } }
+  .group > .group-sub { font-size: .98rem; margin: .9rem 0 1.5rem; }
 
-  /* ─── ANTES / DEPOIS ──────────────────────────────────────── */
-  .table-wrap { overflow-x: auto; margin-top: 2rem; border: 1px solid var(--border); border-radius: var(--radius-inner); }
-  table.compare { width: 100%; border-collapse: collapse; min-width: 720px; font-size: .92rem; }
-  table.compare th, table.compare td { padding: .95rem 1.2rem; text-align: left; vertical-align: top; }
-  table.compare thead th {
-    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
-    color: var(--brand-400); background: var(--surface-card); border-bottom: 1px solid var(--border);
+  .finds { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 820px) { .finds { grid-template-columns: 1fr; } }
+  .find {
+    background: var(--surface-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.5rem;
+    display: flex; flex-direction: column;
   }
-  table.compare tbody tr:not(:last-child) td { border-bottom: 1px solid var(--border-soft); }
-  table.compare tbody tr:nth-child(odd) { background: rgba(255,255,255,.015); }
-  table.compare td:first-child { font-weight: 600; color: var(--content-primary); white-space: nowrap; }
-  table.compare td.hoje { color: var(--red); }
-  table.compare td.depois { color: var(--content-secondary); }
+  .find.wide { grid-column: 1 / -1; }
+  @media (max-width: 820px) { .find.wide { grid-column: auto; } }
+  .find h4 { font-size: 1.06rem; line-height: 1.4; margin-bottom: .6rem; max-width: 44ch; }
+  .find > p { font-size: .95rem; }
+  .find .ev {
+    font-family: var(--font-mono); font-size: .88rem; color: var(--content-primary);
+    margin-top: .9rem; padding-left: .85rem; border-left: 2px solid var(--brand-600);
+  }
+  .fix {
+    display: flex; align-items: center; gap: .55rem;
+    margin-top: 1.1rem; padding-top: .95rem; border-top: 1px solid var(--border-soft);
+    font-size: .85rem; color: var(--content-secondary);
+  }
+  .fix .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .fix-new .dot { background: var(--emerald); }
+  .fix-cfg .dot { background: var(--amber); }
+  .fix-inv .dot { background: var(--brand-400); }
 
-  /* ─── COMO MEDIMOS ────────────────────────────────────────── */
-  .measure-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 1.25rem; font-size: .9rem; }
+  details.tech { margin-top: .9rem; }
+  details.tech summary {
+    cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .82rem; color: var(--content-muted); padding: .5rem 0; min-height: 24px;
+  }
+  details.tech summary::-webkit-details-marker { display: none; }
+  details.tech summary::before { content: '+'; font-family: var(--font-mono); color: var(--brand-400); }
+  details.tech[open] summary::before { content: '\2212'; }
+  details.tech summary:hover { color: var(--content-secondary); }
+  details.tech .tech-body {
+    font-size: .86rem; line-height: 1.6; color: var(--content-secondary);
+    background: var(--surface); border-radius: var(--radius-md);
+    padding: .95rem 1.1rem; margin-top: .3rem;
+  }
+  .sec-muted details.tech .tech-body { background: var(--surface-muted); }
+  details.tech .tech-body code {
+    font-family: var(--font-mono); font-size: .92em; color: var(--brand-400);
+    word-break: break-word;
+  }
 
-  /* ─── FECHAMENTO ──────────────────────────────────────────── */
-  .closing { text-align: left; position: relative; overflow: hidden; }
-  .closing-glow {
-    position: absolute; width: 520px; height: 520px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(139,92,246,.16) 0%, rgba(37,99,235,.14) 45%, transparent 72%);
-    bottom: -220px; right: -140px; pointer-events: none;
+  /* ── LEGENDA DE ENCAMINHAMENTO ────────────────────── */
+  .routes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  @media (max-width: 820px) { .routes { grid-template-columns: 1fr; } }
+  .route { padding-left: 1rem; border-left: 2px solid; }
+  .route.new { border-color: var(--emerald); }
+  .route.cfg { border-color: var(--amber); }
+  .route.inv { border-color: var(--brand-400); }
+  .route h3 { font-size: .98rem; font-weight: 600; margin-bottom: .35rem; }
+  .route p { font-size: .89rem; }
+
+  /* ── O QUE FICA / O QUE MUDA ──────────────────────── */
+  .keeps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+  @media (max-width: 820px) { .keeps { grid-template-columns: 1fr; } }
+  .keep-box {
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 1.5rem; background: var(--surface-elevated);
   }
-  .closing-inner { position: relative; max-width: 640px; }
-  .closing h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 1.1rem; }
-  .closing p { font-size: 1.02rem; margin-bottom: 1rem; }
-  .closing-value {
-    font-weight: 600; color: var(--content-primary);
-    border-left: 2px solid var(--brand-600); padding-left: 1rem;
-    margin: 1.75rem 0 2.25rem;
+  .keep-box.stays { border-color: rgba(16,185,129,.28); }
+  .keep-box h3 { font-size: 1.08rem; margin-bottom: 1rem; }
+  .keep-list { list-style: none; display: grid; gap: .6rem; }
+  .keep-list li { display: flex; gap: .65rem; font-size: .93rem; align-items: flex-start; }
+  .keep-list svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: .35rem; stroke-width: 2.5; fill: none; }
+  .stays .keep-list svg { stroke: var(--emerald); }
+  .changes .keep-list svg { stroke: var(--brand-400); }
+
+  /* ── ANTES / DEPOIS ───────────────────────────────── */
+  .ba { display: grid; gap: 0; margin-top: 1.5rem; }
+  .ba-row {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center;
+    padding: 1.4rem 0; border-top: 1px solid var(--border-soft);
+  }
+  .ba-row:last-child { border-bottom: 1px solid var(--border-soft); }
+  .ba-head {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
+    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em;
+    color: var(--content-muted); padding-bottom: .5rem;
+  }
+  .ba-head span:last-child { color: var(--brand-400); }
+  .ba-now { color: var(--content-secondary); font-size: .95rem; }
+  .ba-now b { color: var(--content-primary); font-weight: 600; display: block; font-size: .88rem; margin-bottom: .2rem; }
+  .ba-next { color: var(--content-primary); font-size: .95rem; }
+  .ba-arrow { color: var(--brand-600); font-family: var(--font-mono); }
+  @media (max-width: 760px) {
+    .ba-head { display: none; }
+    .ba-row { grid-template-columns: 1fr; gap: .6rem; padding: 1.25rem 0; }
+    .ba-arrow { display: none; }
+    .ba-now::before, .ba-next::before {
+      font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em;
+      display: block; margin-bottom: .3rem;
+    }
+    .ba-now::before { content: 'HOJE'; color: var(--content-muted); }
+    .ba-next::before { content: 'COM O SITE NOVO'; color: var(--brand-400); }
   }
 
-  .btn-cta {
-    display: inline-flex; align-items: center; gap: .6rem;
-    background: var(--brand-600); color: #fff;
-    font-family: var(--font-sans); font-weight: 700; font-size: 1rem;
-    padding: .95rem 1.9rem; border-radius: var(--radius-pill);
-    text-decoration: none;
-    transition: background-color .2s cubic-bezier(.32,.72,0,1), transform .2s cubic-bezier(.32,.72,0,1), box-shadow .2s cubic-bezier(.32,.72,0,1);
-  }
-  .btn-cta:hover { background: var(--brand-500); transform: translateY(-1px) scale(1.02); box-shadow: var(--shadow-glow); }
-  .btn-cta:active { transform: translateY(0) scale(.98); }
-  .btn-cta svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2; }
+  /* ── MÉTODO ───────────────────────────────────────── */
+  .method { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem 2.5rem; margin-top: 1.75rem; }
+  @media (max-width: 760px) { .method { grid-template-columns: 1fr; } }
+  .method div { font-size: .95rem; }
+  .method dt { font-family: var(--font-mono); font-size: .78rem; color: var(--brand-400); margin-bottom: .3rem; }
+  .links { display: flex; flex-wrap: wrap; gap: .75rem 1.75rem; margin-top: 1.75rem; font-size: .95rem; }
 
-  /* ─── RODAPÉ ──────────────────────────────────────────────── */
-  footer {
-    background: var(--surface-footer);
-    border-top: 1px solid var(--border-soft);
-    padding: 2.5rem 0;
+  /* ── FECHAMENTO ───────────────────────────────────── */
+  .close h2 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.85rem, 3.8vw, 2.9rem); line-height: 1.12; letter-spacing: -.025em;
+    max-width: 20ch; margin-bottom: 1.25rem;
   }
-  .footer-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem 1.5rem; flex-wrap: wrap;
+  .close .prose { font-size: 1.08rem; }
+  .signature {
+    margin: 2.25rem 0; padding-left: 1.1rem; border-left: 2px solid var(--brand-600);
+    color: var(--content-primary); font-size: 1.05rem; max-width: 52ch;
   }
-  .footer-brand { display: flex; align-items: center; gap: .65rem; }
-  .footer-brand svg { width: 26px; height: 26px; }
-  .footer-brand span { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--content-primary); }
-  .footer-meta { font-family: var(--font-mono); font-size: .8rem; color: var(--content-muted); text-align: right; }
-  .footer-meta a { color: var(--content-muted); }
+  .cta {
+    display: inline-flex; align-items: center; gap: .65rem;
+    background: var(--brand-600); color: #fff; font-weight: 700; font-size: 1.02rem;
+    padding: 1rem 1.9rem; border-radius: var(--radius-pill); text-decoration: none;
+    transition: background-color .2s var(--ease), transform .2s var(--ease);
+  }
+  .cta:hover { background: var(--brand-500); transform: translateY(-2px); }
+  .cta:active { transform: translateY(0); }
+  .cta svg { width: 19px; height: 19px; stroke: #fff; fill: none; stroke-width: 2; }
 
-  /* ─── MOVIMENTO (sutil, entrada apenas) ──────────────────── */
+  /* ── RODAPÉ ───────────────────────────────────────── */
+  footer { background: var(--surface-footer); border-top: 1px solid var(--border-soft); padding: 2.5rem 0; }
+  .foot-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; flex-wrap: wrap; }
+  .foot-brand { display: flex; align-items: center; gap: .65rem; }
+  .foot-brand svg { width: 25px; height: 25px; }
+  .foot-brand span { font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--content-primary); }
+  .footer-meta { font-family: var(--font-mono); font-size: .78rem; color: var(--content-muted); text-align: right; line-height: 1.7; }
+  .footer-meta a {
+    color: var(--content-muted); text-decoration: none;
+    display: inline-block; min-height: 24px; padding: .25rem 0;
+  }
+  .footer-meta a:hover { color: var(--brand-400); }
+
+  /* ── MOTION ───────────────────────────────────────── */
   @media (prefers-reduced-motion: no-preference) {
-    .hero-title, .hero-sub, .stat-row { animation: rise .7s cubic-bezier(.16,1,.3,1) both; }
-    .hero-title { animation-delay: .02s; }
-    .hero-sub   { animation-delay: .12s; }
-    .stat-row   { animation-delay: .22s; }
-    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-
-    .btn-cta { will-change: transform; }
+    .js .rv { opacity: 0; transform: translateY(18px); }
+    .js .rv.in { opacity: 1; transform: none; transition: opacity .65s var(--ease), transform .65s var(--ease); }
+    .js .hero .rv { transition-delay: var(--d, 0s); }
   }
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .rv { opacity: 1; transform: none; }
+    .bar-fill.is-anim { transform: scaleX(var(--to)); }
   }
 
-  /* ─── IMPRESSÃO ───────────────────────────────────────────── */
+  /* ── IMPRESSÃO ────────────────────────────────────── */
   @media print {
-    * { box-shadow: none !important; animation: none !important; transition: none !important; text-shadow: none !important; }
-    body { background: #fff; color: #111; }
-    .topbar, .hero-glow, .closing-glow, .dot-grid { background: none !important; }
-    .topbar { position: static; backdrop-filter: none; }
-    .hero-title, h2, h3, h4, .footer-brand span { color: #0a0a0a; }
-    .achado, .stat, .demo-list li, .bucket-legend-item, .method-item, table.compare thead th {
-      background: #fff !important; border: 1px solid #ccc !important; color: #111;
+    @page { margin: 1.5cm; }
+    * { box-shadow: none !important; transition: none !important; animation: none !important; }
+    body { background: #fff; color: #1a1a1a; font-size: 11pt; line-height: 1.5; }
+    .topbar { position: static; background: none; border-bottom: 1px solid #ccc; backdrop-filter: none; }
+    .logo { color: #0a0a0a; }
+    h1, h2, h3, h4, strong, .figure-val, .bar-val, .ba-next, .search-typed { color: #0a0a0a !important; }
+    .sec { border-top: 1px solid #ddd; page-break-inside: avoid; }
+    .sec-muted, .figure, .chart, .find, .keep-box, .search-demo, .wa-card, details.tech .tech-body, .search-bar {
+      background: #fff !important; border-color: #ccc !important;
     }
-    .achado .evidence, .stat-num, .topbar-eyebrow, .method-item .mono { color: #1d4ed8 !important; }
-    .achado p.translate, .section-body, .hero-sub, .demo-effect { color: #333 !important; }
-    details > :not(summary) { display: block !important; }
-    details summary::before { display: none; }
-    .btn-cta { background: #fff !important; color: #111 !important; border: 1px solid #111; }
-    a { color: #111 !important; text-decoration: underline; }
-    table.compare td.hoje { color: #b91c1c !important; }
-    .section + .section { border-top: 1px solid #ddd; }
+    .sec-index, .step-n, .method dt, .find .ev, .route h4 { color: #1d4ed8 !important; }
+    .find, .chart, .keep-box, .step { page-break-inside: avoid; }
+    details.tech[open] .tech-body, details.tech .tech-body { display: block !important; }
+    details.tech summary::before { display: none; }
+    .rv { opacity: 1 !important; transform: none !important; }
+    .bar-track { border: 1px solid #999; }
+    .bar-current { background: #1d4ed8 !important; }
+    .bar-ref { background: #059669 !important; }
+    .seg-img { background: #1d4ed8 !important; }
+    .seg-rest { background: #94a3b8 !important; }
+    .cta { background: #fff !important; color: #0a0a0a !important; border: 1px solid #0a0a0a; }
+    a { color: #0a0a0a !important; }
+    .search-foot { background: #fafafa !important; }
   }
 </style>
 </head>
 <body>
-<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="ic-trend-down" viewBox="0 0 24 24"><polyline points="3 7 10 14 14 10 21 17"/><polyline points="21 10 21 17 14 17"/></symbol>
-    <symbol id="ic-alert" viewBox="0 0 24 24"><path d="M12 3.5 L21.5 20 H2.5 Z" stroke-linejoin="round"/><line x1="12" y1="9.5" x2="12" y2="14.5"/><circle cx="12" cy="17.3" r="0.9" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.3" y1="15.3" x2="21" y2="21"/></symbol>
-    <symbol id="ic-scale" viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="19"/><line x1="5" y1="19" x2="19" y2="19"/><line x1="4" y1="7" x2="9" y2="7"/><path d="M4 7 L2.5 11.5 A3 2.4 0 0 0 8.5 11.5 Z"/><line x1="15" y1="7" x2="20" y2="7"/><path d="M15 7 L13.5 11.5 A3 2.4 0 0 0 19.5 11.5 Z"/></symbol>
-    <symbol id="ic-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5 V7.5 a4 4 0 0 1 8 0 v3"/></symbol>
-  </defs>
-</svg>
+<a href="#conteudo" class="skip">Pular para o conteúdo</a>
 
 <header class="topbar">
-  <div class="container topbar-inner">
-    <svg class="topbar-logo" viewBox="0 0 4149.98 904.8" role="img" aria-label="dev.RR">
+  <div class="wrap topbar-in">
+    <svg class="logo" viewBox="0 0 4149.98 904.8" role="img" aria-label="dev.RR">
       <path fill="currentColor" d="M220.33 904.8c-27.09,0 -49.21,-8.58 -66.37,-25.74 -17.16,-17.16 -25.73,-39.28 -25.73,-66.37l0 -279.93c0,-17.46 -8.13,-26.19 -24.38,-26.19l-103.84 0 0 -108.36 103.84 0c16.25,0 24.38,-8.73 24.38,-26.19l0 -279.93c0,-27.09 8.58,-49.21 25.73,-66.37 17.16,-17.16 39.28,-25.73 66.37,-25.73l153.51 0 0 97.52 -111.07 0c-16.25,0 -24.38,9.03 -24.38,27.09l0 247.42c0,20.47 -6.47,37.62 -19.41,51.47 -12.94,13.85 -29.95,20.77 -51.02,20.77l-14.45 0 0 16.25 14.45 0c21.07,0 38.08,6.92 51.02,20.77 12.94,13.85 19.41,31 19.41,51.47l0 247.42c0,18.06 8.13,27.09 24.38,27.09l111.07 0 0 97.52 -153.51 0zm153.51 -41.54l265.48 -812.69 113.78 0 -265.48 812.69 -113.78 0zm379.26 41.54l0 -97.52 111.07 0c16.25,0 24.38,-9.03 24.38,-27.09l0 -247.42c0,-20.47 6.47,-37.62 19.41,-51.47 12.94,-13.84 29.95,-20.77 51.02,-20.77l14.45 0 0 -16.25 -14.45 0c-21.07,0 -38.08,-6.92 -51.02,-20.77 -12.94,-13.84 -19.41,-31 -19.41,-51.47l0 -247.42c0,-18.06 -8.13,-27.09 -24.38,-27.09l-111.07 0 0 -97.52 153.51 0c27.09,0 49.21,8.58 66.37,25.73 17.16,17.16 25.74,39.28 25.74,66.37l0 279.93c0,17.46 8.13,26.19 24.38,26.19l103.84 0 0 108.36 -103.84 0c-16.25,0 -24.38,8.73 -24.38,26.19l0 279.93c0,27.09 -8.58,49.21 -25.74,66.37 -17.16,17.16 -39.28,25.74 -66.37,25.74l-153.51 0zm726.74 -130.03c-35.52,0 -68.78,-8.88 -99.78,-26.64 -31,-17.76 -55.84,-43.8 -74.5,-78.11 -18.66,-34.31 -27.99,-75.85 -27.99,-124.61l0 -14.45c0,-48.76 9.33,-90.3 27.99,-124.61 18.66,-34.31 43.34,-60.35 74.05,-78.11 30.7,-17.76 64.11,-26.64 100.23,-26.64 27.09,0 49.82,3.16 68.18,9.48 18.36,6.32 33.26,14.3 44.7,23.93 11.44,9.63 20.17,19.87 26.19,30.7l16.25 0 0 -235.68 113.78 0 0 632.09 -111.97 0 0 -54.18 -16.26 0c-10.23,16.85 -26.04,32.21 -47.41,46.05 -21.37,13.85 -52.52,20.77 -93.46,20.77zm34.31 -99.33c34.92,0 64.11,-11.29 87.59,-33.86 23.48,-22.57 35.22,-55.53 35.22,-98.88l0 -9.03c0,-43.34 -11.59,-76.3 -34.77,-98.88 -23.18,-22.57 -52.52,-33.86 -88.04,-33.86 -34.92,0 -64.11,11.29 -87.59,33.86 -23.48,22.57 -35.22,55.53 -35.22,98.88l0 9.03c0,43.34 11.74,76.3 35.22,98.88 23.48,22.57 52.67,33.86 87.59,33.86zm565.27 99.33c-44.55,0 -83.83,-9.48 -117.84,-28.44 -34.01,-18.96 -60.5,-45.75 -79.46,-80.37 -18.96,-34.61 -28.44,-75.4 -28.44,-122.35l0 -10.84c0,-46.95 9.33,-87.74 27.99,-122.35 18.66,-34.61 44.85,-61.4 78.56,-80.37 33.71,-18.96 72.84,-28.44 117.39,-28.44 43.95,0 82.17,9.78 114.68,29.35 32.51,19.56 57.79,46.66 75.85,81.27 18.06,34.61 27.09,74.8 27.09,120.55l0 38.83 -325.98 0c1.2,30.7 12.64,55.68 34.31,74.95 21.67,19.26 48.16,28.9 79.46,28.9 31.91,0 55.38,-6.92 70.43,-20.77 15.05,-13.85 26.49,-29.2 34.31,-46.05l93.01 48.76c-8.43,15.65 -20.62,32.66 -36.57,51.02 -15.95,18.36 -37.17,34.01 -63.66,46.95 -26.49,12.94 -60.2,19.41 -101.13,19.41zm-109.26 -288.05l209.49 0c-2.41,-25.89 -12.79,-46.66 -31.15,-62.31 -18.36,-15.65 -42.29,-23.48 -71.79,-23.48 -30.7,0 -55.08,7.83 -73.14,23.48 -18.06,15.65 -29.2,36.42 -33.41,62.31zm507.48 275.41l-142.67 -447.88 121 0 103.84 364.81 16.25 0 103.84 -364.81 121 0 -142.67 447.88 -180.6 0zm437.05 12.64c-24.68,0 -45.3,-7.98 -61.85,-23.93 -16.56,-15.95 -24.83,-36.57 -24.83,-61.86 0,-25.28 8.28,-45.9 24.83,-61.85 16.56,-15.95 37.17,-23.93 61.85,-23.93 24.08,0 44.25,7.98 60.5,23.93 16.25,15.95 24.38,36.57 24.38,61.85 0,25.28 -8.13,45.9 -24.38,61.86 -16.25,15.95 -36.42,23.93 -60.5,23.93z"/>
       <path fill="currentColor" d="M3107.93 762.12l0 -632.09 274.51 0c39.73,0 74.35,6.92 103.84,20.77 29.5,13.85 52.37,33.41 68.63,58.69 16.25,25.28 24.38,55.08 24.38,89.4l0 10.83c0,37.93 -9.03,68.63 -27.09,92.11 -18.06,23.48 -40.33,40.63 -66.82,51.47l0 16.25c24.08,1.2 42.74,9.48 55.99,24.83 13.24,15.35 19.87,35.67 19.87,60.95l0 206.79 -119.2 0 0 -189.63c0,-14.45 -3.76,-26.19 -11.29,-35.22 -7.53,-9.03 -20.02,-13.55 -37.47,-13.55l-166.15 0 0 238.39 -119.19 0zm119.19 -346.75l142.67 0c28.29,0 50.42,-7.67 66.37,-23.03 15.95,-15.35 23.93,-35.67 23.93,-60.95l0 -9.03c0,-25.28 -7.83,-45.6 -23.48,-60.95 -15.65,-15.35 -37.93,-23.03 -66.82,-23.03l-142.67 0 0 176.99zm451.5 346.75l0 -632.09 274.51 0c39.73,0 74.35,6.92 103.84,20.77 29.5,13.85 52.37,33.41 68.63,58.69 16.25,25.28 24.38,55.08 24.38,89.4l0 10.83c0,37.93 -9.03,68.63 -27.09,92.11 -18.06,23.48 -40.33,40.63 -66.82,51.47l0 16.25c24.08,1.2 42.74,9.48 55.99,24.83 13.24,15.35 19.87,35.67 19.87,60.95l0 206.79 -119.19 0 0 -189.63c0,-14.45 -3.76,-26.19 -11.29,-35.22 -7.52,-9.03 -20.02,-13.55 -37.47,-13.55l-166.15 0 0 238.39 -119.19 0zm119.19 -346.75l142.67 0c28.29,0 50.42,-7.67 66.37,-23.03 15.95,-15.35 23.93,-35.67 23.93,-60.95l0 -9.03c0,-25.28 -7.83,-45.6 -23.48,-60.95 -15.65,-15.35 -37.93,-23.03 -66.82,-23.03l-142.67 0 0 176.99z"/>
     </svg>
-    <p class="topbar-eyebrow mono">DIAGNÓSTICO TÉCNICO · ARGUTO.COM.BR · JULHO 2026</p>
+    <p class="topbar-meta">arguto.com.br · 27 jul 2026</p>
   </div>
 </header>
 
 <main id="conteudo">
 
-  <section class="hero dot-grid">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="container hero-inner">
-      <h1 class="hero-title">Seu site está afastando cliente antes dele ver o primeiro produto.</h1>
-      <p class="hero-sub">Medido com a mesma ferramenta que o Google usa para avaliar sites, no seu endereço, no mês passado.</p>
+  <!-- ═══ ABERTURA ═══ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero-kicker rv" style="--d:0s">Antes de desenhar qualquer tela nova, eu quis entender uma coisa: o que acontece hoje quando um cliente de vocês entra no B2B da Arguto para fazer um pedido.</p>
+      <h1 class="rv" style="--d:.08s">Passei uma semana usando o site como se fosse seu cliente.</h1>
+      <p class="hero-lede rv" style="--d:.16s">Medi, cronometrei e naveguei página por página, no computador e no celular. O que encontrei está aqui, com a evidência de cada ponto do lado.</p>
+    </div>
+  </section>
 
-      <div class="stat-row" role="list" aria-label="Números principais do diagnóstico">
-        <div class="stat" role="listitem">
-          <p class="stat-num mono">22,7s</p>
-          <p class="stat-label">de espera no celular até o cliente ver algo na tela</p>
+  <!-- ═══ 01 · O QUE JÁ FUNCIONA ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">01 · PONTO DE PARTIDA</span>
+        <h2>Primeiro, o que já funciona</h2>
+      </div>
+      <div class="prose rv">
+        <p>O B2B da Arguto está no ar, tem catálogo completo, preço por cliente, controle de crédito e integração com o Protheus. Seus clientes compram por ele todo dia. Isso não é pouco, e não é isso que estou propondo jogar fora.</p>
+        <p>O que eu encontrei foram <strong>limitações que se acumularam com o tempo</strong>. Cada uma delas provavelmente fez sentido quando foi feita. Juntas, hoje, elas deixam a compra mais lenta e mais difícil do que precisaria ser, principalmente no celular.</p>
+        <p>É sobre isso que quero conversar. Não sobre trocar o que funciona, mas sobre modernizar a parte que o seu cliente vê.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 02 · O QUE CHAMOU ATENÇÃO ═══ -->
+  <section class="sec sec-muted">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">02 · MEDIÇÃO</span>
+        <h2>Três números que chamaram atenção</h2>
+        <p>Medidos com o Lighthouse, a mesma ferramenta que o Google usa por trás do PageSpeed Insights, em 27 de julho de 2026.</p>
+      </div>
+
+      <div class="figures rv">
+        <div class="figure">
+          <p class="figure-val"><span class="num" data-count="22,7">22,7</span><span class="figure-unit">s</span></p>
+          <p class="figure-cap">para o conteúdo principal aparecer, no teste em celular. A referência que o Google considera boa é até 2,5 s.</p>
         </div>
-        <div class="stat" role="listitem">
-          <p class="stat-num mono">24,3 MB</p>
-          <p class="stat-label">de peso na página, só para abrir a home</p>
+        <div class="figure">
+          <p class="figure-val"><span class="num" data-count="24,3">24,3</span><span class="figure-unit">MB</span></p>
+          <p class="figure-cap">é o tamanho da home. Quase tudo isso é imagem: 23 MB em 78 arquivos.</p>
         </div>
-        <div class="stat" role="listitem">
-          <p class="stat-num mono">49/100</p>
-          <p class="stat-label">nota do Google para a velocidade do site</p>
+        <div class="figure">
+          <p class="figure-val"><span class="num" data-count="49">49</span><span class="figure-unit">/100</span></p>
+          <p class="figure-cap">é a nota de velocidade do Google no computador. No celular, 53 de 100. As duas notas são da mesma medição.</p>
         </div>
-        <div class="stat" role="listitem">
-          <p class="stat-num mono">19 min</p>
-          <p class="stat-label">que o site ficou fora do ar durante a medição</p>
+      </div>
+
+      <div style="margin-top:2.5rem">
+        <div class="chart rv">
+          <p class="chart-q">Quanto tempo o cliente espera no celular?</p>
+          <p class="chart-sub">O teste simula um celular comum em rede 4G. A barra verde é a referência de boa experiência publicada pelo Google, não uma medição do site novo.</p>
+
+          <div class="bar-row">
+            <div class="bar-label">
+              <span class="bar-name">Site atual, medido</span>
+              <span class="bar-val num">22,7 s</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill bar-current is-anim" style="--to:.908"></div></div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-label">
+              <span class="bar-name">Referência de boa experiência <span class="bar-note">(Google)</span></span>
+              <span class="bar-val num">2,5 s</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill bar-ref is-anim" style="--to:.1"></div></div>
+          </div>
+
+          <div class="bar-scale"><span>0 s</span><span>25 s</span></div>
+          <p class="vh">O site atual levou 22,7 segundos, contra uma referência de boa experiência de 2,5 segundos publicada pelo Google. Aproximadamente nove vezes mais.</p>
+        </div>
+
+        <div class="chart rv">
+          <p class="chart-q">Por que a página demora tanto para carregar?</p>
+          <p class="chart-sub">O navegador do seu cliente baixa 24,3 MB para abrir a home. Praticamente todo esse peso é imagem, em formato antigo e maior do que a tela precisa.</p>
+
+          <div class="stack" role="img" aria-label="Composição do peso da home: 23 megabytes em imagens e cerca de 1,3 megabyte no restante, de um total de 24,3 megabytes.">
+            <div class="stack-seg seg-img"><span>23 MB em imagens</span></div>
+            <div class="stack-seg seg-rest"><span>1,3 MB</span></div>
+          </div>
+          <div class="stack-legend">
+            <span><i class="dot" style="background:var(--brand-600)"></i> Imagens: 23 MB em 78 arquivos</span>
+            <span><i class="dot" style="background:#2A3550"></i> Todo o resto da página: 1,3 MB</span>
+          </div>
+          <p style="margin-top:1.25rem;font-size:.93rem">Só para dar a dimensão: <strong>10 MB são o mesmo banner baixado duas vezes</strong>, com dois nomes de arquivo diferentes e conteúdo idêntico. E outros 930 KB são logos de fornecedor que o celular baixa mas nunca chega a mostrar.</p>
+
+          <details class="tech">
+            <summary>Ver detalhe técnico</summary>
+            <div class="tech-body">
+              123 recursos, 24.832 KB transferidos, sendo 23.595 KB em 78 requisições de imagem. 62 arquivos PNG somam 22.685 KB; nenhuma imagem em WebP ou AVIF. Três pares de banners têm hash MD5 idêntico, ou seja, são byte a byte o mesmo arquivo servido em duas URLs, o que impede o navegador de reaproveitar o download. Nenhuma imagem usa <code>loading="lazy"</code>. O próprio Lighthouse estima 20.903 KB economizáveis só com formato moderno de imagem, mais 71 KB com compressão de texto.
+            </div>
+          </details>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-tight">
-    <div class="container">
-      <h2 class="section-title">O que eu fiz</h2>
-      <div class="method-list">
-        <div class="method-item">
-          <span class="mono">01</span>
-          <p>Medi o site de vocês com o Google Lighthouse, o mesmo motor por trás do PageSpeed Insights. Não é opinião minha, é a régua que o próprio Google usa.</p>
-        </div>
-        <div class="method-item">
-          <span class="mono">02</span>
-          <p>Testei em celular e computador, em telas de 320 a 1920 pixels, e também naveguei o site de verdade, como um cliente faria.</p>
-        </div>
-        <div class="method-item">
-          <span class="mono">03</span>
-          <p>Cada achado abaixo tem evidência reproduzível. Onde eu não tinha certeza, descartei o achado ou marquei como pendente de investigação. Sem susto vazio.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-muted">
-    <div class="container">
-      <h2 class="section-title">Os achados</h2>
-      <p class="section-body">Agrupados pelo efeito no seu negócio, não por categoria técnica. Cada card mostra também o caminho de solução.</p>
-
-      <div class="bucket-legend">
-        <div class="bucket-legend-item">
-          <span class="bucket-badge bucket-a">Resolvido no site novo</span>
-          <p style="margin-top:.6rem;">Entra pronto na entrega. Sem custo extra, sem depender de terceiro.</p>
-        </div>
-        <div class="bucket-legend-item">
-          <span class="bucket-badge bucket-b">Ajuste de servidor</span>
-          <p style="margin-top:.6rem;">Não é redesenho, é configuração. Rápido e barato, com a especificação exata.</p>
-        </div>
-        <div class="bucket-legend-item">
-          <span class="bucket-badge bucket-c">Em investigação</span>
-          <p style="margin-top:.6rem;">Honesto: não dá pra prometer sem ver a causa. O monitoramento já entra pronto.</p>
-        </div>
+  <!-- ═══ 03 · A JORNADA ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">03 · NA PRÁTICA</span>
+        <h2>O que isso significa para quem está comprando</h2>
+        <p>Número solto não diz muita coisa. Então acompanhei o caminho que um cliente faz, do primeiro toque até o pedido.</p>
       </div>
 
-      <!-- BLOCO 1 -->
-      <div class="impact-block">
-        <div class="impact-head">
-          <span class="impact-icon"><svg class="icon" aria-hidden="true"><use href="#ic-trend-down"/></svg></span>
+      <div class="journey rv">
+        <div class="step">
+          <span class="step-n num">01</span>
           <div>
-            <h3>Você está perdendo venda agora</h3>
-            <p>Cada segundo de espera e cada resultado errado empurra o comprador para o telefone, ou para o concorrente.</p>
+            <h3>Ele abre o site pelo celular</h3>
+            <p>A tela fica praticamente em branco enquanto o telefone baixa os 24 MB. No teste, o conteúdo principal só apareceu depois de 22,7 segundos. Numa rede de loja ou num 4G fraco, a espera é essa.</p>
+            <span class="step-ev num">22,7 s até ver o conteúdo</span>
           </div>
         </div>
-        <div class="achado-grid">
-          <article class="achado achado--lg">
-            <h4>O celular demora 22,7 segundos para abrir a página</h4>
-            <p class="evidence mono">22,7 s</p>
-            <p class="translate">O comprador desiste em cerca de 3 segundos. Quem abre o site pelo celular vai embora antes de ver o primeiro produto.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>LCP (Largest Contentful Paint) medido pelo Lighthouse 12.8.2 em 4G simulado: 22,7s, contra a meta do Google de 2,5s. Tempo até a página ficar interativa: 26,5s (meta 3,8s). Speed Index: 15,7s.</p>
-            </details>
-          </article>
-          <article class="achado">
-            <h4>A página pesa 24,3 MB</h4>
-            <p class="evidence mono">24,3 MB</p>
-            <p class="translate">Em rede fraca, a página trava antes de terminar de carregar.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>123 recursos carregados, 23 MB só em imagem (78 requisições). 62 arquivos PNG somando 22,7 MB, zero WebP ou AVIF. 930 KB de logos de fornecedor nunca aparecem no celular (29 no DOM, 0 visíveis). O próprio Google aponta 20.903 KB economizáveis convertendo o formato de imagem.</p>
-            </details>
-          </article>
-          <article class="achado">
-            <h4>Voltar para o catálogo recarrega tudo de novo</h4>
-            <p class="evidence mono">bfcache: bloqueado</p>
-            <p class="translate">Abrir um produto e voltar refaz a espera inteira. Navegar o catálogo é o próprio ato de comprar, e é o pior lugar para travar.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Lighthouse aponta "Page prevented back/forward cache restoration", causada por um unload handler num subframe. Essa API está sendo descontinuada nos navegadores.</p>
-            </details>
-          </article>
-          <article class="achado">
-            <h4>Quem procura "leite" encontra bala</h4>
-            <p class="evidence mono">leite &rarr; 10 balas</p>
-            <p class="translate">Um comprador que já sabe o que quer digita o produto e recebe doce de caramelo. Ele desiste, ou liga perguntando se vocês têm.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-c">Em investigação</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>O endpoint de busca devolve, para "leite", 10 resultados, nenhum é leite (ex.: bala com "leite" no nome). Para "cafe", 6 resultados, nenhum é café. A consulta é por trecho de texto puro, sem ranqueamento por relevância, e sem pausa entre teclas: 5 letras digitadas disparam 5 consultas ao banco.</p>
-            </details>
-          </article>
-          <article class="achado">
-            <h4>O botão de comprar quase não se lê</h4>
-            <p class="evidence mono">contraste 2,59:1</p>
-            <p class="translate">"VER PREÇO" em branco sobre laranja claro. O mínimo aceitável é 4,5:1. No celular, sob sol, o texto do botão de venda desaparece.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Contraste medido pelo Lighthouse no botão de preço, repetido em todo card de produto (6 ocorrências reportadas). Exigido pelo WCAG: 4,5:1.</p>
-            </details>
-          </article>
+
+        <div class="step">
+          <span class="step-n num">02</span>
+          <div>
+            <h3>Ele busca o produto que quer comprar</h3>
+            <p>Aqui está o ponto que mais me chamou atenção no site inteiro. Quem digita "leite" recebe dez resultados, e nenhum deles é leite. A busca encontra a palavra dentro do nome do produto, mas não entende o que o comprador quis dizer.</p>
+            <span class="step-ev num">"leite" → 10 resultados, 0 são leite</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-n num">03</span>
+          <div>
+            <h3>Ele abre um produto e volta para a lista</h3>
+            <p>O botão "voltar" não devolve a página do jeito que estava. Ela é baixada de novo, inteira. Quem está montando um pedido grande faz esse caminho dezenas de vezes, e paga a espera em cada uma.</p>
+            <span class="step-ev num">recarga completa a cada retorno</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-n num">04</span>
+          <div>
+            <h3>Ele recebe o link da Arguto pelo WhatsApp</h3>
+            <p>Quando um vendedor de vocês manda o link, chega só o endereço cru, sem nome da empresa, sem imagem, sem descrição. O WhatsApp é canal de venda de vocês, tanto que existe um botão dele no site.</p>
+            <span class="step-ev num">link sem título e sem imagem</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-n num">05</span>
+          <div>
+            <h3>Ele digita o endereço com "www" na frente</h3>
+            <p>O navegador mostra uma tela de aviso dizendo que a conexão não é segura, e o cliente não chega no site. Isso acontece porque o certificado de segurança cobre <span class="num">arguto.com.br</span>, mas não a versão com "www". Quem tem o site salvo nos favoritos assim, esbarra nisso toda vez.</p>
+            <span class="step-ev num">www.arguto.com.br → tela de aviso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 04 · A BUSCA ═══ -->
+  <section class="sec sec-muted">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">04 · O CASO DA BUSCA</span>
+        <h2>Um cliente procurando leite</h2>
+        <p>Reproduzi a busca do site exatamente como o cliente faz. Estes são os resultados reais que voltaram.</p>
+      </div>
+
+      <div style="max-width:720px">
+        <div class="search-demo rv">
+          <div class="search-bar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.3" y1="15.3" x2="21" y2="21"/></svg>
+            <span class="search-typed">leite<span class="search-caret" aria-hidden="true"></span></span>
+          </div>
+          <ul class="search-results">
+            <li><span class="x" aria-hidden="true">✕</span><span>BALA ARCOR BUTTER TOFFEES <em>LEITE</em> 400G</span></li>
+            <li><span class="x" aria-hidden="true">✕</span><span>BALA ARCOR BUTTER TOFFEES <em>LEITE</em> 90G</span></li>
+            <li><span class="x" aria-hidden="true">✕</span><span>BALA BUTTER TOFFEE <em>LEITE</em> CONDENSADO 100G</span></li>
+          </ul>
+          <div class="search-foot">
+            <strong>10 resultados. Nenhum deles é leite.</strong><br>
+            A busca procura a palavra dentro do nome do produto. Como "leite" aparece no nome de várias balas, elas vêm na frente, e o leite de verdade não aparece.
+          </div>
+        </div>
+
+        <p style="margin-top:1.5rem">Testei outros termos para confirmar que não era caso isolado. Quem procura <strong>"cafe"</strong> recebe seis resultados: balas e um iogurte, nenhum café. Quem procura <strong>"coca"</strong> recebe bombom de paçoca, porque as letras c-o-c-a aparecem dentro de "paçoca".</p>
+
+        <p style="margin-top:1.1rem">Num atacado, a busca é o balcão. O comprador que já sabe o que quer digita o nome e espera achar. Quando não acha, ele liga, manda no WhatsApp, ou procura em outro lugar.</p>
+
+        <div class="fix fix-inv" style="max-width:720px">
+          <i class="dot"></i>
+          <span>Precisa investigar junto com o sistema interno. A correção depende de como o catálogo está organizado, e por isso eu não prometo prazo sem antes olhar.</span>
+        </div>
+
+        <details class="tech">
+          <summary>Ver detalhe técnico</summary>
+          <div class="tech-body">
+            Endpoint <code>/v1/_ajax_busca.aspx</code>, todas as consultas retornando HTTP 200 com resposta válida. O comportamento é compatível com uma consulta <code>LIKE %termo%</code> sem ranqueamento por relevância, sem peso de categoria, sem tolerância a erro de digitação e sem sinônimos. Além disso, não há <em>debounce</em>: digitar "arroz" dispara cinco requisições, uma por tecla. Observação de rigor: termos como "arroz" retornaram vazio, mas isso pode ser ausência real de estoque e por isso não entra como falha. Os casos de "leite", "cafe" e "coca" não dependem de estoque, porque o site devolve resultados, só que errados.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 05 · WHATSAPP ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">05 · COMPARTILHAMENTO</span>
+        <h2>O link da Arguto no WhatsApp</h2>
+        <p>Todo site diz ao WhatsApp que nome, descrição e imagem mostrar quando alguém compartilha um link. O site atual não envia nenhuma dessas informações.</p>
+      </div>
+
+      <div class="previews rv" style="max-width:760px">
+        <div class="preview-col">
+          <h3>Como chega hoje</h3>
+          <div class="wa-card">
+            <p class="wa-url">https://arguto.com.br/</p>
+          </div>
+        </div>
+        <div class="preview-col">
+          <h3>Como poderia chegar</h3>
+          <div class="wa-card good">
+            <div class="wa-thumb">imagem da Arguto</div>
+            <p class="wa-title">Arguto Distribuidora</p>
+            <p class="wa-desc">Alimentos, bebidas, limpeza e bazar para o varejo de Uberlândia e região.</p>
+            <p class="wa-url">arguto.com.br</p>
+          </div>
+        </div>
+      </div>
+      <p class="sim-note">Simulação ilustrativa do formato de pré-visualização, montada para comparação. Não é uma captura de tela real do WhatsApp.</p>
+
+      <div class="fix fix-new" style="margin-top:1.5rem">
+        <i class="dot"></i>
+        <span>Já previsto no site novo, sem custo adicional.</span>
+      </div>
+
+      <details class="tech" style="max-width:720px">
+        <summary>Ver detalhe técnico</summary>
+        <div class="tech-body">
+          Inspeção do HTML da home: zero marcações Open Graph (<code>og:title</code>, <code>og:image</code>, <code>og:description</code>), zero Twitter Card e nenhum <code>&lt;link rel="canonical"&gt;</code>. Sem esses metadados, o WhatsApp, o LinkedIn e o Facebook não têm o que exibir e mostram apenas a URL.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══ 06 · DEMAIS ACHADOS ═══ -->
+  <section class="sec sec-muted">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">06 · DEMAIS PONTOS</span>
+        <h2>O que mais apareceu na medição</h2>
+        <p>Agrupei pelo efeito que tem no dia a dia, e marquei em cada um qual é o caminho de solução.</p>
+      </div>
+
+      <div class="routes rv">
+        <div class="route new">
+          <h3>Já previsto no site novo</h3>
+          <p>Entra pronto na entrega, sem custo separado e sem depender de terceiros.</p>
+        </div>
+        <div class="route cfg">
+          <h3>Ajuste de configuração</h3>
+          <p>Não é redesenho. É uma configuração no servidor de vocês. Eu entrego a especificação exata e a hospedagem executa.</p>
+        </div>
+        <div class="route inv">
+          <h3>Precisa investigar</h3>
+          <p>Não dá para prometer solução sem antes entender a causa. Prefiro dizer isso do que prometer o que não sei.</p>
         </div>
       </div>
 
-      <!-- BLOCO 2 -->
-      <div class="impact-block">
-        <div class="impact-head">
-          <span class="impact-icon"><svg class="icon" aria-hidden="true"><use href="#ic-alert"/></svg></span>
-          <div>
-            <h3>Cliente que não consegue nem entrar</h3>
-            <p>Antes de ver qualquer produto, uma parte de quem visita já não consegue abrir o site.</p>
+      <!-- grupo A -->
+      <div class="group">
+        <h3>Pontos que deixam a compra mais lenta</h3>
+        <div class="finds">
+          <div class="find rv">
+            <h4>O botão de comprar tem pouco contraste</h4>
+            <p>O texto "VER PREÇO" é branco sobre laranja claro. Numa tela de celular sob o sol, ou para quem tem alguma dificuldade de visão, ele fica difícil de ler. É o botão que aparece em todo card de produto.</p>
+            <p class="ev">contraste medido 2,59:1 · mínimo recomendado 4,5:1</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">Relação de contraste de 2,59:1 no elemento <code>.btn-preco</code>, contra o mínimo de 4,5:1 exigido pelo WCAG 2.1 nível AA para texto normal. O Lighthouse reporta 6 ocorrências. O item "OFERTAS" do menu tem 2,36:1.</div>
+            </details>
           </div>
-        </div>
-        <div class="achado-grid">
-          <article class="achado achado--lg">
-            <h4>Digitar "www" mostra tela de site não confiável</h4>
-            <p class="evidence mono">www.arguto.com.br &rarr; alerta</p>
-            <p class="translate">O certificado de segurança não cobre o endereço com "www". Quem digita por hábito, ou tem o site salvo nos favoritos assim, recebe do próprio navegador o aviso de que o site não é confiável, e não entra.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-b">Ajuste de servidor</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>O certificado TLS cobre só "arguto.com.br" (SAN do X509). O DNS resolve "www" para o mesmo servidor, mas https://www.arguto.com.br falha na validação. O subdomínio empresa.arguto.com.br tem certificado próprio válido, prova de que emitir certificado correto já é rotina lá, só faltou incluir o "www" no principal. Correção: reemitir o certificado incluindo "www" e redirecionar para a raiz.</p>
+
+          <div class="find rv">
+            <h4>No tablet, o menu fica escrito por cima do banner</h4>
+            <p>Em telas entre 768 e 1024 pixels, que é o tamanho de um iPad em pé ou de uma janela não maximizada, o menu quebra em duas linhas e a segunda linha cai sobre a foto. "PET", "FORNECEDORES" e "OFERTAS" ficam ilegíveis.</p>
+            <p class="ev">confirmado por medição e captura de tela</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">Medição em 768px: a segunda linha do menu ocupa y=207 a 279, enquanto o banner começa em y=235. Três itens invadem a área do banner. No mesmo intervalo, o botão da busca se separa do campo e cai para uma linha própria.</div>
             </details>
-          </article>
-          <article class="achado">
-            <h4>O site ficou fora do ar por 19 minutos, sem ninguém saber</h4>
-            <p class="evidence mono">19 min</p>
-            <p class="translate">Durante a medição, o site parou de responder por quase 20 minutos, confirmado de duas redes diferentes. Não existe qualquer aviso quando isso acontece.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-c">Em investigação</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Amostragem a cada 20s registrou 13 falhas consecutivas (conexão recusada no handshake, não foi timeout) entre 03h43 e 04h02. Confirmado por banda larga e por celular em 5G ao mesmo tempo, IPs e rotas diferentes. A causa não foi determinada, e esta auditoria não afirma que a própria medição provocou a queda. De qualquer forma, o monitoramento com alerta entra na entrega.</p>
-            </details>
-          </article>
-          <article class="achado">
-            <h4>No tablet, o menu escreve por cima da foto</h4>
-            <p class="evidence mono">768 a 1024 px</p>
-            <p class="translate">Numa tela de tablet ou notebook pequeno, os itens do menu, incluindo "OFERTAS", ficam escritos por cima do banner, ilegíveis.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Medido em 768px: a segunda linha do menu ocupa a mesma faixa vertical do banner, que começa pouco abaixo. Confirmado por medição de coordenadas e por captura de tela.</p>
-            </details>
-          </article>
-          <article class="achado">
-            <h4>O aviso de cookies cobre o botão de compra no celular</h4>
-            <p class="evidence mono">opção de recusar: nenhuma</p>
-            <p class="translate">O banner de cookies fica por cima dos botões de compra na tela pequena, e só tem a opção "OK". Não dá para recusar.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Verificado em viewport de 375px. Texto do aviso: "Este site usa cookies para garantir que você obtenha a melhor experiência." Único botão disponível: OK.</p>
-            </details>
-          </article>
+          </div>
+
+          <div class="find rv">
+            <h4>O aviso de cookies cobre os botões de compra no celular</h4>
+            <p>Na tela pequena, a tarja de cookies fica por cima dos botões de produto. Para comprar, o cliente precisa primeiro aceitar, e a única opção que existe é "OK".</p>
+            <p class="ev">verificado em tela de 375 px</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+          </div>
+
+          <div class="find rv">
+            <h4>Cada letra digitada na busca é uma consulta ao sistema</h4>
+            <p>Digitar "arroz" dispara cinco consultas seguidas, uma por letra, sem esperar a pessoa terminar de escrever. Multiplicado por todo mundo que busca, é bastante trabalho desnecessário para o servidor.</p>
+            <p class="ev">5 letras = 5 consultas</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+          </div>
         </div>
       </div>
 
-      <!-- BLOCO 3 -->
-      <div class="impact-block">
-        <div class="impact-head">
-          <span class="impact-icon"><svg class="icon" aria-hidden="true"><use href="#ic-search"/></svg></span>
-          <div>
-            <h3>Você é invisível no Google e no WhatsApp</h3>
-            <p>Quem nunca é encontrado não vende. E o link mais compartilhado do comércio local sai sem cara nenhuma.</p>
+      <!-- grupo B -->
+      <div class="group">
+        <h3>Google e WhatsApp podem trabalhar mais a favor da Arguto</h3>
+        <div class="finds">
+          <div class="find rv wide">
+            <h4>A home não diz ao Google qual é o assunto dela</h4>
+            <p>Toda página tem um título principal que resume do que ela trata. A home da Arguto não tem nenhum, e também não tem o resumo que aparece embaixo do link nos resultados de busca. O título que aparece na aba do navegador é "B2B Arguto", sem a palavra distribuidora, sem atacado e sem Uberlândia, que é o que um comprador digitaria.</p>
+            <p class="ev">nenhum título principal na página · sem resumo para o Google</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body"><code>document.querySelectorAll('h1').length</code> retorna 0. A hierarquia de títulos também está fora de ordem: começa em H5 no menu, desce para H4 e só então chega ao H2 das seções. Sem <code>meta description</code>, confirmado pelo Lighthouse. <code>&lt;title&gt;</code> com 11 caracteres. Os arquivos <code>robots.txt</code>, <code>sitemap.xml</code> e <code>favicon.ico</code> retornam 404.</div>
+            </details>
           </div>
-        </div>
-        <div class="achado-grid">
-          <article class="achado achado--lg">
-            <h4>O link no WhatsApp aparece sem imagem, sem título, só a URL crua</h4>
-            <p class="evidence mono">Open Graph: 0</p>
-            <p class="translate">Quando um vendedor compartilha o link da Arguto no WhatsApp, canal de venda deles, não aparece imagem nem título. Só o endereço puro, do jeito que parece spam.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Zero marcação Open Graph (og:title, og:image, og:description) e zero Twitter Card, confirmado por inspeção do HTML.</p>
+
+          <div class="find rv">
+            <h4>Os produtos não aparecem de forma completa nos resultados</h4>
+            <p>Existe um formato padrão para o site informar ao Google dados como preço e disponibilidade de cada produto. O site atual não fornece nenhum deles. Isso não garante que o Google exiba essas informações, mas hoje ele nem tem como.</p>
+            <p class="ev">nenhum dado estruturado de produto</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">Nenhuma marcação JSON-LD (<code>Product</code>, <code>Organization</code>, <code>LocalBusiness</code>) no HTML. Dado estruturado torna a página <em>elegível</em> a resultados enriquecidos, com preço, disponibilidade e avaliação. A exibição continua sendo decisão do Google.</div>
             </details>
-          </article>
-          <article class="achado">
-            <h4>A home não diz nem o próprio assunto para o Google</h4>
-            <p class="evidence mono">&lt;h1&gt;: 0</p>
-            <p class="translate">A página inicial não declara nenhum título principal. É como entregar um cartão de visita em branco.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>document.querySelectorAll('h1').length = 0. A hierarquia de títulos também está fora de ordem: começa em H5 (menu), desce para H4, e só então chega ao H2.</p>
+          </div>
+
+          <div class="find rv">
+            <h4>Quase nenhuma imagem tem descrição</h4>
+            <p>De 119 imagens do site, 118 não têm texto descritivo. Isso afeta quem usa leitor de tela e também tira do Google uma informação que ele usa para entender a página.</p>
+            <p class="ev">118 de 119 imagens sem descrição</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">118 de 119 imagens sem atributo <code>alt</code> na medição do DOM completo (o Lighthouse reporta 60 no viewport dele). Como consequência, 25 links que contêm apenas imagem ficam sem nome acessível, incluindo o logotipo. Dois botões também estão sem nome, um deles é o botão de busca do celular.</div>
             </details>
-          </article>
-          <article class="achado">
-            <h4>Sem descrição, sem mapa do site, sem favicon</h4>
-            <p class="evidence mono">meta description: ausente</p>
-            <p class="translate">Faltam os arquivos básicos que ajudam o Google a entender e indexar o site. O título da aba é só "B2B Arguto", sem "distribuidora" nem "Uberlândia".</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>/robots.txt devolve 404, /sitemap.xml devolve 404, /favicon.ico devolve 404. Sem meta description, confirmado pelo Lighthouse.</p>
-            </details>
-          </article>
-          <article class="achado">
-            <h4>Zero dados estruturados</h4>
-            <p class="evidence mono">JSON-LD: 0</p>
-            <p class="translate">Sem essa marcação, o Google não consegue mostrar preço nem disponibilidade direto no resultado de busca. Um concorrente com esse dado aparece em destaque, a Arguto aparece como texto simples.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Nenhum JSON-LD (Product, Organization, LocalBusiness) encontrado no HTML da home.</p>
-            </details>
-          </article>
+          </div>
         </div>
       </div>
 
-      <!-- BLOCO 4 -->
-      <div class="impact-block">
-        <div class="impact-head">
-          <span class="impact-icon"><svg class="icon" aria-hidden="true"><use href="#ic-scale"/></svg></span>
-          <div>
-            <h3>Risco jurídico (LGPD)</h3>
-            <p>Três falhas de consentimento que uma fiscalização, ou um cliente mais atento, encontra em minutos.</p>
+      <!-- grupo C -->
+      <div class="group">
+        <h3>Privacidade e consentimento</h3>
+        <p class="group-sub">Não é um parecer jurídico, e eu não sou a pessoa para dar um. São práticas observadas que merecem ajuste para ficar alinhadas às boas práticas de consentimento e transparência orientadas pela ANPD.</p>
+        <div class="finds">
+          <div class="find rv wide">
+            <h4>No celular não há caminho até a Política de Privacidade</h4>
+            <p>Os links de Política de Privacidade, Política de Pagamento e Trocas e Devoluções existem no rodapé, mas ficam ocultos na tela do celular. O único link de política que aparece leva para uma página que não existe mais.</p>
+            <p class="ev">links corretos ocultos · link visível retorna erro 404</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">Medição em 375px: os títulos "Institucional", "Minha Conta" e "Vendas Corporativas" têm largura computada zero. Os links <code>/PoliticaDePrivacidade/</code>, <code>/PoliticaDePagamento/</code> e <code>/TrocasDevolucoes/</code> retornam <code>visible: false</code>. O único link exibido aponta para <code>content.asp</code>, que responde HTTP 404. Transparência sobre tratamento de dados é exigência do Art. 9º da LGPD, e informação sobre trocas e devoluções é exigência do CDC.</div>
+            </details>
           </div>
-        </div>
-        <div class="achado-grid">
-          <article class="achado achado--lg">
-            <h4>No celular, não existe caminho até a Política de Privacidade</h4>
-            <p class="evidence mono">link visível &rarr; 404</p>
-            <p class="translate">Os links que funcionam estão escondidos no rodapé. O único link visível no celular aponta para uma página que não existe. É exigência direta da LGPD e do Código de Defesa do Consumidor.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Medido em 375px: os títulos "Institucional", "Minha Conta" e "Vendas Corporativas" têm largura zero (invisíveis). Os links reais de Política de Privacidade, Política de Pagamento e Trocas e Devoluções ficam ocultos. O único link exibido no celular aponta para content.asp, que retorna HTTP 404.</p>
+
+          <div class="find rv">
+            <h4>O rastreamento começa antes do cliente responder</h4>
+            <p>Ao abrir a home, os cookies de análise já são gravados e quatro registros de visita já foram enviados, tudo antes de qualquer clique no aviso de cookies.</p>
+            <p class="ev">4 envios de análise antes do aceite</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">Cookies <code>_ga</code> e dois identificadores de propriedade GA4 gravados antes de interação, com 7 eventos de <code>dataLayer</code> e 4 <code>page_view</code> enviados. Há duas propriedades GA4 medindo em paralelo, além do contêiner GTM, o que também duplica o dado. A LGPD (Arts. 7º e 8º) trata consentimento prévio para tratamento não essencial, e análise de audiência não é essencial ao funcionamento.</div>
             </details>
-          </article>
-          <article class="achado">
-            <h4>O site rastreia antes de perguntar</h4>
-            <p class="evidence mono">4 envios ao Analytics antes do clique</p>
-            <p class="translate">Ao abrir a home, cookies do Google e quatro disparos de rastreamento já aconteceram, antes de qualquer clique no aviso.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Cookies _ga e dois identificadores de propriedade GA4 gravados antes de interação. Sete eventos de dataLayer disparados e quatro page_view já enviados ao Analytics. Duas propriedades GA4 rodam em paralelo, além do contêiner GTM.</p>
-            </details>
-          </article>
-          <article class="achado">
-            <h4>O aviso de cookies só tem um botão: "OK"</h4>
-            <p class="evidence mono">opções: 1 de 1</p>
-            <p class="translate">Não existe como recusar, nem escolher por finalidade, nem link para a política. A orientação da autoridade de proteção de dados é que recusar seja tão fácil quanto aceitar.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Texto do banner: "Este site usa cookies para garantir que você obtenha a melhor experiência." Sem link para a Política de Privacidade, sem menção a quais dados são coletados ou por quanto tempo ficam guardados.</p>
-            </details>
-          </article>
+          </div>
+
+          <div class="find rv">
+            <h4>O aviso de cookies só tem a opção de aceitar</h4>
+            <p>Não existe botão de recusar, nem escolha por finalidade, nem link para a política. A orientação da ANPD é que recusar seja tão simples quanto aceitar.</p>
+            <p class="ev">1 opção: "OK"</p>
+            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+          </div>
         </div>
       </div>
 
-      <!-- BLOCO 5 -->
-      <div class="impact-block">
-        <div class="impact-head">
-          <span class="impact-icon"><svg class="icon" aria-hidden="true"><use href="#ic-lock"/></svg></span>
-          <div>
-            <h3>Segurança</h3>
-            <p>O que protege a sessão de um cliente logado hoje tem lacunas básicas de configuração.</p>
+      <!-- grupo D -->
+      <div class="group">
+        <h3>Segurança e disponibilidade</h3>
+        <div class="finds">
+          <div class="find rv wide">
+            <h4>O endereço com "www" mostra aviso de conexão não segura</h4>
+            <p>É o ponto mais visível de todos, porque quem esbarra nele é o cliente. O certificado de segurança do site cobre o endereço sem "www", mas não a versão com. Quem digita por hábito, ou tem o favorito salvo assim, recebe a tela de aviso do navegador e não entra.</p>
+            <p class="ev">https://www.arguto.com.br → falha de validação do certificado</p>
+            <div class="fix fix-cfg"><i class="dot"></i><span>Ajuste de configuração, resolvido em minutos</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">O certificado TLS lista apenas <code>DNS:arguto.com.br</code> no campo Subject Alternative Name, enquanto o DNS resolve <code>www</code> para o mesmo servidor. Resultado: <code>curl</code> retorna exit 60 e o Chromium aborta com <code>ERR_CERT_COMMON_NAME_INVALID</code>. Vale registrar que o subdomínio <code>empresa.arguto.com.br</code> tem certificado próprio e válido, ou seja, emitir certificado já é rotina ali, só faltou incluir o <code>www</code> do domínio principal. Correção: reemitir incluindo o <code>www</code> no SAN e manter o redirecionamento para a raiz em HTTPS.</div>
+            </details>
           </div>
-        </div>
-        <div class="achado-grid">
-          <article class="achado achado--lg">
-            <h4>A sessão do cliente logado pode trafegar sem criptografia</h4>
-            <p class="evidence mono">cookie Secure: false</p>
-            <p class="translate">O identificador da sessão de quem está logado não tem a proteção mínima contra tráfego sem criptografia. Numa rede pública (wifi de hotel, proxy corporativo), esse identificador pode ficar exposto.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-b">Ajuste de servidor</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Cookie de sessão com a flag Secure desligada, verificado em conta real logada. Sem HSTS. O redirecionamento de HTTP para HTTPS é temporário (302), não permanente. Não foi demonstrada uma captura real do cookie em trânsito, o navegador moderno mitiga parte do risco, esta é uma falha de configuração comprovada, não uma invasão comprovada.</p>
+
+          <div class="find rv">
+            <h4>A sessão do cliente logado pode receber uma proteção a mais</h4>
+            <p>Existe uma marcação padrão que garante que a sessão de quem está logado só trafegue por conexão criptografada. Hoje ela não está ativa. É uma configuração, não uma reforma.</p>
+            <p class="ev">proteção de transporte da sessão ausente</p>
+            <div class="fix fix-cfg"><i class="dot"></i><span>Ajuste de configuração</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">Cookie <code>ASP.NET_SessionId</code> com <code>secure: false</code>, verificado em conta real autenticada. Sem cabeçalho <code>Strict-Transport-Security</code>, e o redirecionamento HTTP→HTTPS é 302 e não 301. Para ser preciso: isto é uma falha de configuração comprovada, <strong>não</strong> uma captura de sessão demonstrada. Navegadores modernos fazem upgrade automático para HTTPS, o que mitiga parte do risco. As três correções são de configuração: marcar o cookie como <code>Secure</code>, ativar HSTS e trocar o 302 por 301.</div>
             </details>
-          </article>
-          <article class="achado">
-            <h4>Nenhum dos cabeçalhos de proteção básicos está ligado</h4>
-            <p class="evidence mono">6 de 6 ausentes</p>
-            <p class="translate">Faltam as seis proteções padrão contra ataques comuns na web, incluindo a que impede o site de ser embutido escondido dentro de outra página.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-b">Ajuste de servidor</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Ausentes: Strict-Transport-Security, Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, Referrer-Policy e Permissions-Policy. Confirmado por inspeção direta dos cabeçalhos HTTP.</p>
+          </div>
+
+          <div class="find rv">
+            <h4>Faltam as proteções padrão de servidor</h4>
+            <p>Existe um conjunto de configurações que os navegadores usam para proteger o visitante de ataques conhecidos. Nenhuma delas está ativa hoje. O servidor também informa publicamente qual versão de software está rodando, o que não traz benefício nenhum.</p>
+            <p class="ev">6 proteções padrão ausentes</p>
+            <div class="fix fix-cfg"><i class="dot"></i><span>Ajuste de configuração</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">Ausentes: <code>Strict-Transport-Security</code>, <code>Content-Security-Policy</code>, <code>X-Frame-Options</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code> e <code>Permissions-Policy</code>. Os cabeçalhos expõem <code>Microsoft-IIS/10.0</code>, <code>ASP.NET 4.0.30319</code> e <code>PleskWin</code>. Também foram encontrados arquivos <code>.debugger.js</code> publicados em produção, e três versões de jQuery carregadas simultaneamente, uma delas de 2015 com CVEs públicos (CVE-2020-11022, CVE-2020-11023, CVE-2019-11358, CVE-2015-9251). Versão vulnerável não prova exploração, mas é pendência objetiva em qualquer <em>due diligence</em>.</div>
             </details>
-          </article>
-          <article class="achado">
-            <h4>O site usa uma biblioteca de 2015 com falhas públicas conhecidas</h4>
-            <p class="evidence mono">jQuery: 3 versões simultâneas</p>
-            <p class="translate">Três versões da mesma biblioteca carregadas ao mesmo tempo, incluindo uma de 2015 com falhas de segurança já publicadas e documentadas.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-a">Resolvido no site novo</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Três versões de jQuery carregadas juntas, uma delas duplicada. As versões antigas têm CVEs públicos documentados (XSS e poluição de protótipo). Versão vulnerável não prova exploração, mas é pendência objetiva em qualquer auditoria de cliente corporativo.</p>
+          </div>
+
+          <div class="find rv wide">
+            <h4>Durante a medição, o site ficou 19 minutos indisponível</h4>
+            <p>Entre 3h43 e 4h02 o site parou de responder. Confirmei de duas redes diferentes ao mesmo tempo, uma banda larga e um celular em 5G, para descartar problema na minha conexão. <strong>Não consegui determinar a causa</strong>, e não afirmo que a minha medição tenha provocado a queda. Por isso o encaminhamento aqui não é uma correção, é passar a monitorar: se acontecer de novo, alguém precisa ser avisado na hora.</p>
+            <p class="ev">13 amostras consecutivas sem resposta · 03h43 às 04h02</p>
+            <div class="fix fix-inv"><i class="dot"></i><span>Precisa investigar. O monitoramento com alerta eu já instalo.</span></div>
+            <details class="tech">
+              <summary>Ver detalhe técnico</summary>
+              <div class="tech-body">Amostragem a cada 20 segundos registrou 13 falhas consecutivas, com <code>HTTP 000</code> respondendo em 0,07 s, o que caracteriza conexão recusada no handshake e não lentidão ou timeout. Log completo em <code>docs/_uptime-arguto.log</code>. No mesmo instante, <code>example.com</code> carregou normalmente no mesmo navegador. Ressalva de rigor: foram cerca de 200 requisições em 6 minutos, volume comparável ao de um usuário navegando. Se isso derruba o site, é um achado de capacidade relevante, mas <strong>não está provado</strong>.</div>
             </details>
-          </article>
-          <article class="achado">
-            <h4>O servidor entrega de graça o mapa da própria infraestrutura</h4>
-            <p class="evidence mono">IIS 10 · ASP.NET 4.0 · Plesk</p>
-            <p class="translate">Servidor, versão do framework e painel de hospedagem ficam expostos nos cabeçalhos. É o primeiro dado que qualquer varredura automatizada aproveita, e não serve para nada ao visitante.</p>
-            <div class="achado-foot"><span class="bucket-badge bucket-b">Ajuste de servidor</span></div>
-            <details>
-              <summary>Detalhe técnico</summary>
-              <p>Cabeçalhos expõem Microsoft-IIS/10.0, a versão exata do ASP.NET e o painel Plesk. Também foram encontrados arquivos de depuração publicados em produção.</p>
-            </details>
-          </article>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Dá pra ver agora, na tela</h2>
-      <p class="section-body">Nenhum desses achados precisa de ferramenta especial. Dá pra reproduzir em tempo real, na frente de quem estiver na reunião.</p>
-      <ol class="demo-list">
-        <li>Digitar <strong>www.arguto.com.br</strong> no navegador<span class="demo-effect">Tela vermelha de site não confiável.</span></li>
-        <li>Buscar <strong>"leite"</strong> no site<span class="demo-effect">Dez resultados, nenhum é leite.</span></li>
-        <li>Abrir o PageSpeed do celular<span class="demo-effect">Nota 53 de 100.</span></li>
-        <li>No celular, procurar a Política de Privacidade no rodapé<span class="demo-effect">Não existe caminho até ela.</span></li>
-        <li>Estreitar a janela para cerca de 800 px<span class="demo-effect">"OFERTAS" escrito por cima do banner.</span></li>
-        <li>Compartilhar o link no WhatsApp<span class="demo-effect">Sem imagem, sem título, só a URL crua.</span></li>
-      </ol>
+  <!-- ═══ 07 · O QUE FICA ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">07 · ESCOPO</span>
+        <h2>O que muda e, principalmente, o que não muda</h2>
+        <p>Essa costuma ser a primeira preocupação quando se fala em site novo, então prefiro responder antes de vocês perguntarem.</p>
+      </div>
+
+      <div class="keeps rv">
+        <div class="keep-box stays">
+          <h3>Continua exatamente como está</h3>
+          <ul class="keep-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>O Protheus, sem nenhuma alteração</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>O portal administrativo do B2B e a rotina de cadastro de produto</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>A integração entre o Protheus e o site</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>As regras de preço por cliente, estoque, crédito e frete</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>O login dos clientes e a gravação do pedido</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>A rotina de trabalho da equipe. Ninguém precisa ser treinado de novo</span></li>
+          </ul>
+        </div>
+        <div class="keep-box changes">
+          <h3>É reconstruído</h3>
+          <ul class="keep-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>Tudo que o cliente vê antes de entrar na conta: home, categorias, produto, ofertas e páginas institucionais</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>A busca, o menu e o comportamento no celular</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>O tratamento das imagens, que é a origem dos 24 MB</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>Carrinho, checkout e Meus Pedidos recebem visual novo, mantendo o mesmo funcionamento por trás</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="margin-top:1.75rem;max-width:64ch">Em resumo: a parte que envolve dinheiro e regra de negócio continua rodando onde já roda hoje. O que é reconstruído é a camada que o cliente enxerga, que é justamente de onde vêm os problemas desta apresentação.</p>
     </div>
   </section>
 
-  <section class="section section-muted">
-    <div class="container">
-      <h2 class="section-title">Antes e depois</h2>
-      <p class="section-body">Situação medida hoje, ao lado do que a entrega resolve. Balde indica o tipo de solução.</p>
-      <div class="table-wrap">
-        <table class="compare">
-          <thead>
-            <tr><th>Área</th><th>Hoje</th><th>No site novo</th><th>Balde</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Velocidade no celular</td>
-              <td class="hoje">22,7 s para abrir</td>
-              <td class="depois">Carregamento em segundos, com imagens leves e sob demanda</td>
-              <td><span class="bucket-badge bucket-a">A</span></td>
-            </tr>
-            <tr>
-              <td>Peso da página</td>
-              <td class="hoje">24,3 MB</td>
-              <td class="depois">Frações do tamanho atual (categorias: 11,7 MB &rarr; 320 KB; logos: 939 KB &rarr; 140 KB)</td>
-              <td><span class="bucket-badge bucket-a">A</span></td>
-            </tr>
-            <tr>
-              <td>Endereço "www"</td>
-              <td class="hoje">Alerta de site não confiável</td>
-              <td class="depois">Certificado cobrindo o "www", redirecionamento correto</td>
-              <td><span class="bucket-badge bucket-b">B</span></td>
-            </tr>
-            <tr>
-              <td>Sessão do cliente logado</td>
-              <td class="hoje">Cookie sem proteção, sem HSTS</td>
-              <td class="depois">Cookie protegido, HSTS ativo</td>
-              <td><span class="bucket-badge bucket-b">B</span></td>
-            </tr>
-            <tr>
-              <td>Achar o produto</td>
-              <td class="hoje">"leite" devolve bala, sem pausa entre teclas</td>
-              <td class="depois">Busca com pausa entre teclas; relevância em diagnóstico dedicado</td>
-              <td><span class="bucket-badge bucket-c">C</span></td>
-            </tr>
-            <tr>
-              <td>Aparecer no Google e no WhatsApp</td>
-              <td class="hoje">Sem título, sem descrição, sem preview</td>
-              <td class="depois">Título único, metadados completos, preview com imagem no WhatsApp</td>
-              <td><span class="bucket-badge bucket-a">A</span></td>
-            </tr>
-            <tr>
-              <td>Acessibilidade das imagens</td>
-              <td class="hoje">118 de 119 sem descrição</td>
-              <td class="depois">Descrição em todas as imagens, contraste do botão corrigido</td>
-              <td><span class="bucket-badge bucket-a">A</span></td>
-            </tr>
-            <tr>
-              <td>Disponibilidade</td>
-              <td class="hoje">Ninguém é avisado quando o site cai</td>
-              <td class="depois">Monitoramento com alerta instalado</td>
-              <td><span class="bucket-badge bucket-c">C</span></td>
-            </tr>
-          </tbody>
-        </table>
+  <!-- ═══ 08 · ANTES / DEPOIS ═══ -->
+  <section class="sec sec-muted">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">08 · COMPARAÇÃO</span>
+        <h2>Hoje e com a nova experiência</h2>
+        <p>Do lado direito está o que a entrega resolve. Onde eu ainda não medi um número, eu não invento um.</p>
+      </div>
+
+      <div class="ba rv">
+        <div class="ba-head" aria-hidden="true"><span>HOJE</span><span></span><span>COM O SITE NOVO</span></div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>Abrir no celular</b>22,7 s até o conteúdo principal aparecer, no teste</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">Uma página construída desde o começo para carregar rápido, com imagem moderna e carregamento sob demanda</div>
+        </div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>Peso da home</b>24,3 MB, sendo 23 MB de imagem, com um banner de 10 MB duplicado</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">Imagens no formato certo e no tamanho certo, cada arquivo servido uma única vez</div>
+        </div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>Voltar para a lista</b>A página inteira é baixada de novo</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">O retorno volta instantâneo, do jeito que a pessoa deixou</div>
+        </div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>Endereço com www</b>Tela de aviso de conexão não segura</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">Entra normalmente, pelos dois endereços</div>
+        </div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>Link no WhatsApp</b>Só o endereço, sem nome e sem imagem</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">Nome da Arguto, descrição e imagem, como um cartão de visita</div>
+        </div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>Encontrar no Google</b>Sem título principal, sem resumo e sem mapa do site</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">Estrutura completa para o Google entender e indexar cada página</div>
+        </div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>Buscar um produto</b>"leite" devolve dez balas e nenhum leite</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">A busca deixa de consultar a cada tecla. A relevância entra em diagnóstico dedicado, junto com o sistema interno</div>
+        </div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>Quando o site cai</b>Não há aviso automático</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">Monitoramento instalado, com alerta imediato em caso de indisponibilidade</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-tight">
-    <div class="container-narrow">
-      <h2 class="section-title">Como medimos</h2>
-      <p class="section-body">Google Lighthouse 12.8.2, o mesmo motor por trás do PageSpeed Insights, rodado em navegador Chrome automatizado. Testes em viewports de 320 a 1920 pixels. Coleta em 27 de julho de 2026.</p>
-      <p class="section-body">Se alguém na sala quiser conferir, os relatórios completos do PageSpeed, rodados pelo próprio cliente, estão públicos:</p>
-      <div class="measure-links">
-        <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&form_factor=mobile" target="_blank" rel="noopener noreferrer">PageSpeed, versão celular</a>
-        <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&form_factor=desktop" target="_blank" rel="noopener noreferrer">PageSpeed, versão computador</a>
+  <!-- ═══ 09 · MÉTODO ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">09 · MÉTODO</span>
+        <h2>Como eu cheguei nesses números</h2>
+        <p>Tudo aqui é reproduzível. Se vocês tiverem alguém de tecnologia, ele consegue conferir cada ponto.</p>
+      </div>
+
+      <dl class="method">
+        <div>
+          <dt>FERRAMENTA</dt>
+          <dd>Google Lighthouse 12.8.2, o mesmo motor por trás do PageSpeed Insights.</dd>
+        </div>
+        <div>
+          <dt>AMBIENTE</dt>
+          <dd>Navegador Chrome automatizado, com telas de 320 a 1920 pixels, e requisições diretas ao servidor.</dd>
+        </div>
+        <div>
+          <dt>DATA</dt>
+          <dd>27 de julho de 2026. As duas medições, computador e celular, foram feitas com um minuto de diferença.</dd>
+        </div>
+        <div>
+          <dt>ESCOPO</dt>
+          <dd>Home pública e home autenticada, em modo leitura. Não testei carrinho nem checkout, e não fiz varredura de vulnerabilidade, que exigiria autorização por escrito.</dd>
+        </div>
+      </dl>
+
+      <p style="margin-top:2rem;max-width:64ch">Nota sobre as duas notas de velocidade: <strong>49 é a nota do computador e 53 a do celular</strong>, na mesma coleta. Pontuação de performance varia entre execuções, por isso deixei as duas visíveis em vez de escolher uma.</p>
+
+      <p style="margin-top:1.1rem;max-width:64ch">Os relatórios que vocês mesmos rodaram no PageSpeed estão públicos e podem ser comparados com o que apresentei aqui:</p>
+
+      <div class="links">
+        <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&form_factor=mobile" target="_blank" rel="noopener noreferrer">Relatório do celular</a>
+        <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&form_factor=desktop" target="_blank" rel="noopener noreferrer">Relatório do computador</a>
       </div>
     </div>
   </section>
 
-  <section class="section closing dot-grid">
-    <div class="closing-glow" aria-hidden="true"></div>
-    <div class="container closing-inner">
-      <h2>Você já sabe o que está custando venda. Agora dá para resolver.</h2>
-      <p>Cada achado desta página tem caminho declarado: pronto na entrega do redesenho, ajuste rápido de configuração, ou investigação assumida como tal. Nada aqui é só alarme.</p>
-      <p class="closing-value">Você fala direto comigo. Sem gerente de conta, sem terceirizado.</p>
-      <a class="btn-cta" href="https://wa.me/5534991415238?text=Ol%C3%A1%20Renan%2C%20vi%20o%20diagn%C3%B3stico%20do%20site%20da%20Arguto%20e%20quero%20conversar%20sobre%20o%20redesenho." target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5a11 11 0 0 0-17.4 13.2L2 21l4.4-1.1A11 11 0 0 0 20.5 3.5Z"/><path d="M8.5 8.3c.2-.5.7-.5 1.1-.5s.7 0 .9.5c.3.6.9 2 .9 2.2s0 .4-.2.6c-.2.3-.4.4-.6.6s-.3.3-.1.6c.3.6 1 1.4 1.8 2 .9.8 1.6 1 1.9 1.1.3.1.5.1.7-.1.2-.3.7-.9.9-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.1.5.2.5.4.1.5-.1 1.3-.6 1.8-.6.6-1.9 1-3 .8-1-.2-3.1-1.1-4.8-2.7-1.9-1.8-2.9-3.6-3.1-4.6-.2-1 .1-1.9.6-2.5Z" fill="#fff" stroke="none"/></svg>
-        Fale no WhatsApp
-      </a>
+  <!-- ═══ 10 · FECHAMENTO ═══ -->
+  <section class="sec sec-muted close">
+    <div class="wrap">
+      <h2 class="rv">O site atual cumpriu o papel dele. Agora dá para dar o próximo passo.</h2>
+      <div class="prose rv">
+        <p>O que eu encontrei não é descuido de ninguém. É tecnologia que envelheceu enquanto a forma de comprar mudou, e hoje boa parte do pedido começa no celular.</p>
+        <p>A maior parte desses pontos já está contemplada no redesenho. Alguns são configuração de servidor e eu passo a especificação exata, contratando ou não. E os dois que dependem de investigação, eu prefiro tratar como investigação a prometer prazo que não posso cumprir.</p>
+      </div>
+
+      <p class="signature rv">Do levantamento técnico até a entrega, quem acompanha o projeto sou eu. Vocês falam sempre com a mesma pessoa.</p>
+
+      <div class="rv">
+        <a class="cta" href="https://wa.me/5534991415238?text=Ol%C3%A1%20Renan%2C%20vi%20o%20diagn%C3%B3stico%20do%20site%20da%20Arguto%20e%20quero%20conversar%20sobre%20o%20projeto.">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5a11 11 0 0 0-17.4 13.2L2 21l4.4-1.1A11 11 0 0 0 20.5 3.5Z"/><path d="M8.5 8.3c.2-.5.7-.5 1.1-.5s.7 0 .9.5c.3.6.9 2 .9 2.2s0 .4-.2.6c-.2.3-.4.4-.6.6s-.3.3-.1.6c.3.6 1 1.4 1.8 2 .9.8 1.6 1 1.9 1.1.3.1.5.1.7-.1.2-.3.7-.9.9-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.1.5.2.5.4.1.5-.1 1.3-.6 1.8-.6.6-1.9 1-3 .8-1-.2-3.1-1.1-4.8-2.7-1.9-1.8-2.9-3.6-3.1-4.6-.2-1 .1-1.9.6-2.5Z" fill="#fff" stroke="none"/></svg>
+          Vamos conversar sobre o projeto
+        </a>
+      </div>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <svg viewBox="0 0 494.13 396.73" role="img" aria-label="Ícone dev.RR">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <svg viewBox="0 0 494.13 396.73" role="img" aria-label="dev.RR">
         <defs>
-          <linearGradient id="footerGrad" gradientUnits="userSpaceOnUse" x1="0" y1="198.37" x2="494.13" y2="198.37">
-            <stop offset="0" stop-color="#7C3AED"/>
-            <stop offset="0.42" stop-color="#6E6FF3"/>
-            <stop offset="0.68" stop-color="#60A5FA"/>
-            <stop offset="1" stop-color="#3C75F0"/>
+          <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="198.37" x2="494.13" y2="198.37">
+            <stop offset="0" stop-color="#7C3AED"/><stop offset="0.42" stop-color="#6E6FF3"/>
+            <stop offset="0.68" stop-color="#60A5FA"/><stop offset="1" stop-color="#3C75F0"/>
           </linearGradient>
         </defs>
-        <path fill="url(#footerGrad)" d="M330.21 396.73l0 -42.76 48.7 0c7.13,0 10.69,-3.96 10.69,-11.88l0 -108.49c0,-8.97 2.84,-16.5 8.51,-22.57 5.68,-6.07 13.13,-9.11 22.37,-9.11l6.33 0 0 -7.13 -6.33 0c-9.24,0 -16.7,-3.04 -22.37,-9.11 -5.68,-6.07 -8.51,-13.59 -8.51,-22.57l0 -108.49c0,-7.92 -3.56,-11.88 -10.69,-11.88l-48.7 0 0 -42.76 67.31 0c11.88,0 21.58,3.76 29.1,11.28 7.52,7.52 11.28,17.22 11.28,29.1l0 122.74c0,7.66 3.56,11.48 10.69,11.48l45.53 0 0 47.51 -45.53 0c-7.13,0 -10.69,3.83 -10.69,11.48l0 122.74c0,11.88 -3.76,21.58 -11.28,29.1 -7.52,7.52 -17.22,11.29 -29.1,11.29l-67.31 0zm-166.29 -18.21l116.41 -356.35 49.89 0 -116.41 356.35 -49.89 0zm-67.31 18.21c-11.88,0 -21.58,-3.76 -29.1,-11.29 -7.52,-7.52 -11.28,-17.22 -11.28,-29.1l0 -122.74c0,-7.66 -3.56,-11.48 -10.69,-11.48l-45.53 0 0 -47.51 45.53 0c7.13,0 10.69,-3.83 10.69,-11.48l0 -122.74c0,-11.88 3.76,-21.58 11.28,-29.1 7.52,-7.52 17.22,-11.28 29.1,-11.28l67.31 0 0 42.76 -48.7 0c-7.13,0 -10.69,3.96 -10.69,11.88l0 108.49c0,8.97 -2.84,16.5 -8.51,22.57 -5.67,6.07 -13.13,9.11 -22.37,9.11l-6.34 0 0 7.13 6.34 0c9.24,0 16.7,3.04 22.37,9.11 5.68,6.07 8.51,13.59 8.51,22.57l0 108.49c0,7.92 3.56,11.88 10.69,11.88l48.7 0 0 42.76 -67.31 0z"/>
+        <path fill="url(#g)" d="M330.21 396.73l0 -42.76 48.7 0c7.13,0 10.69,-3.96 10.69,-11.88l0 -108.49c0,-8.97 2.84,-16.5 8.51,-22.57 5.68,-6.07 13.13,-9.11 22.37,-9.11l6.33 0 0 -7.13 -6.33 0c-9.24,0 -16.7,-3.04 -22.37,-9.11 -5.68,-6.07 -8.51,-13.59 -8.51,-22.57l0 -108.49c0,-7.92 -3.56,-11.88 -10.69,-11.88l-48.7 0 0 -42.76 67.31 0c11.88,0 21.58,3.76 29.1,11.28 7.52,7.52 11.28,17.22 11.28,29.1l0 122.74c0,7.66 3.56,11.48 10.69,11.48l45.53 0 0 47.51 -45.53 0c-7.13,0 -10.69,3.83 -10.69,11.48l0 122.74c0,11.88 -3.76,21.58 -11.28,29.1 -7.52,7.52 -17.22,11.29 -29.1,11.29l-67.31 0zm-166.29 -18.21l116.41 -356.35 49.89 0 -116.41 356.35 -49.89 0zm-67.31 18.21c-11.88,0 -21.58,-3.76 -29.1,-11.29 -7.52,-7.52 -11.28,-17.22 -11.28,-29.1l0 -122.74c0,-7.66 -3.56,-11.48 -10.69,-11.48l-45.53 0 0 -47.51 45.53 0c7.13,0 10.69,-3.83 10.69,-11.48l0 -122.74c0,-11.88 3.76,-21.58 11.28,-29.1 7.52,-7.52 17.22,-11.28 29.1,-11.28l67.31 0 0 42.76 -48.7 0c-7.13,0 -10.69,3.96 -10.69,11.88l0 108.49c0,8.97 -2.84,16.5 -8.51,22.57 -5.67,6.07 -13.13,9.11 -22.37,9.11l-6.34 0 0 7.13 6.34 0c9.24,0 16.7,3.04 22.37,9.11 5.68,6.07 8.51,13.59 8.51,22.57l0 108.49c0,7.92 3.56,11.88 10.69,11.88l48.7 0 0 42.76 -67.31 0z"/>
       </svg>
       <span>dev.RR</span>
     </div>
-    <p class="footer-meta">devrigoni.com.br<br>27 de julho de 2026</p>
+    <p class="footer-meta">
+      Renan Rigoni · <a href="https://devrigoni.com.br" target="_blank" rel="noopener noreferrer">devrigoni.com.br</a><br>
+      Diagnóstico de arguto.com.br · 27 de julho de 2026
+    </p>
   </div>
 </footer>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealables = document.querySelectorAll('.rv');
+
+  function countUp(el) {
+    var target = el.getAttribute('data-count');
+    if (!target) return;
+    var decimals = target.indexOf(',') > -1 ? 1 : 0;
+    var value = parseFloat(target.replace(',', '.'));
+    if (isNaN(value)) return;
+    var start = performance.now();
+    var duration = 900;
+    function frame(now) {
+      var p = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (value * eased).toFixed(decimals).replace('.', ',');
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function activate(el) {
+    el.classList.add('in');
+    var counters = el.querySelectorAll('[data-count]');
+    for (var i = 0; i < counters.length; i++) countUp(counters[i]);
+  }
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < revealables.length; i++) revealables[i].classList.add('in');
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      activate(entry.target);
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+
+  for (var j = 0; j < revealables.length; j++) io.observe(revealables[j]);
+
+  // Imprimir sempre com tudo revelado, mesmo o que nunca entrou na tela.
+  window.addEventListener('beforeprint', function () {
+    for (var k = 0; k < revealables.length; k++) revealables[k].classList.add('in');
+  });
+})();
+</script>
 
 </body>
 </html>

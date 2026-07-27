@@ -1,601 +1,1186 @@
-We are doing ONE FINAL refinement pass on the current Arguto B2B homepage.
+I want you to perform a complete rewrite and design refinement of the existing Arguto commercial diagnostic page:
 
-Before starting, I want to correct an important product-direction assumption from previous reviews.
+apresentacao/diagnostico-arguto.html
 
-ARGUTO.COM.BR IS FIRST AND FOREMOST AN E-COMMERCE PLATFORM.
+IMPORTANT:
 
-This homepage is NOT supposed to behave like an institutional landing page.
+Do NOT redo the technical audit.
 
-Its primary purpose is:
+Do NOT invent new findings.
 
-SELL PRODUCTS.
+Do NOT alter measured values without evidence.
 
-A recurring B2B customer should land on the homepage and immediately feel:
+Do NOT create new accusations or stronger claims.
 
-"I can find what I need and buy here."
+The technical research is already done.
 
-The commercial catalog, supplier campaigns, offers, categories, products, search and purchasing journey are the priority.
+The task now is to transform the existing diagnostic page into a persuasive,
+human, easy-to-understand commercial presentation for the OWNER / DIRECTOR of
+Arguto, who should be assumed to be NON-TECHNICAL.
 
-Institutional storytelling belongs primarily to the Institutional page.
+All final customer-facing copy must remain in Brazilian Portuguese.
 
-Do NOT add company-history sections, logistics storytelling, distribution-center photography, company statistics or brand-positioning sections to the ecommerce homepage merely to create perceived company scale.
+The page has a good factual foundation, but the current presentation feels too
+technical, too robotic and, in some places, too much like an AI-generated
+technical landing page.
 
-Only commercial information that directly supports purchasing belongs here.
-
-==================================================
-1. REVISED PRODUCT PRINCIPLE
-==================================================
-
-Previous reviews correctly improved:
-
-- hierarchy;
-- header density;
-- responsive behavior;
-- accessibility;
-- authentication-aware content;
-- taxonomy;
-- empty search state;
-- onboarding;
-- offer differentiation;
-- channel presentation.
-
-Keep those improvements.
-
-However, use this final pass with a stricter ecommerce perspective.
-
-The homepage should communicate:
-
-PRODUCTS
-OFFERS
-SUPPLIERS
-CATEGORIES
-PURCHASING
-AVAILABILITY
-CONDITIONS
-CONVENIENCE
-
-before institutional identity.
-
-Arguto's brand should be strong through the UI system, but the homepage does not need to explain the company in detail.
+We need to keep the evidence while completely improving the WAY IT IS
+COMMUNICATED.
 
 ==================================================
-2. HERO — THIS IS A SALES HERO
+1. PRIMARY GOAL
 ==================================================
 
-Do NOT transform the Hero into institutional positioning.
+This page exists to help convince Arguto that modernizing its B2B ecommerce is
+worth investing in.
 
-The Hero should be commercially aggressive in a professional way.
+The reader should finish the page thinking:
 
-Think:
+"Agora eu entendi o problema."
 
-"BUY HERE."
+"Eu não sabia que o site estava criando esses atritos."
 
-not:
+"Isso realmente pode melhorar a experiência dos nossos clientes."
 
-"Learn about Arguto."
+"Ele estudou nosso site de verdade."
 
-Supplier campaign banners are important commercial assets.
+"Ele não está só tentando me vender um site bonito."
 
-A strong Gulozitos, Red Bull, Aymoré, Quatree or other supplier campaign dominating part of the Hero is NOT inherently a problem.
+"Quero conversar sobre esse projeto."
 
-This is ecommerce.
+The page must NOT feel like:
 
-The campaign should attract attention.
+- a penetration-test report;
+- a Lighthouse report reformatted as a landing page;
+- a cybersecurity dashboard;
+- an AI-generated list of problems;
+- a developer trying to impress another developer;
+- fear-based sales copy.
 
-The Arguto UI around it should make the experience feel organized and premium, but do not weaken promotional assets because they visually compete with Arguto branding.
+It should feel like:
 
-Evaluate whether the current Hero effectively supports:
-
-- promotions;
-- product discovery;
-- CTA to products;
-- CTA to customer registration;
-- campaign navigation.
-
-Do not add unnecessary positioning copy.
-
-Do not create a large institutional hero.
-
-==================================================
-3. PRODUCT RAILS ARE NOT A PROBLEM BY THEMSELVES
-==================================================
-
-Do NOT assume that:
-
-Offers
-Alimentos
-Bebidas
-Limpeza
-
-being structurally similar is automatically visual monotony.
-
-This is a commerce catalog.
-
-Repeated product grids/rails are expected and useful.
-
-The user may WANT to browse many products.
-
-Do not reduce catalog exposure simply to make the page look more editorial.
-
-Do not artificially give every department a different visual layout.
-
-Preserve consistency where consistency helps scanning.
-
-Only change product-rail structure when there is an actual:
-
-- UX problem;
-- navigation problem;
-- commercial reason;
-- performance problem.
-
-The goal is product discovery, not visual variety for its own sake.
+A professional who studied Arguto's current digital operation,
+found real problems,
+translated them into business language,
+and is showing how they can be improved.
 
 ==================================================
-4. TECHNOLOGY SHOULD BE FELT, NOT DECORATED
+2. HUMANIZATION IS THE HIGHEST PRIORITY
 ==================================================
 
-I still want the platform to feel modern and technologically mature.
+Rewrite the entire visible narrative in a much more human voice.
 
-But technology must appear primarily in behavior and interaction quality.
+Imagine I am personally sitting at a table with the owner of Arguto and
+explaining what I found.
 
-DO NOT use:
+The language should sound spoken, confident and professional.
 
-- circuit graphics;
-- neon;
-- glow;
-- glassmorphism;
-- futuristic backgrounds;
-- animated grids;
-- fake analytics dashboards;
-- floating 3D UI;
-- decorative "digital" effects.
+Not casual.
+Not childish.
+Not corporate jargon.
 
-Instead investigate whether technological maturity can be improved through:
+I want sentences a Brazilian business owner can understand immediately.
 
-- intelligent search behavior;
-- instant interaction feedback;
-- loading states;
-- cart feedback;
-- sticky navigation;
-- keyboard shortcuts;
-- clean state transitions;
-- responsive behavior;
-- precise hover/focus treatment;
-- smarter account context;
-- polished carousels;
-- efficient navigation;
-- clear availability states.
+Good direction:
 
-The principle:
+"Antes de pensar no visual do site novo, eu quis entender como o site atual se
+comporta para quem compra."
 
-VISUALLY:
-premium distributor ecommerce.
+"O B2B já funciona e faz parte da operação. O problema é que algumas limitações
+acumuladas ao longo do tempo estão tornando a compra mais difícil do que precisa
+ser."
 
-BEHAVIOR:
-modern digital product.
+"Quando olhamos os números, alguns pontos chamam bastante atenção."
+
+Avoid phrases that sound generated by marketing AI.
+
+Especially avoid constructions like:
+
+"Quem não é encontrado não vende."
+
+"Você está perdendo vendas agora."
+
+"Seu site está sabotando seu negócio."
+
+"Transforme sua presença digital."
+
+"Potencialize seus resultados."
+
+"Eleve sua marca."
+
+"Desbloqueie seu potencial."
+
+"Experiência de alta performance."
+
+Do not use dramatic absolutes when the audit only proves a technical issue.
+
+The evidence should create the urgency.
+
+The copy does not need to manufacture urgency.
 
 ==================================================
-5. USE THE INSTALLED SKILLS AGAIN
+3. CHANGE THE OPENING TONE
 ==================================================
 
-Available:
+The current hero starts from an accusatory position:
 
-- frontend-design
-- impeccable
-- ui-ux-pro-max
+"Seu site está afastando cliente antes dele ver o primeiro produto."
 
-Use them again if useful, but evaluate everything through an ECOMMERCE lens.
+Reconsider this.
 
-Do not optimize the homepage for visual awards.
+The first interaction should communicate:
+
+I investigated before proposing anything.
+
+A possible conceptual direction:
+
+"Antes de redesenhar, eu quis entender o que acontece hoje quando um cliente
+entra no B2B da Arguto."
+
+Then reveal the conclusion.
+
+Something like:
+
+"Encontramos pontos que tornam a compra mais lenta, dificultam encontrar
+produtos e deixam oportunidades importantes do site sendo desperdiçadas."
+
+Do NOT use these sentences mechanically.
+
+Write a better version if possible.
+
+The owner should feel curiosity first, not attacked.
+
+==================================================
+4. ACKNOWLEDGE WHAT ALREADY WORKS
+==================================================
+
+The current page sounds as though everything is broken.
+
+That reduces credibility.
+
+Somewhere near the beginning, acknowledge something important:
+
+The current B2B exists.
+It supports a real operation.
+Customers already use it.
+The objective is not to dismiss everything that exists.
+
+Then explain:
+
+The technology and experience have accumulated limitations that can now be
+improved.
+
+This makes the diagnosis more credible.
+
+We are not attacking the work that came before.
+
+We are demonstrating why modernization now makes sense.
+
+==================================================
+5. TRANSLATE TECHNICAL LANGUAGE
+==================================================
+
+Audit EVERY customer-visible technical term.
+
+The owner should not need to understand:
+
+LCP
+bfcache
+Open Graph
+JSON-LD
+HSTS
+Secure cookie
+CSP
+IIS
+ASP.NET version
+SAN certificate
+DOM
+WCAG
+GA4 property
+dataLayer
+CVEs
+
+These may remain inside expandable technical details for the IT team.
+
+But the PRIMARY layer must explain consequences.
+
+Example:
+
+NOT:
+
+"Open Graph: 0"
+
+PRIMARY:
+
+"Quando o link é enviado pelo WhatsApp, ele não mostra uma apresentação
+profissional da Arguto."
+
+DETAIL:
+
+Then explain Open Graph.
+
+NOT:
+
+"bfcache: bloqueado"
+
+PRIMARY:
+
+"Quando o cliente abre um produto e volta, a página precisa carregar novamente."
+
+DETAIL:
+
+Explain bfcache.
+
+NOT:
+
+"cookie Secure: false"
+
+PRIMARY:
+
+"A sessão do cliente pode receber uma proteção adicional importante."
+
+DETAIL:
+
+Explain the cookie flag.
+
+Use a two-layer communication model:
+
+OWNER:
+what happens and why it matters.
+
+IT:
+technical evidence and exact cause.
+
+==================================================
+6. REMOVE INTERNAL PROJECT TERMINOLOGY
+==================================================
+
+Remove customer-facing use of:
+
+"bucket"
+"balde"
+"Bucket A"
+"Bucket B"
+"Bucket C"
+"A / B / C"
+
+That classification may remain internally in code/docs if useful.
+
+It should NOT appear in the commercial presentation.
+
+Replace with plain-language concepts such as:
+
+"Já contemplado no novo site"
+
+"Pequeno ajuste de configuração"
+
+"Precisa ser investigado"
+
+Use the simplest wording possible.
+
+Do not create another classification system unless it genuinely helps.
+
+==================================================
+7. REMOVE OR SOFTEN UNSUPPORTED ABSOLUTES
+==================================================
+
+Review every statement for causality.
+
+We can prove technical findings.
+
+We usually cannot prove exactly how many sales were lost because of them.
+
+Rewrite phrases such as:
+
+"Você está perdendo venda agora"
+
+into something more credible, such as a conceptual direction:
+
+"Hoje existem atritos que podem fazer uma venda ficar mais difícil do que
+deveria."
+
+Do not copy this automatically.
+
+Find natural wording.
+
+Likewise:
+
+Do not say:
+
+"Você é invisível no Google e no WhatsApp."
+
+The site is not literally invisible.
+
+A better direction:
+
+"O site hoje aproveita pouco o potencial do Google e do compartilhamento pelo
+WhatsApp."
+
+Do not say:
+
+"O site ficou fora do ar por 19 minutos sem ninguém saber."
+
+The audit proves the downtime during measurement.
+
+It does NOT prove that nobody internally knew.
+
+Say:
+
+"Durante nossa medição, o site ficou indisponível por 19 minutos."
+
+Then:
+
+"Vale investigar a causa e ter monitoramento para que uma nova indisponibilidade
+gere alerta imediatamente."
+
+==================================================
+8. FIX THE 3-SECOND CLAIM
+==================================================
+
+The current page states that the buyer gives up in approximately 3 seconds.
+
+Remove this statement unless there is a specific validated source supporting
+that exact claim in this context.
+
+We have stronger evidence already.
+
+The measured mobile LCP is 22.7 seconds.
+
+Google's recommended good LCP threshold is 2.5 seconds.
+
+Explain that comparison directly.
+
+Possible human concept:
+
+"No teste em celular, o principal conteúdo levou 22,7 segundos para aparecer.
+A referência considerada boa pelo Google é até 2,5 segundos."
+
+Use accurate terminology internally but explain it naturally.
+
+The difference is powerful enough.
+
+Do not exaggerate it.
+
+==================================================
+9. VERIFY THE PERFORMANCE SCORE CONSISTENCY
+==================================================
+
+The current page appears to use:
+
+49/100
+
+in one place and:
+
+53/100
+
+in the live demonstration section.
+
+Investigate the source of this difference.
+
+Do not show conflicting numbers without explanation.
+
+Possible reasons may include different Lighthouse/PageSpeed runs.
+
+Choose a clear approach:
+
+- use one latest reproducible measurement;
+or
+- explicitly explain that performance scores fluctuate between runs and show the
+measured range/date.
+
+Do not silently pick the more dramatic number.
+
+==================================================
+10. REWRITE THE STRUCTURE AROUND A CONVERSATION
+==================================================
+
+The current page feels like:
+
+metric
+metric
+metric
+technical finding
+technical finding
+technical finding
+security
+SEO
+LGPD
+
+Instead, create a narrative.
+
+A possible structure to investigate:
+
+01 — OPENING
+
+"Eu primeiro quis entender o site que existe hoje."
+
+Short human introduction.
+
+02 — WHAT STOOD OUT
+
+Three or four numbers that summarize the situation.
+
+Not ten problems.
+
+03 — WHAT THIS MEANS FOR A CUSTOMER
+
+Translate technical findings into real customer journeys:
+
+- opening the site on a phone;
+- searching for a product;
+- returning from a product page;
+- receiving a shared link;
+- trying to access the site using www.
+
+04 — THE MOST IMPORTANT FINDINGS
+
+Organized around business consequences, not technical categories.
+
+05 — WHAT CAN BE IMPROVED
+
+Show that most problems have practical paths to resolution.
+
+06 — BEFORE / AFTER
+
+Simple and visual.
+
+07 — TECHNICAL EVIDENCE
+
+Expandable / secondary.
+
+08 — CLOSING
+
+Conversation, not pressure.
+
+This is a direction, not a mandatory structure.
+
+Use your judgment.
+
+==================================================
+11. PRIORITIZE THE MOST CONVINCING FINDINGS
+==================================================
+
+Do not give the same visual weight to every finding.
+
+The owner will remember only a few.
+
+Identify the strongest, easiest-to-understand findings.
+
+Likely candidates include:
+
+- 22.7s mobile LCP;
+- 24.3 MB homepage;
+- search for "leite" returning irrelevant results;
+- www certificate warning;
+- mobile/layout problems;
+- poor WhatsApp preview;
+- cookie experience;
+- downtime observed during measurement.
+
+Secondary technical findings may remain available but should not dominate the
+story.
+
+Do not make the page feel like 20 accusations.
+
+==================================================
+12. DATA VISUALIZATION
+==================================================
+
+I want the page to feel more technologically sophisticated, but through DATA,
+not futuristic decoration.
+
+Introduce a SMALL number of meaningful data visualizations.
+
+Do not add charts simply because charts look technical.
+
+Each chart must make a finding easier to understand for a non-technical owner.
+
+Strong candidates:
+
+A. MOBILE LOADING TIME
+
+Visually compare:
+
+CURRENT TEST: 22.7s
+
+GOOGLE GOOD-EXPERIENCE REFERENCE: 2.5s
+
+Use a horizontal bar/timeline that makes the difference immediately obvious.
+
+Label clearly that 2.5s is a reference threshold, not the new site's measured
+performance.
+
+Do not pretend the new site already achieves a number we have not measured.
+
+B. PAGE WEIGHT COMPOSITION
+
+Show:
+
+24.3 MB total
+
+23 MB approximately coming from images, according to the audit.
+
+A simple stacked bar or proportional visual would make this easy to understand.
+
+The message is:
+
+"The browser is downloading far more than necessary."
+
+C. REQUEST COMPOSITION
+
+If useful, visualize:
+
+123 resources loaded
+78 image requests
+
+Only if the visualization adds value beyond the page-weight chart.
+
+Do not overload the page.
+
+Two or three excellent visualizations are enough.
+
+Avoid:
+
+radar charts
+complex dashboards
+3D charts
+fake analytics
+charts without meaningful scale
+
+==================================================
+13. MOTION
+==================================================
+
+Add purposeful motion to make the diagnostic feel polished and technological.
+
+Technology should be felt through presentation quality.
+
+Potential motion:
+
+- numbers count up when entering the viewport;
+- comparison bars grow to their measured values;
+- before/after states reveal progressively;
+- chart segments animate once;
+- findings subtly enter as the user scrolls;
+- a customer-journey diagram reveals step by step.
+
+Keep motion restrained.
+
+No continuous floating objects.
+No parallax spectacle.
+No particle backgrounds.
+No animated neon grids.
+No cursor gimmicks.
+
+Use native CSS / SVG / IntersectionObserver where practical.
+
+Do not add a heavy animation library solely for this page.
+
+Respect prefers-reduced-motion.
+
+The page should remain printable and understandable without animation.
+
+==================================================
+14. TECHNOLOGY WITHOUT "AI WEBSITE" AESTHETICS
+==================================================
+
+The current design uses several visual patterns commonly associated with
+developer/AI/SaaS landing pages:
+
+- nearly black background;
+- blue/violet radial glows;
+- dot-grid backgrounds;
+- monospaced labels everywhere;
+- pill badges;
+- many dark rounded cards;
+- large technical numbers;
+- icon + card repeated structures.
+
+Do NOT simply remove the dark visual identity.
+
+Audit whether the combination is making the page feel generic.
+
+Use the installed:
+
+frontend-design
+impeccable
+ui-ux-pro-max
+
+to critique the current visual language.
+
+I want something:
+
+modern
+premium
+technical
+credible
+
+but also:
+
+human
+commercial
+clear
+
+Do not make it look like:
+
+AI SaaS
+cybersecurity startup
+developer portfolio
+crypto dashboard
+
+Technology can come from:
+
+excellent information design
+animated comparisons
+precise typography
+interactive evidence
+clean transitions
+data visualization
+clear hierarchy
+
+==================================================
+15. TYPOGRAPHY
+==================================================
+
+Review the typography hierarchy.
+
+Keep monospaced typography where it helps signal:
+
+a measured value
+a technical detail
+a code-like piece of evidence
+
+Do NOT make the business owner read an interface that looks like a terminal.
+
+Body copy should feel comfortable and conversational.
+
+Titles should feel editorial and confident rather than dramatic.
+
+==================================================
+16. REWRITE FINDING TITLES
+==================================================
+
+Audit every finding title.
+
+Some current examples are effective but too sensational.
+
+Instead of trying to make every card a headline, let the evidence speak.
+
+The pattern should be:
+
+WHAT HAPPENS
+→
+WHAT IT MEANS
+→
+EVIDENCE
+→
+HOW WE ADDRESS IT
+
+Example conceptual transformation:
+
+CURRENT:
+
+"Você está perdendo venda agora"
+
+BETTER DIRECTION:
+
+"Alguns pontos hoje tornam a compra mais difícil"
+
+CURRENT:
+
+"Você é invisível no Google e no WhatsApp"
+
+BETTER DIRECTION:
+
+"Google e WhatsApp podem trabalhar melhor a favor da Arguto"
+
+CURRENT:
+
+"Cliente que não consegue nem entrar"
+
+BETTER DIRECTION:
+
+"Há situações em que o acesso já começa com atrito"
+
+Do NOT blindly use these exact alternatives.
+
+Write the best natural Brazilian Portuguese version.
+
+==================================================
+17. SEARCH EXAMPLE
+==================================================
+
+The "leite" example is excellent because anyone understands it.
+
+Give this more storytelling power.
+
+Rather than:
+
+"leite → 10 balas"
+
+consider visually demonstrating:
+
+CLIENT TYPES:
+
+leite
+
+CURRENT SEARCH:
+
+10 results
+
+EXPECTED:
+
+products most relevant to "leite"
+
+Then explain:
+
+"The search finds the word inside product names, but doesn't prioritize what the
+buyer probably means."
+
+Keep the technical explanation inside details.
+
+This may be more convincing than several SEO findings combined.
+
+==================================================
+18. WHATSAPP EXAMPLE
+==================================================
+
+Make the WhatsApp finding visual.
+
+Instead of only saying there is no Open Graph:
+
+show a simple before/after preview concept:
+
+TODAY:
+plain URL / weak preview
+
+WITH PROPER METADATA:
+Arguto title + image + description
+
+Do not fabricate an actual WhatsApp screenshot if we do not have one.
+
+A clearly labeled illustrative preview is fine.
+
+Make explicit if it is a simulation.
+
+==================================================
+19. PRIVACY / LGPD LANGUAGE
+==================================================
+
+Be careful.
+
+We are not providing a legal opinion.
+
+Do not claim that Arguto is definitively violating the LGPD unless a legal
+professional has validated that conclusion.
+
+The audit identified practices that deserve correction, including cookie
+consent behavior and transparency.
+
+Rename:
+
+"Risco jurídico (LGPD)"
+
+to a more responsible human direction such as:
+
+"Privacidade e consentimento"
+
+or:
+
+"Pontos de privacidade que merecem atenção"
+
+Explain observed behavior.
+
+Reference ANPD guidance when appropriate.
+
+Use wording such as:
+
+"A prática atual merece ajuste para ficar alinhada às boas práticas de
+consentimento e transparência."
+
+Avoid:
+
+"isso é ilegal"
+
+"isso viola diretamente a LGPD"
+
+unless independently legally verified.
+
+Technical/legal references may appear in the detail section.
+
+==================================================
+20. STRUCTURED DATA / GOOGLE CLAIMS
+==================================================
+
+Fix the current claim that without JSON-LD:
+
+"Google cannot show price or availability."
+
+Use precise language.
+
+Structured product data can make eligible product pages capable of enhanced
+search results that may include information such as price and availability.
+
+It does not guarantee Google will show them.
+
+Explain it to the owner simply:
+
+"Hoje o site não fornece ao Google várias informações estruturadas que poderiam
+ajudar os produtos a aparecer de forma mais completa nos resultados."
+
+Then technical detail can explain Product structured data.
+
+==================================================
+21. DOWNTIME
+==================================================
+
+19 minutes of observed downtime is significant, but it is also a single
+observed incident with unknown cause.
+
+Do not make it one of the four hero metrics unless, after reviewing the
+presentation, you believe that is responsible and contextually appropriate.
+
+Consider whether a more robust metric such as:
+
+123 resources
+23 MB images
+22.7s LCP
+
+belongs in the hero instead.
+
+The downtime finding can remain important later:
+
+"Durante os testes, houve uma indisponibilidade de 19 minutos."
+
+"Não conseguimos determinar a causa."
+
+"Por isso, monitoramento passa a ser importante."
+
+This is honest and stronger than dramatization.
+
+==================================================
+22. BEFORE / AFTER
+==================================================
+
+The current comparison table is useful but too technical.
+
+Redesign it for a business owner.
+
+Possible model:
+
+HOJE
+→
+COM A NOVA EXPERIÊNCIA
+
+"22,7s para o principal conteúdo aparecer no teste móvel"
+→
+"Uma página construída desde o início para carregar muito mais rápido"
+
+Do NOT claim an unmeasured future number.
+
+If we have already measured the new prototype, use it only if that measurement
+is documented and reproducible.
+
+Avoid terms like:
+
+HSTS
+Secure cookie
+JSON-LD
+
+in the primary comparison.
+
+Those belong to technical detail.
+
+==================================================
+23. REASSURE THE CLIENT
+==================================================
+
+An important commercial message is missing.
+
+Arguto may hear "new ecommerce" and think:
+
+"Are you going to replace Protheus?"
+
+"Will employees have to learn a new workflow?"
+
+"Will we need to register every product again?"
+
+"Will the B2B admin change?"
+
+The approved project strategy is to preserve what already works and modernize
+the customer-facing experience.
+
+Add a concise reassurance somewhere appropriate.
+
+Concept:
+
+"The proposal is not to throw away the operation that already works behind the
+site."
+
+"Protheus, internal product registration and the current administrative flow
+remain part of the operation."
+
+"We modernize the customer experience and reuse existing business rules and
+integrations wherever possible."
+
+Use the exact approved architecture already documented in this project.
+
+Do not promise something technically unconfirmed.
+
+This point may be extremely important to the owner.
+
+==================================================
+24. HUMAN FREELANCER POSITIONING
+==================================================
+
+The current closing says:
+
+"Você fala direto comigo. Sem gerente de conta, sem terceirizado."
+
+The concept is useful.
+
+The phrasing sounds defensive and unnecessarily attacks another business model.
+
+Humanize it.
+
+Possible direction:
+
+"Eu mesmo acompanho o projeto do diagnóstico à entrega."
+
+or:
+
+"Do levantamento técnico à implantação, o acompanhamento é direto comigo."
+
+Again, write the best natural Portuguese version.
+
+==================================================
+25. CLOSING
+==================================================
+
+Do not finish with pressure.
+
+The current:
+
+"Você já sabe o que está custando venda. Agora dá para resolver."
+
+again states a sales-loss causality we did not quantify.
+
+The closing should feel like the natural conclusion of the diagnosis.
+
+Possible direction:
+
+"O site atual já cumpre um papel importante. Agora existe uma oportunidade clara
+de tornar essa experiência mais rápida, mais simples e mais preparada para a
+forma como o cliente compra hoje."
+
+Then:
+
+"Eu preparei uma proposta de redesenho pensando justamente nisso."
+
+CTA:
+
+"Vamos conversar sobre o projeto"
+
+may feel more human than simply:
+
+"Fale no WhatsApp"
+
+Evaluate.
+
+==================================================
+26. ADD A PERSONAL TOUCH
+==================================================
+
+This page should visibly feel prepared FOR ARGUTO.
+
+Not a diagnostic template where the company name was replaced.
+
+Use references from the actual audit and actual ecommerce workflow.
+
+The "leite" search example is valuable because it is specific.
+
+The actual WhatsApp sharing issue is specific.
+
+The www issue is specific.
+
+The real mobile experience is specific.
+
+These details make the work credible.
+
+Prefer three highly specific findings over ten generic warnings.
+
+==================================================
+27. DO NOT REMOVE TECHNICAL CREDIBILITY
+==================================================
+
+Humanization does NOT mean dumbing down the work.
+
+Keep:
+
+- measurement dates;
+- tool names when useful;
+- reproducible evidence;
+- PageSpeed links;
+- technical detail disclosure;
+- exact values;
+- methodology.
+
+But treat this as a hierarchy.
+
+BUSINESS STORY FIRST.
+
+TECHNICAL PROOF SECOND.
+
+A non-technical owner should understand 90% of the page without opening a single
+technical detail.
+
+An IT professional should be able to open the details and verify the findings.
+
+==================================================
+28. USE THE INSTALLED SKILLS
+==================================================
 
 Use:
 
 frontend-design
-for visual hierarchy, personality and polish.
+
+to assess whether the presentation has a memorable, credible visual direction
+without AI/SaaS clichés.
 
 impeccable
-for critique, anti-pattern detection, layout, typography, interaction and polish.
+
+for critique, typography, layout, information hierarchy, motion, polish and
+anti-pattern detection.
 
 ui-ux-pro-max
-for ecommerce UX, accessibility, interaction patterns, search, product discovery and responsive usability.
 
-Do not mechanically implement every recommendation.
+for readability, cognitive load, accessibility, responsive behavior and
+information-design decisions.
 
-==================================================
-6. SEARCH — MAJOR TECHNOLOGY OPPORTUNITY
-==================================================
+Use these as expert reviewers.
 
-The search is already one of the strongest elements of the homepage.
+Do NOT implement every suggestion mechanically.
 
-Analyze whether we can make it feel even more mature without rebuilding backend functionality.
-
-Evaluate:
-
-- autocomplete clarity;
-- keyboard navigation;
-- Ctrl+K behavior;
-- loading state;
-- empty state;
-- search result grouping;
-- distinction between product, supplier and category;
-- focus behavior;
-- mobile behavior;
-- perceived speed.
-
-Do not invent search capabilities that the existing data layer cannot support.
-
-But if the current frontend can improve interaction without new business logic, consider it.
-
-Search may be the strongest place to create a technological impression.
+The page's audience and purpose are authoritative.
 
 ==================================================
-7. HEADER / STICKY COMMERCE NAVIGATION
+29. GRAPH / MOTION QUALITY RULES
 ==================================================
 
-Evaluate whether a sticky or compact-on-scroll commerce header would improve usability.
+Any new chart must:
 
-Potentially keep the most important elements accessible while browsing long product sections:
+- have a clear question it answers;
+- be understandable without reading a technical manual;
+- show real audit data;
+- label benchmarks as benchmarks;
+- label goals as goals;
+- never present a target as an achieved result;
+- include accessible text equivalents;
+- work on mobile;
+- print correctly.
 
-- search;
-- account;
-- cart;
-- essential navigation.
+Any animation must:
 
-Do NOT implement sticky behavior automatically.
-
-First evaluate:
-
-- desktop value;
-- mobile value;
-- viewport occupation;
-- accessibility;
-- implementation complexity.
-
-If a compact sticky state improves long-session shopping, consider it.
-
-If it creates clutter, reject it.
+- improve comprehension;
+- run once when relevant;
+- not delay reading;
+- support prefers-reduced-motion;
+- not require a large library unless justified.
 
 ==================================================
-8. PRODUCT CARD — POLISH THE COMMERCE TOOL
+30. RESPONSIVE REVIEW
 ==================================================
 
-Do not redesign the product card unnecessarily.
+The diagnostic itself will likely be shown:
 
-Its current anatomy is fundamentally correct.
+- on a laptop in a meeting;
+- on a phone sent through WhatsApp;
+- potentially printed.
 
-Audit details such as:
+Review at:
 
-- image hierarchy;
-- supplier;
-- title;
-- SKU;
-- offer badge;
-- unavailable badge;
-- anonymous price state;
-- CTA;
-- hover;
-- focus;
-- carousel interaction.
+375
+430
+768
+1024
+1440
+1920
 
-Focus on polish and state quality.
+Charts must not become unreadable on mobile.
 
-The buyer should be able to scan many products rapidly.
-
-Do not increase card height for aesthetics.
-
-Do not hide useful metadata.
+Tables should preferably become more human card/comparison structures on small
+screens instead of requiring horizontal scrolling where possible.
 
 ==================================================
-9. MISSING PRODUCT IMAGE
+31. FINAL QUALITY TEST
 ==================================================
 
-This is one area I DO want investigated.
+After rewriting the page, read every visible paragraph and ask:
 
-The current development fallback showing a large gray "A" feels unfinished.
+"Would I naturally say this sentence out loud to the owner of Arguto?"
 
-Create or propose a proper Arguto missing-image state.
+If not, rewrite it.
 
-Direction:
+Then ask:
 
-- neutral;
-- unmistakably intentional;
-- compatible with the existing design system;
-- subtle Arguto branding;
-- not visually louder than real products.
+"Does this sentence state something the evidence actually proves?"
 
-Possibilities include:
+If not, soften or remove it.
 
-- Arguto monogram/symbol;
-- extremely subtle brand mark;
-- neutral product/package icon;
-- discreet "Imagem indisponível" treatment.
+Then ask:
 
-Do not make the placeholder look like an advertisement.
+"Does the owner need this technical term to make the decision?"
 
-It should simply make bad catalog data still look professionally handled.
+If not, move it into technical details.
 
-Test it alongside real product images.
+Then ask:
+
+"Does this element feel like a generic AI landing page?"
+
+If yes, simplify or redesign it.
 
 ==================================================
-10. SERVICE STRIP
+32. OUTPUT / WORKFLOW
 ==================================================
 
-Review the current commercial information:
+Before modifying code, give me a concise audit with:
 
-- Compre conosco
-- Entrega
-- Vendas Corporativas
+1. Copy that sounds robotic or AI-generated.
+2. Claims that are too absolute.
+3. Technical terminology that should move to secondary detail.
+4. Visual patterns that make the page look like a generic tech/AI landing page.
+5. The proposed new narrative structure.
+6. The 2–3 data visualizations you recommend.
+7. Motion you recommend and why.
+8. Elements you recommend preserving exactly as they are.
 
-These are useful ecommerce messages.
+Then implement the redesign.
 
-Do NOT remove them merely because three informational cards are a common pattern.
+Do not ask me to approve every sentence.
 
-Instead ask:
+Use judgment.
 
-Is this the best presentation?
+After implementation, provide:
 
-Could it be:
-
-- more compact;
-- more integrated;
-- easier to scan;
-- visually lighter;
-- more commerce-oriented?
-
-Preserve the information if it benefits the buyer.
-
-Avoid generic marketing-card aesthetics.
-
-==================================================
-11. SUPPLIER SECTION
-==================================================
-
-The current supplier section is already strong.
-
-Do not redesign it unless there is a clear improvement.
-
-Possible areas to review:
-
-- normalization of logo scale;
-- whitespace;
-- hover/focus;
-- click affordance;
-- carousel behavior;
-- link to supplier catalog;
-- mobile interaction.
-
-Supplier logos should function primarily as:
-
-CATALOG DISCOVERY + TRUST.
-
-Not as institutional storytelling.
+- the main copy changes;
+- removed/softened claims;
+- charts added and their data source;
+- motion added;
+- technical evidence preserved;
+- any finding that still needs verification.
 
 ==================================================
-12. CHANNELS
+33. FINAL PRINCIPLE
 ==================================================
 
-Keep the distinction between commercial Channels and product Categories.
+I do not want Arguto to feel:
 
-The latest treatment improved this.
+"Someone generated a report about our website."
 
-Only refine if an actual UX issue exists.
+I want them to feel:
 
-==================================================
-13. CUSTOMER ONBOARDING
-==================================================
+"Renan took the time to understand our site, tested it like one of our customers,
+found problems we can actually see, and came here with a practical plan to make
+it better."
 
-The latest 01 / 02 / 03 / 04 editorial treatment is approved in principle.
-
-Do not redesign it again without a real reason.
-
-It should remain visible only to relevant anonymous/prospect users.
-
-Authenticated customers should not receive customer-acquisition messaging unnecessarily.
-
-==================================================
-14. MICROINTERACTIONS
-==================================================
-
-Evaluate whether selected microinteractions could make the ecommerce feel more responsive.
-
-Candidates:
-
-- search focus;
-- menu hover;
-- category cards;
-- product CTA;
-- carousel arrows;
-- supplier logos;
-- "Ver todos";
-- cart;
-- login/account state.
-
-Use subtle timings around 150–250ms where appropriate.
-
-Prefer CSS when enough.
-
-No animation for spectacle.
-
-Respect reduced motion.
-
-==================================================
-15. CART EXPERIENCE
-==================================================
-
-Without changing business rules, consider whether the frontend can eventually provide stronger feedback when the customer interacts with the cart.
-
-Examples to evaluate:
-
-- immediate visual confirmation;
-- mini-cart;
-- updated quantity indicator;
-- toast;
-- button state transition;
-- optimistic-looking feedback only when technically safe.
-
-Do not implement fake optimistic behavior that could conflict with the legacy backend.
-
-Do not rebuild cart logic.
-
-This is primarily an interaction-quality review.
-
-==================================================
-16. B2B PRODUCTIVITY
-==================================================
-
-Think beyond conventional ecommerce aesthetics.
-
-A recurring B2B buyer may purchase frequently and value speed.
-
-Evaluate whether there are opportunities for productivity-oriented UX, now or later, such as:
-
-- easy access to orders;
-- repeat-purchase entry point;
-- account-aware shortcuts;
-- faster catalog navigation.
-
-IMPORTANT:
-
-Do not implement features unless the existing data/business layer supports them.
-
-If something would be valuable but requires backend support, document it as:
-
-FUTURE B2B OPPORTUNITY
-
-not part of this homepage refinement.
-
-==================================================
-17. DO NOT ADD INSTITUTIONAL CONTENT
-==================================================
-
-This instruction is explicit.
-
-Do not add homepage sections about:
-
-- Arguto history;
-- distribution center;
-- company scale;
-- fleet;
-- geography;
-- operational statistics;
-- timeline;
-- corporate storytelling.
-
-Those belong to the Institutional experience unless there is a direct commercial reason to surface a specific fact.
-
-This homepage is ecommerce.
-
-Do not turn it into a corporate landing page.
-
-==================================================
-18. PERFORMANCE STILL MATTERS
-==================================================
-
-Any "technology" improvement that makes the page heavier is suspicious.
-
-Preserve the performance strategy.
-
-No unnecessary dependency.
-
-No heavy animation library for trivial interactions.
-
-No oversized decorative assets.
-
-No unnecessary hydration.
-
-Keep the page fast.
-
-Speed itself contributes to perceived technological maturity.
-
-==================================================
-19. FINAL AUDIT QUESTIONS
-==================================================
-
-Before changing code, answer:
-
-1. Does the current homepage already have enough visual polish?
-
-2. Are there any remaining areas that genuinely look unfinished?
-
-3. Where can technological maturity be improved through UX rather than decoration?
-
-4. Would a compact sticky commerce header materially improve long browsing sessions?
-
-5. Can search interaction be improved further with the current architecture?
-
-6. Is the missing-product-image fallback professional enough?
-
-7. Can the Service Strip become better without losing useful commercial information?
-
-8. Are supplier interactions already sufficient?
-
-9. Are there inconsistencies in hover, focus, loading or feedback states?
-
-10. Is there anything that should NOT be touched anymore?
-
-==================================================
-20. OUTPUT BEFORE IMPLEMENTATION
-==================================================
-
-Give me a concise final audit.
-
-Use only these categories:
-
-KEEP
-Already strong. Do not change.
-
-REFINE
-Small change with clear UX or visual value.
-
-HIGH-VALUE IMPROVEMENT
-A meaningful remaining opportunity.
-
-FUTURE B2B OPPORTUNITY
-Useful, but requires real backend/data support.
-
-REJECT
-Ideas you considered but believe would hurt ecommerce usability or add unnecessary decoration.
-
-Do not manufacture improvements simply to fill every category.
-
-Then tell me which changes you actually recommend implementing TODAY.
-
-Keep the number small.
-
-==================================================
-21. IMPLEMENT ONLY WHAT IS JUSTIFIED
-==================================================
-
-After the audit, implement only improvements that have clear value.
-
-Do not redesign successful sections again.
-
-This is a final refinement pass.
-
-The homepage must remain clearly focused on:
-
-SELLING.
-
-The ideal outcome:
-
-A buyer opens Arguto and thinks:
-
-"Tem muita coisa aqui e é fácil comprar."
-
-A recurring customer thinks:
-
-"Esse site me ajuda a trabalhar."
-
-The owner thinks:
-
-"Isso parece um ecommerce muito mais moderno."
-
-And a designer thinks:
-
-"They resisted the temptation to overdesign an ecommerce platform."
-
-Final principle:
-
-DO NOT MAKE THE STORE LOOK TECHNOLOGICAL.
-
-MAKE SHOPPING THROUGH THE STORE FEEL TECHNOLOGICALLY MATURE.
+That is the standard for every word and every design decision on this page.
