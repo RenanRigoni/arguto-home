@@ -21,67 +21,122 @@
 <script>document.documentElement.className += ' js';</script>
 <style>
   :root {
-    --surface:          #07070F;
-    --surface-muted:    #0B0B16;
-    --surface-elevated: #10101E;
-    --surface-card:     #0E1428;
-    --surface-footer:   #080E1A;
+    /* ── PAPEL: a base da leitura longa ─────────────── */
+    --paper:       #FFFFFF;
+    --paper-warm:  #F6F8FC;
+    --paper-tint:  #E9F0F9;
 
-    --brand-100: #152240;
-    --brand-200: #1E3566;
+    /* ── TINTA ───────────────────────────────────────── */
+    --ink:         #0F1F3D;   /* títulos, navy profundo  16.4:1 no branco */
+    --ink-body:    #47566B;   /* corpo                    7.5:1 no branco */
+    /* 5A6A80 e não 64748B: o tom mais claro ficava em 4,15:1 sobre a faixa
+       azulada, abaixo do mínimo AA. Este passa em todos os fundos claros. */
+    --ink-muted:   #5A6A80;   /* secundário               5.5:1 no branco */
+    --line:        #E3E9F2;
+    --line-soft:   #EDF1F7;
+
+    /* ── ESCURO: agora é momento, não padrão ─────────── */
+    --navy:        #0B1729;
+    --navy-deep:   #071120;
+    --navy-card:   #14243D;
+    --on-navy:       #F2F6FC;
+    --on-navy-body:  #AFC0D6;
+    --on-navy-muted: #8FA3BF;
+
+    /* ── MARCA ───────────────────────────────────────── */
     --brand-400: #60A5FA;
     --brand-500: #3B82F6;
     --brand-600: #2563EB;
     --brand-700: #1D4ED8;
+    --brand-800: #1B3FA8;
 
-    --content-primary:   #F1F5F9;
-    --content-secondary: #94A3B8;
-    --content-muted:     #7C8A9C;
-
-    --emerald: #10B981;
-    --red:     #F87171;
-    --amber:   #FBBF24;
-    --violet:  #8B5CF6;
-
-    --border:        rgba(255,255,255,.08);
-    --border-soft:   rgba(255,255,255,.06);
-    --border-strong: rgba(255,255,255,.12);
+    /* semânticas legíveis em fundo claro */
+    --ok:   #047857;
+    --warn: #B45309;
+    --bad:  #B91C1C;
+    /* e as mesmas em fundo escuro */
+    --ok-d:   #34D399;
+    --warn-d: #FBBF24;
+    --bad-d:  #F87171;
 
     --font-display: 'Bricolage Grotesque', 'Arial Black', system-ui, sans-serif;
     --font-sans:    'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-mono:    'DM Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 
-    --radius-lg: 1.25rem;
-    --radius-md: .875rem;
-    --radius-sm: .5rem;
+    --radius-lg: 1rem;
+    --radius-md: .75rem;
+    --radius-sm: .45rem;
     --radius-pill: 9999px;
 
     --measure: 64ch;
     --ease: cubic-bezier(.16,1,.3,1);
   }
 
+  /* ═══════════════════════════════════════════════════
+     FAIXAS: cada seção declara seu tema e todos os
+     componentes internos leem essas variáveis. É o que
+     permite o mesmo card funcionar no claro e no escuro.
+     ═══════════════════════════════════════════════════ */
+  .band {
+    --bg: var(--paper-warm);
+    --fg: var(--ink-body);
+    --fg-strong: var(--ink);
+    --fg-muted: var(--ink-muted);
+    --hair: var(--line);
+    --hair-soft: var(--line-soft);
+    --card: #fff;
+    --card-hair: var(--line);
+    --card-shadow: 0 1px 2px rgba(15,31,61,.04), 0 10px 30px rgba(15,31,61,.055);
+    --accent: var(--brand-700);
+    --accent-soft: rgba(37,99,235,.08);
+    --c-ok: var(--ok); --c-warn: var(--warn); --c-bad: var(--bad);
+    --track: #DDE5F0;
+    background: var(--bg);
+    color: var(--fg);
+  }
+  .band--paper { --bg: var(--paper); --card: var(--paper-warm); --card-shadow: none; }
+  .band--tint  { --bg: var(--paper-tint); --card: #fff; --track: #D3DEEE; }
+  .band--dark {
+    --bg: var(--navy);
+    --fg: var(--on-navy-body);
+    --fg-strong: var(--on-navy);
+    --fg-muted: var(--on-navy-muted);
+    --hair: rgba(255,255,255,.11);
+    --hair-soft: rgba(255,255,255,.07);
+    --card: var(--navy-card);
+    --card-hair: rgba(255,255,255,.11);
+    --card-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    --accent: var(--brand-400);
+    --accent-soft: rgba(96,165,250,.12);
+    --c-ok: var(--ok-d); --c-warn: var(--warn-d); --c-bad: var(--bad-d);
+    --track: rgba(255,255,255,.09);
+  }
+  /* variação de tom do tema escuro: exige band--dark junto, senão
+     herdaria a tinta clara e ficaria escuro sobre escuro */
+  .band--dark.band--deep { --bg: var(--navy-deep); }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; color-scheme: dark; -webkit-text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     font-family: var(--font-sans);
-    background: var(--surface);
-    color: var(--content-secondary);
+    background: var(--paper-warm);
+    color: var(--ink-body);
     -webkit-font-smoothing: antialiased;
     font-size: 1.0625rem;
-    line-height: 1.68;
+    line-height: 1.7;
     overflow-x: hidden;
   }
-  h1, h2, h3, h4 { color: var(--content-primary); font-weight: 700; letter-spacing: -.015em; }
+  h1, h2, h3, h4 { color: var(--fg-strong); font-weight: 700; letter-spacing: -.015em; }
   p { max-width: var(--measure); }
-  strong { color: var(--content-primary); font-weight: 600; }
-  a { color: var(--brand-400); }
-  a:not(.cta):not(.footer-meta a) { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: rgba(96,165,250,.4); }
+  strong { color: var(--fg-strong); font-weight: 600; }
+  a { color: var(--accent); }
+  a:not(.cta):not(.footer-meta a) {
+    text-decoration: underline; text-decoration-thickness: 1px;
+    text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
   a:not(.cta):hover { text-decoration-color: currentColor; }
-  :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 3px; }
-
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: var(--surface); }
-  ::-webkit-scrollbar-thumb { background: #232338; border-radius: 10px; }
+  :focus-visible { outline: 2px solid var(--brand-600); outline-offset: 3px; border-radius: 3px; }
+  .band--dark :focus-visible { outline-color: var(--brand-400); }
 
   .num { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
   .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -94,36 +149,58 @@
   }
   .skip:focus { top: 1rem; }
 
-  /* Respiro lateral acompanha a largura da tela: apertado no celular,
-     generoso no notebook. Sem isso o conteúdo encosta na borda entre 900 e 1180px. */
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(1.25rem, 4.5vw, 4rem); }
   .col  { max-width: 720px; }
+
+  /* ── PROGRESSO DE LEITURA ─────────────────────────────
+     Nativo, sem JS: a barra é ligada ao scroll do documento.
+     Onde não houver suporte, ela simplesmente não aparece. */
+  .progress { display: none; }
+  @supports (animation-timeline: scroll()) {
+    .progress {
+      display: block; position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 210;
+      background: linear-gradient(90deg, var(--brand-600), var(--brand-400));
+      transform-origin: left center; transform: scaleX(0);
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root block);
+    }
+    @keyframes progress-grow { to { transform: scaleX(1); } }
+  }
+  @media (prefers-reduced-motion: reduce) { .progress { display: none; } }
 
   /* ── TOPO ─────────────────────────────────────────── */
   .topbar {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(7,7,15,.9);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-soft);
+    /* opaco o bastante para não acinzentar quando passa sobre as faixas escuras */
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom: 1px solid var(--line);
   }
   .topbar-in {
     display: flex; align-items: center; justify-content: space-between;
-    gap: .75rem 1.5rem; flex-wrap: wrap;
-    /* só vertical: o lateral vem do .wrap e não pode ser zerado aqui */
-    padding-top: .95rem; padding-bottom: .95rem;
+    gap: .5rem 1.5rem; flex-wrap: wrap;
+    padding-top: .85rem; padding-bottom: .85rem;
   }
-  .logo { height: 21px; width: auto; color: #fff; display: block; }
+  .logo { height: 20px; width: auto; color: var(--ink); display: block; }
   .topbar-meta {
-    font-family: var(--font-mono); font-size: .7rem; color: var(--content-muted);
-    letter-spacing: .02em;
+    font-family: var(--font-mono); font-size: .7rem; color: var(--ink-muted);
+    display: flex; align-items: center; gap: .55rem;
   }
+  .topbar-here { color: var(--brand-700); }
+  .topbar-here:empty { display: none; }
+  .topbar-here::before { content: '· '; color: var(--ink-muted); }
+  @media (max-width: 560px) { .topbar-meta { font-size: .62rem; } }
 
-  /* ── HERO ─────────────────────────────────────────── */
-  .hero { padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(3rem, 6vw, 4.5rem); }
-  .hero-kicker {
-    font-size: 1.05rem; color: var(--content-secondary);
-    max-width: 54ch; margin-bottom: 1.75rem;
+  /* ── HERO (escuro: abertura) ──────────────────────── */
+  .hero {
+    padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(3.25rem, 7vw, 5rem);
+    position: relative; overflow: hidden;
   }
+  .hero::after {
+    content: ''; position: absolute; inset: auto 0 0 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(96,165,250,.35), transparent);
+  }
+  .hero-kicker { font-size: 1.05rem; color: var(--fg); max-width: 54ch; margin-bottom: 1.75rem; }
   .hero h1 {
     font-family: var(--font-display); font-weight: 800;
     font-size: clamp(2.4rem, 5.6vw, 4.6rem);
@@ -133,318 +210,332 @@
   .hero-lede { font-size: 1.14rem; max-width: 56ch; }
 
   /* ── SEÇÕES ───────────────────────────────────────── */
-  .sec { padding: clamp(3.25rem, 6.5vw, 5.5rem) 0; border-top: 1px solid var(--border-soft); }
-  .sec-muted { background: var(--surface-muted); }
-  .sec-head { margin-bottom: 2.5rem; }
+  .sec { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+  .sec + .sec { border-top: 1px solid var(--hair-soft); }
+  .sec-head { margin-bottom: 2.75rem; }
   .sec-index {
-    font-family: var(--font-mono); font-size: .72rem; color: var(--brand-400);
+    font-family: var(--font-mono); font-size: .72rem; color: var(--accent);
     letter-spacing: .12em; display: block; margin-bottom: .9rem;
   }
   .sec h2 {
-    font-size: clamp(1.6rem, 3.2vw, 2.25rem); line-height: 1.22;
+    font-size: clamp(1.65rem, 3.3vw, 2.3rem); line-height: 1.2;
     max-width: 24ch; margin-bottom: .9rem;
   }
   .sec-head p { font-size: 1.05rem; }
 
-  /* ── PARÁGRAFOS EM SEQUÊNCIA ──────────────────────── */
-  .prose p + p { margin-top: 1.1rem; }
   .prose { max-width: var(--measure); }
+  .prose p + p { margin-top: 1.15rem; }
 
-  /* ── NÚMEROS DE DESTAQUE ──────────────────────────── */
+  /* ── NÚMEROS: colunas divididas por fio, sem caixa ── */
   .figures {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: var(--border-soft);
-    border: 1px solid var(--border-soft); border-radius: var(--radius-lg);
-    overflow: hidden; margin-top: 3rem;
+    gap: 2.5rem; margin-top: 3rem;
+    padding-top: 2.25rem; border-top: 2px solid var(--fg-strong);
   }
-  .figure { background: var(--surface); padding: 1.75rem 1.5rem; }
-  .sec-muted .figure { background: var(--surface-muted); }
+  .figure { position: relative; }
+  .figure + .figure { padding-left: 2.5rem; border-left: 1px solid var(--hair); }
   .figure-val {
     font-family: var(--font-mono); font-weight: 500;
-    font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1;
-    color: var(--content-primary); margin-bottom: .7rem;
-    display: flex; align-items: baseline; gap: .12em;
+    font-size: clamp(2.1rem, 4.4vw, 3rem); line-height: 1;
+    color: var(--fg-strong); margin-bottom: .8rem;
+    display: flex; align-items: baseline; gap: .1em;
   }
-  .figure-unit { font-size: .5em; color: var(--content-secondary); }
-  .figure-cap { font-size: .9rem; line-height: 1.5; }
-  @media (max-width: 780px) { .figures { grid-template-columns: 1fr; } }
+  .figure-unit { font-size: .46em; color: var(--fg-muted); }
+  .figure-cap { font-size: .93rem; line-height: 1.55; }
+  @media (max-width: 820px) {
+    .figures { grid-template-columns: 1fr; gap: 0; }
+    .figure + .figure { padding-left: 0; border-left: 0; border-top: 1px solid var(--hair); }
+    .figure { padding: 1.5rem 0; }
+    .figure:first-child { padding-top: 0; }
+  }
 
   /* ── GRÁFICOS ─────────────────────────────────────── */
   .chart {
-    background: var(--surface-elevated); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: clamp(1.4rem, 3vw, 2rem);
+    background: var(--card); border: 1px solid var(--card-hair);
+    border-radius: var(--radius-lg); padding: clamp(1.5rem, 3vw, 2.25rem);
+    box-shadow: var(--card-shadow);
   }
   .chart + .chart { margin-top: 1.25rem; }
-  .chart-q { font-size: 1.08rem; color: var(--content-primary); font-weight: 600; margin-bottom: .4rem; }
-  .chart-sub { font-size: .92rem; margin-bottom: 1.6rem; max-width: 58ch; }
+  /* o gráfico de velocidade é o momento escuro dentro do claro */
+  .chart--spot {
+    --card: var(--navy); --card-hair: rgba(255,255,255,.12);
+    --fg: var(--on-navy-body); --fg-strong: var(--on-navy); --fg-muted: var(--on-navy-muted);
+    --accent: var(--brand-400); --track: rgba(255,255,255,.1); --hair-soft: rgba(255,255,255,.09);
+    color: var(--fg);
+    box-shadow: 0 18px 44px rgba(11,23,41,.22);
+  }
+  .chart--spot .chart-q, .chart--spot .bar-name, .chart--spot .bar-val { color: var(--on-navy); }
+  .chart-q { font-size: 1.1rem; color: var(--fg-strong); font-weight: 600; margin-bottom: .45rem; }
+  .chart-sub { font-size: .93rem; margin-bottom: 1.75rem; max-width: 58ch; color: var(--fg); }
 
   .bar-row + .bar-row { margin-top: 1.5rem; }
   .bar-label {
     display: flex; align-items: baseline; justify-content: space-between;
-    gap: 1rem; margin-bottom: .5rem; flex-wrap: wrap;
+    gap: 1rem; margin-bottom: .55rem; flex-wrap: wrap;
   }
-  .bar-name { font-size: .92rem; color: var(--content-primary); font-weight: 600; }
-  .bar-note { font-size: .82rem; color: var(--content-muted); }
-  .bar-val { font-family: var(--font-mono); font-size: 1.02rem; color: var(--content-primary); }
-  .bar-track {
-    height: 14px; background: rgba(255,255,255,.05);
-    border-radius: var(--radius-pill); overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%; border-radius: var(--radius-pill);
-    transform: scaleX(var(--to, 1)); transform-origin: left center;
-  }
-  .bar-fill.is-anim { transform: scaleX(0); }
-  .in .bar-fill.is-anim { transform: scaleX(var(--to)); transition: transform 1.1s var(--ease) .1s; }
-  .bar-current { background: linear-gradient(90deg, var(--brand-700), var(--brand-500)); }
-  .bar-ref { background: rgba(16,185,129,.55); }
+  .bar-name { font-size: .93rem; color: var(--fg-strong); font-weight: 600; }
+  .bar-note { font-size: .82rem; color: var(--fg-muted); font-weight: 400; }
+  .bar-val { font-family: var(--font-mono); font-size: 1.05rem; color: var(--fg-strong); }
+  .bar-track { height: 15px; background: var(--track); border-radius: var(--radius-pill); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: var(--radius-pill); transform: scaleX(var(--to,1)); transform-origin: left center; }
+  .js .bar-fill.is-anim { transform: scaleX(0); }
+  .js .in .bar-fill.is-anim { transform: scaleX(var(--to)); transition: transform 1.15s var(--ease) .1s; }
+  .bar-current { background: linear-gradient(90deg, var(--brand-600), var(--brand-400)); }
+  .bar-ref { background: var(--ok-d); }
+  .band:not(.band--dark) .chart:not(.chart--spot) .bar-ref { background: var(--ok); }
   .bar-scale {
     display: flex; justify-content: space-between;
-    font-family: var(--font-mono); font-size: .72rem; color: var(--content-muted);
-    margin-top: .7rem; padding-top: .6rem; border-top: 1px solid var(--border-soft);
+    font-family: var(--font-mono); font-size: .72rem; color: var(--fg-muted);
+    margin-top: .8rem; padding-top: .65rem; border-top: 1px solid var(--hair-soft);
   }
 
-  /* barra empilhada de peso */
-  .stack { display: flex; height: 46px; border-radius: var(--radius-md); overflow: hidden; }
+  .stack { display: flex; height: 48px; border-radius: var(--radius-md); overflow: hidden; }
   .stack-seg { display: flex; align-items: center; justify-content: center; min-width: 0; }
   .stack-seg span {
     font-family: var(--font-mono); font-size: .78rem; color: #fff;
     padding: 0 .4rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .seg-img { background: var(--brand-600); flex: 23.0; }
-  .seg-rest { background: #2A3550; flex: 1.3; }
-  .stack-legend {
-    display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; margin-top: 1rem;
-    font-size: .86rem;
-  }
+  .seg-img  { background: var(--brand-600); flex: 23.0; }
+  .seg-rest { background: #93A4BF; flex: 1.3; }
+  .band--dark .seg-rest { background: #2A3550; }
+  .stack-legend { display: flex; flex-wrap: wrap; gap: .6rem 1.75rem; margin-top: 1.1rem; font-size: .88rem; }
   .stack-legend span { display: flex; align-items: center; gap: .5rem; }
   .dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
 
   /* ── DEMONSTRAÇÃO DE BUSCA ────────────────────────── */
   .search-demo {
-    background: var(--surface-elevated); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); overflow: hidden;
+    background: var(--card); border: 1px solid var(--card-hair);
+    border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--card-shadow);
   }
+  .band--paper .search-demo { --card: #fff; box-shadow: 0 1px 2px rgba(15,31,61,.04), 0 10px 30px rgba(15,31,61,.055); }
   .search-bar {
     display: flex; align-items: center; gap: .7rem;
-    padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
-    background: var(--surface-card);
+    padding: 1.05rem 1.3rem; border-bottom: 1px solid var(--hair);
+    background: var(--paper-warm);
   }
-  .search-bar svg { width: 17px; height: 17px; stroke: var(--content-muted); fill: none; stroke-width: 2; flex-shrink: 0; }
-  .search-typed { font-family: var(--font-mono); font-size: 1.05rem; color: var(--content-primary); }
-  .search-caret {
-    display: inline-block; width: 1px; height: 1.05em; background: var(--brand-400);
-    vertical-align: text-bottom; margin-left: 1px;
-  }
-  .search-results { padding: .6rem 0; }
-  .search-results li {
-    list-style: none; display: flex; align-items: flex-start; gap: .75rem;
-    padding: .6rem 1.25rem; font-size: .92rem;
-  }
-  .search-results li .x {
-    font-family: var(--font-mono); color: var(--red); flex-shrink: 0; line-height: 1.6;
-  }
-  .search-results li em { font-style: normal; color: var(--brand-400); }
-  .search-foot {
-    padding: 1rem 1.25rem; border-top: 1px solid var(--border);
-    font-size: .92rem; background: rgba(248,113,113,.05);
-  }
-  .search-foot strong { color: var(--red); }
+  .band--dark .search-bar, .band--paper .search-bar { background: var(--paper-tint); }
+  .band--dark .search-bar { background: rgba(255,255,255,.04); }
+  .search-bar svg { width: 17px; height: 17px; stroke: var(--fg-muted); fill: none; stroke-width: 2; flex-shrink: 0; }
+  .search-typed { font-family: var(--font-mono); font-size: 1.06rem; color: var(--fg-strong); }
+  .search-caret { display: inline-block; width: 1px; height: 1.05em; background: var(--brand-600); vertical-align: text-bottom; margin-left: 1px; }
+  .search-results { padding: .5rem 0; }
+  .search-results li { list-style: none; display: flex; align-items: flex-start; gap: .8rem; padding: .62rem 1.3rem; font-size: .93rem; }
+  .search-results li .x { color: var(--c-bad); flex-shrink: 0; line-height: 1.7; font-size: .85rem; }
+  .search-results li em { font-style: normal; color: var(--brand-700); background: rgba(37,99,235,.11); border-radius: 3px; padding: 0 .15em; font-weight: 600; }
+  .band--dark .search-results li em { color: var(--brand-400); background: rgba(96,165,250,.16); }
+  .search-foot { padding: 1.1rem 1.3rem; border-top: 1px solid var(--hair); font-size: .93rem; background: rgba(185,28,28,.045); }
+  .band--dark .search-foot { background: rgba(248,113,113,.07); }
+  .search-foot strong { color: var(--c-bad); }
+  .search-mark { font-style: normal; color: var(--brand-700); font-weight: 700; }
+  .band--dark .search-mark { color: var(--brand-400); }
 
   /* ── PREVIEW WHATSAPP ─────────────────────────────── */
-  .previews { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .previews { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   @media (max-width: 760px) { .previews { grid-template-columns: 1fr; } }
-  .preview-col > h3 { font-size: .95rem; font-weight: 600; margin-bottom: .8rem; }
+  .preview-col > h3 { font-size: .93rem; font-weight: 600; margin-bottom: .85rem; color: var(--fg-muted); text-transform: uppercase; letter-spacing: .06em; }
   .wa-card {
-    background: #0F1B24; border: 1px solid var(--border);
-    border-radius: var(--radius-md); padding: .75rem;
-    border-left: 3px solid #2A3550;
+    background: var(--card); border: 1px solid var(--card-hair);
+    border-left: 3px solid #C3CFE0;
+    border-radius: var(--radius-md); padding: .85rem; box-shadow: var(--card-shadow);
   }
-  .wa-card.good { border-left-color: var(--emerald); }
+  .band--paper .wa-card { --card: #fff; }
+  .wa-card.good { border-left-color: var(--ok); }
+  .band--dark .wa-card.good { border-left-color: var(--ok-d); }
   .wa-thumb {
-    height: 92px; border-radius: var(--radius-sm); margin-bottom: .65rem;
-    background: linear-gradient(135deg, #152240, #1E3566);
+    height: 96px; border-radius: var(--radius-sm); margin-bottom: .7rem;
+    background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
     display: flex; align-items: center; justify-content: center;
-    color: var(--brand-400); font-family: var(--font-mono); font-size: .72rem;
-    text-align: center; padding: .5rem;
+    color: #fff; font-family: var(--font-mono); font-size: .72rem; text-align: center; padding: .5rem;
   }
-  .wa-title { font-size: .88rem; color: var(--content-primary); font-weight: 600; margin-bottom: .2rem; }
-  .wa-desc { font-size: .78rem; color: var(--content-secondary); line-height: 1.45; }
-  .wa-url { font-size: .74rem; color: var(--content-muted); font-family: var(--font-mono); margin-top: .4rem; word-break: break-all; }
-  .sim-note { font-size: .78rem; color: var(--content-muted); margin-top: 1rem; font-style: italic; }
+  .wa-title { font-size: .9rem; color: var(--fg-strong); font-weight: 600; margin-bottom: .22rem; }
+  .wa-desc { font-size: .79rem; color: var(--fg); line-height: 1.45; }
+  .wa-url { font-size: .75rem; color: var(--fg-muted); font-family: var(--font-mono); margin-top: .45rem; word-break: break-all; }
+  .sim-note { font-size: .8rem; color: var(--fg-muted); margin-top: 1.1rem; font-style: italic; }
 
   /* ── JORNADA ──────────────────────────────────────── */
-  .journey { display: grid; gap: 0; margin-top: .5rem; }
-  .step {
-    display: grid; grid-template-columns: auto 1fr; gap: 1.5rem;
-    padding: 1.75rem 0; border-top: 1px solid var(--border-soft);
-  }
-  .step:last-child { border-bottom: 1px solid var(--border-soft); }
-  .step-n {
-    font-family: var(--font-mono); font-size: .82rem; color: var(--brand-400);
-    padding-top: .25rem; width: 2.5ch;
-  }
-  .step h3 { font-size: 1.14rem; margin-bottom: .5rem; max-width: 34ch; }
-  .step p { font-size: .98rem; }
+  .journey { display: grid; margin-top: .5rem; }
+  .step { display: grid; grid-template-columns: auto 1fr; gap: 1.75rem; padding: 1.9rem 0; border-top: 1px solid var(--hair); }
+  .step:last-child { border-bottom: 1px solid var(--hair); }
+  .step-n { font-family: var(--font-mono); font-size: .82rem; color: var(--accent); padding-top: .3rem; width: 2.5ch; }
+  .step h3 { font-size: 1.18rem; margin-bottom: .55rem; max-width: 34ch; }
+  .step p { font-size: .99rem; }
   .step-ev {
-    display: inline-block; margin-top: .8rem;
-    font-family: var(--font-mono); font-size: .84rem; color: var(--content-primary);
-    background: rgba(96,165,250,.09); border: 1px solid rgba(96,165,250,.22);
-    padding: .35rem .7rem; border-radius: var(--radius-sm);
+    display: inline-block; margin-top: .9rem;
+    font-family: var(--font-mono); font-size: .84rem; color: var(--fg-strong);
+    background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    padding: .38rem .75rem; border-radius: var(--radius-sm);
   }
-  @media (max-width: 600px) {
-    .step { grid-template-columns: 1fr; gap: .5rem; }
-    .step-n { padding-top: 0; }
-  }
+  @media (max-width: 600px) { .step { grid-template-columns: 1fr; gap: .5rem; } .step-n { padding-top: 0; } }
 
   /* ── ACHADOS ──────────────────────────────────────── */
-  .group { margin-top: 3rem; }
-  .group:first-of-type { margin-top: 2rem; }
+  .group { margin-top: 3.25rem; }
+  .group:first-of-type { margin-top: 2.25rem; }
   .group > h3 {
-    font-size: 1.3rem; margin-bottom: .5rem; max-width: 34ch;
-    padding-bottom: .9rem; border-bottom: 2px solid var(--brand-700);
-    display: inline-block;
+    font-size: 1.32rem; margin-bottom: .5rem; max-width: 34ch;
+    padding-bottom: .85rem; border-bottom: 2px solid var(--accent); display: inline-block;
   }
-  .group > .group-sub { font-size: .98rem; margin: .9rem 0 1.5rem; }
+  .group > .group-sub { font-size: .99rem; margin: .95rem 0 1.6rem; }
 
-  .finds { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .finds { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; }
   @media (max-width: 820px) { .finds { grid-template-columns: 1fr; } }
   .find {
-    background: var(--surface-elevated); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 1.5rem;
-    display: flex; flex-direction: column;
+    background: var(--card); border: 1px solid var(--card-hair);
+    border-radius: var(--radius-lg); padding: 1.6rem; display: flex; flex-direction: column;
+    box-shadow: var(--card-shadow);
   }
   .find.wide { grid-column: 1 / -1; }
   @media (max-width: 820px) { .find.wide { grid-column: auto; } }
-  .find h4 { font-size: 1.06rem; line-height: 1.4; margin-bottom: .6rem; max-width: 44ch; }
-  .find > p { font-size: .95rem; }
+  .find h4 { font-size: 1.07rem; line-height: 1.4; margin-bottom: .6rem; max-width: 44ch; }
+  .find > p { font-size: .96rem; }
   .find .ev {
-    font-family: var(--font-mono); font-size: .88rem; color: var(--content-primary);
-    margin-top: .9rem; padding-left: .85rem; border-left: 2px solid var(--brand-600);
+    font-family: var(--font-mono); font-size: .87rem; color: var(--fg-strong);
+    margin-top: 1rem; padding-left: .9rem; border-left: 2px solid var(--accent);
   }
   .fix {
-    display: flex; align-items: center; gap: .55rem;
-    margin-top: 1.1rem; padding-top: .95rem; border-top: 1px solid var(--border-soft);
-    font-size: .85rem; color: var(--content-secondary);
+    display: flex; align-items: center; gap: .6rem;
+    margin-top: 1.15rem; padding-top: 1rem; border-top: 1px solid var(--hair-soft);
+    font-size: .86rem; color: var(--fg);
   }
   .fix .dot { width: 7px; height: 7px; border-radius: 50%; }
-  .fix-new .dot { background: var(--emerald); }
-  .fix-cfg .dot { background: var(--amber); }
-  .fix-inv .dot { background: var(--brand-400); }
+  .fix-new .dot { background: var(--c-ok); }
+  .fix-cfg .dot { background: var(--c-warn); }
+  .fix-inv .dot { background: var(--accent); }
 
   details.tech { margin-top: .9rem; }
   details.tech summary {
     cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: .4rem;
-    font-size: .82rem; color: var(--content-muted); padding: .5rem 0; min-height: 24px;
+    font-size: .83rem; color: var(--fg-muted); padding: .5rem 0; min-height: 24px;
   }
   details.tech summary::-webkit-details-marker { display: none; }
-  details.tech summary::before { content: '+'; font-family: var(--font-mono); color: var(--brand-400); }
+  details.tech summary::before { content: '+'; font-family: var(--font-mono); color: var(--accent); }
   details.tech[open] summary::before { content: '\2212'; }
-  details.tech summary:hover { color: var(--content-secondary); }
+  details.tech summary:hover { color: var(--fg-strong); }
   details.tech .tech-body {
-    font-size: .86rem; line-height: 1.6; color: var(--content-secondary);
-    background: var(--surface); border-radius: var(--radius-md);
-    padding: .95rem 1.1rem; margin-top: .3rem;
+    font-size: .87rem; line-height: 1.65; color: var(--fg);
+    background: var(--paper-warm); border: 1px solid var(--hair-soft);
+    border-radius: var(--radius-md); padding: 1rem 1.15rem; margin-top: .3rem;
   }
-  .sec-muted details.tech .tech-body { background: var(--surface-muted); }
+  .band--paper details.tech .tech-body { background: var(--paper-tint); }
+  .band--dark details.tech .tech-body { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.08); }
   details.tech .tech-body code {
-    font-family: var(--font-mono); font-size: .92em; color: var(--brand-400);
-    word-break: break-word;
+    font-family: var(--font-mono); font-size: .92em; color: var(--brand-800); word-break: break-word;
+  }
+  .band--dark details.tech .tech-body code { color: var(--brand-400); }
+
+  /* ── LISTA COMPACTA ───────────────────────────────────
+     Substitui o card-por-achado nos pontos secundários.
+     Dez linhas se lêem num relance; dez cards, não. */
+  .mini { display: grid; margin-top: 1.5rem; }
+  .mini-row {
+    display: grid; grid-template-columns: 1fr auto; gap: .35rem 2rem;
+    padding: 1rem 0; border-top: 1px solid var(--hair); align-items: baseline;
+  }
+  .mini-row:last-child { border-bottom: 1px solid var(--hair); }
+  .mini-what { font-size: .97rem; color: var(--fg-strong); font-weight: 600; }
+  .mini-what em {
+    font-style: normal; font-weight: 400; color: var(--fg); display: block;
+    margin-top: .2rem; font-size: .93rem; max-width: 62ch;
+  }
+  .mini-what .ev-inline { font-family: var(--font-mono); color: var(--accent); font-size: .88rem; }
+  .mini-tag {
+    font-size: .8rem; color: var(--fg-muted); display: flex; align-items: center;
+    gap: .45rem; white-space: nowrap;
+  }
+  .mini-tag .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .mini-tag.t-new .dot { background: var(--c-ok); }
+  .mini-tag.t-cfg .dot { background: var(--c-warn); }
+  .mini-tag.t-inv .dot { background: var(--accent); }
+  @media (max-width: 700px) {
+    .mini-row { grid-template-columns: 1fr; gap: .5rem; }
+    .mini-tag { order: -1; }
   }
 
-  /* ── LEGENDA DE ENCAMINHAMENTO ────────────────────── */
-  .routes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
-  @media (max-width: 820px) { .routes { grid-template-columns: 1fr; } }
-  .route { padding-left: 1rem; border-left: 2px solid; }
-  .route.new { border-color: var(--emerald); }
-  .route.cfg { border-color: var(--amber); }
-  .route.inv { border-color: var(--brand-400); }
-  .route h3 { font-size: .98rem; font-weight: 600; margin-bottom: .35rem; }
-  .route p { font-size: .89rem; }
+  /* ── ENCAMINHAMENTOS ──────────────────────────────── */
+  .routes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.25rem; }
+  @media (max-width: 820px) { .routes { grid-template-columns: 1fr; gap: 1.25rem; } }
+  .route { padding-left: 1.1rem; border-left: 2px solid; }
+  .route.new { border-color: var(--c-ok); }
+  .route.cfg { border-color: var(--c-warn); }
+  .route.inv { border-color: var(--accent); }
+  .route h3 { font-size: 1rem; font-weight: 600; margin-bottom: .4rem; }
+  .route p { font-size: .9rem; }
 
   /* ── O QUE FICA / O QUE MUDA ──────────────────────── */
-  .keeps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+  .keeps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2.25rem; }
   @media (max-width: 820px) { .keeps { grid-template-columns: 1fr; } }
   .keep-box {
-    border: 1px solid var(--border); border-radius: var(--radius-lg);
-    padding: 1.5rem; background: var(--surface-elevated);
+    border: 1px solid var(--card-hair); border-radius: var(--radius-lg);
+    padding: 1.65rem; background: var(--card); box-shadow: var(--card-shadow);
   }
-  .keep-box.stays { border-color: rgba(16,185,129,.28); }
-  .keep-box h3 { font-size: 1.08rem; margin-bottom: 1rem; }
-  .keep-list { list-style: none; display: grid; gap: .6rem; }
-  .keep-list li { display: flex; gap: .65rem; font-size: .93rem; align-items: flex-start; }
-  .keep-list svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: .35rem; stroke-width: 2.5; fill: none; }
-  .stays .keep-list svg { stroke: var(--emerald); }
-  .changes .keep-list svg { stroke: var(--brand-400); }
+  .keep-box.stays { border-top: 3px solid var(--c-ok); }
+  .keep-box.changes { border-top: 3px solid var(--accent); }
+  .keep-box h3 { font-size: 1.1rem; margin-bottom: 1.1rem; }
+  .keep-list { list-style: none; display: grid; gap: .7rem; }
+  .keep-list li { display: flex; gap: .7rem; font-size: .94rem; align-items: flex-start; }
+  .keep-list svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: .4rem; stroke-width: 2.5; fill: none; }
+  .stays .keep-list svg { stroke: var(--c-ok); }
+  .changes .keep-list svg { stroke: var(--accent); }
 
   /* ── ANTES / DEPOIS ───────────────────────────────── */
-  .ba { display: grid; gap: 0; margin-top: 1.5rem; }
-  .ba-row {
-    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center;
-    padding: 1.4rem 0; border-top: 1px solid var(--border-soft);
-  }
-  .ba-row:last-child { border-bottom: 1px solid var(--border-soft); }
+  .ba { display: grid; margin-top: 1.75rem; }
+  .ba-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.75rem; align-items: center; padding: 1.5rem 0; border-top: 1px solid var(--hair); }
+  .ba-row:last-child { border-bottom: 1px solid var(--hair); }
   .ba-head {
-    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.75rem;
     font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em;
-    color: var(--content-muted); padding-bottom: .5rem;
+    color: var(--fg-muted); padding-bottom: .5rem;
   }
-  .ba-head span:last-child { color: var(--brand-400); }
-  .ba-now { color: var(--content-secondary); font-size: .95rem; }
-  .ba-now b { color: var(--content-primary); font-weight: 600; display: block; font-size: .88rem; margin-bottom: .2rem; }
-  .ba-next { color: var(--content-primary); font-size: .95rem; }
-  .ba-arrow { color: var(--brand-600); font-family: var(--font-mono); }
+  .ba-head span:last-child { color: var(--accent); }
+  .ba-now { color: var(--fg); font-size: .96rem; }
+  .ba-now b { color: var(--fg-strong); font-weight: 600; display: block; font-size: .88rem; margin-bottom: .22rem; }
+  .ba-next { color: var(--fg-strong); font-size: .96rem; }
+  .ba-arrow { color: var(--accent); font-family: var(--font-mono); }
   @media (max-width: 760px) {
     .ba-head { display: none; }
-    .ba-row { grid-template-columns: 1fr; gap: .6rem; padding: 1.25rem 0; }
+    .ba-row { grid-template-columns: 1fr; gap: .65rem; padding: 1.3rem 0; }
     .ba-arrow { display: none; }
-    .ba-now::before, .ba-next::before {
-      font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em;
-      display: block; margin-bottom: .3rem;
-    }
-    .ba-now::before { content: 'HOJE'; color: var(--content-muted); }
-    .ba-next::before { content: 'COM O SITE NOVO'; color: var(--brand-400); }
+    .ba-now::before, .ba-next::before { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; display: block; margin-bottom: .3rem; }
+    .ba-now::before { content: 'HOJE'; color: var(--fg-muted); }
+    .ba-next::before { content: 'COM O SITE NOVO'; color: var(--accent); }
   }
 
   /* ── MÉTODO ───────────────────────────────────────── */
-  .method { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem 2.5rem; margin-top: 1.75rem; }
+  .method { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 3rem; margin-top: 2rem; }
   @media (max-width: 760px) { .method { grid-template-columns: 1fr; } }
-  .method div { font-size: .95rem; }
-  .method dt { font-family: var(--font-mono); font-size: .78rem; color: var(--brand-400); margin-bottom: .3rem; }
-  .links { display: flex; flex-wrap: wrap; gap: .75rem 1.75rem; margin-top: 1.75rem; font-size: .95rem; }
+  .method div { font-size: .96rem; }
+  .method dt { font-family: var(--font-mono); font-size: .76rem; color: var(--accent); margin-bottom: .35rem; letter-spacing: .06em; }
+  .links { display: flex; flex-wrap: wrap; gap: .75rem 1.75rem; margin-top: 1.75rem; font-size: .96rem; }
 
-  /* ── FECHAMENTO ───────────────────────────────────── */
+  /* ── FECHAMENTO (escuro) ──────────────────────────── */
   .close h2 {
     font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(1.85rem, 3.8vw, 2.9rem); line-height: 1.12; letter-spacing: -.025em;
-    max-width: 20ch; margin-bottom: 1.25rem;
+    font-size: clamp(1.9rem, 3.9vw, 2.9rem); line-height: 1.12; letter-spacing: -.025em;
+    max-width: 20ch; margin-bottom: 1.3rem;
   }
   .close .prose { font-size: 1.08rem; }
   .signature {
-    margin: 2.25rem 0; padding-left: 1.1rem; border-left: 2px solid var(--brand-600);
-    color: var(--content-primary); font-size: 1.05rem; max-width: 52ch;
+    margin: 2.4rem 0; padding-left: 1.15rem; border-left: 2px solid var(--brand-400);
+    color: var(--fg-strong); font-size: 1.06rem; max-width: 52ch;
   }
   .cta {
     display: inline-flex; align-items: center; gap: .65rem;
     background: var(--brand-600); color: #fff; font-weight: 700; font-size: 1.02rem;
-    padding: 1rem 1.9rem; border-radius: var(--radius-pill); text-decoration: none;
-    transition: background-color .2s var(--ease), transform .2s var(--ease);
+    padding: 1rem 1.95rem; border-radius: var(--radius-pill); text-decoration: none;
+    box-shadow: 0 10px 26px rgba(37,99,235,.32);
+    transition: background-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
   }
-  .cta:hover { background: var(--brand-500); transform: translateY(-2px); }
+  .cta:hover { background: var(--brand-500); transform: translateY(-2px); box-shadow: 0 14px 34px rgba(37,99,235,.42); }
   .cta:active { transform: translateY(0); }
   .cta svg { width: 19px; height: 19px; stroke: #fff; fill: none; stroke-width: 2; }
 
   /* ── RODAPÉ ───────────────────────────────────────── */
-  footer { background: var(--surface-footer); border-top: 1px solid var(--border-soft); padding: 2.5rem 0; }
+  footer { padding: 2.75rem 0; border-top: 1px solid var(--hair-soft); }
   .foot-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; flex-wrap: wrap; }
-  .foot-brand { display: flex; align-items: center; gap: .65rem; }
+  .foot-brand { display: flex; align-items: center; gap: .7rem; }
   .foot-brand svg { width: 25px; height: 25px; }
-  .foot-brand span { font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--content-primary); }
-  .footer-meta { font-family: var(--font-mono); font-size: .78rem; color: var(--content-muted); text-align: right; line-height: 1.7; }
-  .footer-meta a {
-    color: var(--content-muted); text-decoration: none;
-    display: inline-block; min-height: 24px; padding: .25rem 0;
-  }
+  .foot-brand span { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--fg-strong); }
+  .footer-meta { font-family: var(--font-mono); font-size: .78rem; color: var(--fg-muted); text-align: right; line-height: 1.8; }
+  .footer-meta a { color: var(--fg-muted); text-decoration: none; display: inline-block; min-height: 24px; padding: .25rem 0; }
   .footer-meta a:hover { color: var(--brand-400); }
 
   /* ── MOTION ───────────────────────────────────────── */
@@ -459,36 +550,51 @@
     .bar-fill.is-anim { transform: scaleX(var(--to)); }
   }
 
-  /* ── IMPRESSÃO ────────────────────────────────────── */
+  /* ── IMPRESSÃO ────────────────────────────────────────
+     O sistema claro já é o padrão: imprimir agora é quase
+     uma cópia direta da tela. Só neutralizamos as faixas
+     escuras e economizamos tinta. */
   @media print {
     @page { margin: 1.5cm; }
     * { box-shadow: none !important; transition: none !important; animation: none !important; }
-    body { background: #fff; color: #1a1a1a; font-size: 11pt; line-height: 1.5; }
-    .topbar { position: static; background: none; border-bottom: 1px solid #ccc; backdrop-filter: none; }
-    .logo { color: #0a0a0a; }
-    h1, h2, h3, h4, strong, .figure-val, .bar-val, .ba-next, .search-typed { color: #0a0a0a !important; }
-    .sec { border-top: 1px solid #ddd; page-break-inside: avoid; }
-    .sec-muted, .figure, .chart, .find, .keep-box, .search-demo, .wa-card, details.tech .tech-body, .search-bar {
-      background: #fff !important; border-color: #ccc !important;
+    body { background: #fff; color: #1c2637; font-size: 10.5pt; line-height: 1.5; }
+    .progress, .skip { display: none !important; }
+    .band, .band--dark, .band--deep, .band--tint, .band--paper, .chart--spot {
+      --bg: #fff; --fg: #1c2637; --fg-strong: #0a1526; --fg-muted: #4a5666;
+      --hair: #ccd4e0; --hair-soft: #e2e7ee; --card: #fff; --card-hair: #ccd4e0;
+      --accent: #1d4ed8; --track: #e4e9f1;
+      --c-ok: #047857; --c-warn: #92400e; --c-bad: #b91c1c;
+      background: #fff !important; color: #1c2637 !important;
     }
-    .sec-index, .step-n, .method dt, .find .ev, .route h4 { color: #1d4ed8 !important; }
-    .find, .chart, .keep-box, .step { page-break-inside: avoid; }
-    details.tech[open] .tech-body, details.tech .tech-body { display: block !important; }
-    details.tech summary::before { display: none; }
-    .rv { opacity: 1 !important; transform: none !important; }
-    .bar-track { border: 1px solid #999; }
+    .topbar { position: static; background: none !important; backdrop-filter: none; border-bottom: 1px solid #ccd4e0; }
+    .logo { color: #0a1526; }
+    .hero::after { display: none; }
+    .hero { padding: 1.5rem 0 2rem; }
+    .sec { padding: 1.75rem 0; page-break-inside: auto; }
+    .find, .chart, .keep-box, .step, .search-demo, .figure, .ba-row { page-break-inside: avoid; }
+    .bar-track { border: 1px solid #b9c3d2; }
     .bar-current { background: #1d4ed8 !important; }
-    .bar-ref { background: #059669 !important; }
+    .bar-ref, .band:not(.band--dark) .chart:not(.chart--spot) .bar-ref { background: #047857 !important; }
     .seg-img { background: #1d4ed8 !important; }
-    .seg-rest { background: #94a3b8 !important; }
-    .cta { background: #fff !important; color: #0a0a0a !important; border: 1px solid #0a0a0a; }
-    a { color: #0a0a0a !important; }
-    .search-foot { background: #fafafa !important; }
+    .seg-rest { background: #93a4bf !important; }
+    .wa-thumb { background: #dbe4f2 !important; color: #1d4ed8 !important; }
+    details.tech[open] .tech-body, details.tech .tech-body { display: block !important; background: #f6f8fc !important; }
+    details.tech summary::before { display: none; }
+    details.tech .tech-body code { color: #1d4ed8 !important; }
+    .rv { opacity: 1 !important; transform: none !important; }
+    .bar-fill.is-anim { transform: scaleX(var(--to)) !important; }
+    .cta { background: #fff !important; color: #0a1526 !important; border: 1.5px solid #0a1526; box-shadow: none !important; }
+    a { color: #1d4ed8 !important; }
+    .search-foot { background: #fdf3f3 !important; }
+    .search-bar { background: #f6f8fc !important; }
+    .search-results li em { background: #e6edfb !important; color: #1d4ed8 !important; }
   }
 </style>
+
 </head>
 <body>
 <a href="#conteudo" class="skip">Pular para o conteúdo</a>
+<div class="progress" aria-hidden="true"></div>
 
 <header class="topbar">
   <div class="wrap topbar-in">
@@ -496,14 +602,14 @@
       <path fill="currentColor" d="M220.33 904.8c-27.09,0 -49.21,-8.58 -66.37,-25.74 -17.16,-17.16 -25.73,-39.28 -25.73,-66.37l0 -279.93c0,-17.46 -8.13,-26.19 -24.38,-26.19l-103.84 0 0 -108.36 103.84 0c16.25,0 24.38,-8.73 24.38,-26.19l0 -279.93c0,-27.09 8.58,-49.21 25.73,-66.37 17.16,-17.16 39.28,-25.73 66.37,-25.73l153.51 0 0 97.52 -111.07 0c-16.25,0 -24.38,9.03 -24.38,27.09l0 247.42c0,20.47 -6.47,37.62 -19.41,51.47 -12.94,13.85 -29.95,20.77 -51.02,20.77l-14.45 0 0 16.25 14.45 0c21.07,0 38.08,6.92 51.02,20.77 12.94,13.85 19.41,31 19.41,51.47l0 247.42c0,18.06 8.13,27.09 24.38,27.09l111.07 0 0 97.52 -153.51 0zm153.51 -41.54l265.48 -812.69 113.78 0 -265.48 812.69 -113.78 0zm379.26 41.54l0 -97.52 111.07 0c16.25,0 24.38,-9.03 24.38,-27.09l0 -247.42c0,-20.47 6.47,-37.62 19.41,-51.47 12.94,-13.84 29.95,-20.77 51.02,-20.77l14.45 0 0 -16.25 -14.45 0c-21.07,0 -38.08,-6.92 -51.02,-20.77 -12.94,-13.84 -19.41,-31 -19.41,-51.47l0 -247.42c0,-18.06 -8.13,-27.09 -24.38,-27.09l-111.07 0 0 -97.52 153.51 0c27.09,0 49.21,8.58 66.37,25.73 17.16,17.16 25.74,39.28 25.74,66.37l0 279.93c0,17.46 8.13,26.19 24.38,26.19l103.84 0 0 108.36 -103.84 0c-16.25,0 -24.38,8.73 -24.38,26.19l0 279.93c0,27.09 -8.58,49.21 -25.74,66.37 -17.16,17.16 -39.28,25.74 -66.37,25.74l-153.51 0zm726.74 -130.03c-35.52,0 -68.78,-8.88 -99.78,-26.64 -31,-17.76 -55.84,-43.8 -74.5,-78.11 -18.66,-34.31 -27.99,-75.85 -27.99,-124.61l0 -14.45c0,-48.76 9.33,-90.3 27.99,-124.61 18.66,-34.31 43.34,-60.35 74.05,-78.11 30.7,-17.76 64.11,-26.64 100.23,-26.64 27.09,0 49.82,3.16 68.18,9.48 18.36,6.32 33.26,14.3 44.7,23.93 11.44,9.63 20.17,19.87 26.19,30.7l16.25 0 0 -235.68 113.78 0 0 632.09 -111.97 0 0 -54.18 -16.26 0c-10.23,16.85 -26.04,32.21 -47.41,46.05 -21.37,13.85 -52.52,20.77 -93.46,20.77zm34.31 -99.33c34.92,0 64.11,-11.29 87.59,-33.86 23.48,-22.57 35.22,-55.53 35.22,-98.88l0 -9.03c0,-43.34 -11.59,-76.3 -34.77,-98.88 -23.18,-22.57 -52.52,-33.86 -88.04,-33.86 -34.92,0 -64.11,11.29 -87.59,33.86 -23.48,22.57 -35.22,55.53 -35.22,98.88l0 9.03c0,43.34 11.74,76.3 35.22,98.88 23.48,22.57 52.67,33.86 87.59,33.86zm565.27 99.33c-44.55,0 -83.83,-9.48 -117.84,-28.44 -34.01,-18.96 -60.5,-45.75 -79.46,-80.37 -18.96,-34.61 -28.44,-75.4 -28.44,-122.35l0 -10.84c0,-46.95 9.33,-87.74 27.99,-122.35 18.66,-34.61 44.85,-61.4 78.56,-80.37 33.71,-18.96 72.84,-28.44 117.39,-28.44 43.95,0 82.17,9.78 114.68,29.35 32.51,19.56 57.79,46.66 75.85,81.27 18.06,34.61 27.09,74.8 27.09,120.55l0 38.83 -325.98 0c1.2,30.7 12.64,55.68 34.31,74.95 21.67,19.26 48.16,28.9 79.46,28.9 31.91,0 55.38,-6.92 70.43,-20.77 15.05,-13.85 26.49,-29.2 34.31,-46.05l93.01 48.76c-8.43,15.65 -20.62,32.66 -36.57,51.02 -15.95,18.36 -37.17,34.01 -63.66,46.95 -26.49,12.94 -60.2,19.41 -101.13,19.41zm-109.26 -288.05l209.49 0c-2.41,-25.89 -12.79,-46.66 -31.15,-62.31 -18.36,-15.65 -42.29,-23.48 -71.79,-23.48 -30.7,0 -55.08,7.83 -73.14,23.48 -18.06,15.65 -29.2,36.42 -33.41,62.31zm507.48 275.41l-142.67 -447.88 121 0 103.84 364.81 16.25 0 103.84 -364.81 121 0 -142.67 447.88 -180.6 0zm437.05 12.64c-24.68,0 -45.3,-7.98 -61.85,-23.93 -16.56,-15.95 -24.83,-36.57 -24.83,-61.86 0,-25.28 8.28,-45.9 24.83,-61.85 16.56,-15.95 37.17,-23.93 61.85,-23.93 24.08,0 44.25,7.98 60.5,23.93 16.25,15.95 24.38,36.57 24.38,61.85 0,25.28 -8.13,45.9 -24.38,61.86 -16.25,15.95 -36.42,23.93 -60.5,23.93z"/>
       <path fill="currentColor" d="M3107.93 762.12l0 -632.09 274.51 0c39.73,0 74.35,6.92 103.84,20.77 29.5,13.85 52.37,33.41 68.63,58.69 16.25,25.28 24.38,55.08 24.38,89.4l0 10.83c0,37.93 -9.03,68.63 -27.09,92.11 -18.06,23.48 -40.33,40.63 -66.82,51.47l0 16.25c24.08,1.2 42.74,9.48 55.99,24.83 13.24,15.35 19.87,35.67 19.87,60.95l0 206.79 -119.2 0 0 -189.63c0,-14.45 -3.76,-26.19 -11.29,-35.22 -7.53,-9.03 -20.02,-13.55 -37.47,-13.55l-166.15 0 0 238.39 -119.19 0zm119.19 -346.75l142.67 0c28.29,0 50.42,-7.67 66.37,-23.03 15.95,-15.35 23.93,-35.67 23.93,-60.95l0 -9.03c0,-25.28 -7.83,-45.6 -23.48,-60.95 -15.65,-15.35 -37.93,-23.03 -66.82,-23.03l-142.67 0 0 176.99zm451.5 346.75l0 -632.09 274.51 0c39.73,0 74.35,6.92 103.84,20.77 29.5,13.85 52.37,33.41 68.63,58.69 16.25,25.28 24.38,55.08 24.38,89.4l0 10.83c0,37.93 -9.03,68.63 -27.09,92.11 -18.06,23.48 -40.33,40.63 -66.82,51.47l0 16.25c24.08,1.2 42.74,9.48 55.99,24.83 13.24,15.35 19.87,35.67 19.87,60.95l0 206.79 -119.19 0 0 -189.63c0,-14.45 -3.76,-26.19 -11.29,-35.22 -7.52,-9.03 -20.02,-13.55 -37.47,-13.55l-166.15 0 0 238.39 -119.19 0zm119.19 -346.75l142.67 0c28.29,0 50.42,-7.67 66.37,-23.03 15.95,-15.35 23.93,-35.67 23.93,-60.95l0 -9.03c0,-25.28 -7.83,-45.6 -23.48,-60.95 -15.65,-15.35 -37.93,-23.03 -66.82,-23.03l-142.67 0 0 176.99z"/>
     </svg>
-    <p class="topbar-meta">arguto.com.br · 27 jul 2026</p>
+    <p class="topbar-meta">arguto.com.br · 27 jul 2026<span class="topbar-here" id="here"></span></p>
   </div>
 </header>
 
 <main id="conteudo">
 
-  <!-- ═══ ABERTURA ═══ -->
-  <section class="hero">
+  <!-- ═══ ABERTURA · escuro ═══ -->
+  <section class="band band--dark hero">
     <div class="wrap">
       <p class="hero-kicker rv" style="--d:0s">Antes de desenhar qualquer tela nova, eu quis entender uma coisa: o que acontece hoje quando um cliente de vocês entra no B2B da Arguto para fazer um pedido.</p>
       <h1 class="rv" style="--d:.08s">Passei uma semana usando o site como se fosse seu cliente.</h1>
@@ -511,23 +617,22 @@
     </div>
   </section>
 
-  <!-- ═══ 01 · O QUE JÁ FUNCIONA ═══ -->
-  <section class="sec">
+  <!-- ═══ 01 · PONTO DE PARTIDA ═══ -->
+  <section class="band band--paper sec" data-here="Ponto de partida">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">01 · PONTO DE PARTIDA</span>
         <h2>Primeiro, o que já funciona</h2>
       </div>
       <div class="prose rv">
-        <p>O B2B da Arguto está no ar, tem catálogo completo, preço por cliente, controle de crédito e integração com o Protheus. Seus clientes compram por ele todo dia. Isso não é pouco, e não é isso que estou propondo jogar fora.</p>
-        <p>O que eu encontrei foram <strong>limitações que se acumularam com o tempo</strong>. Cada uma delas provavelmente fez sentido quando foi feita. Juntas, hoje, elas deixam a compra mais lenta e mais difícil do que precisaria ser, principalmente no celular.</p>
-        <p>É sobre isso que quero conversar. Não sobre trocar o que funciona, mas sobre modernizar a parte que o seu cliente vê.</p>
+        <p>O B2B da Arguto está no ar, tem catálogo completo, preço por cliente, controle de crédito e integração com o Protheus. Seus clientes compram por ele todo dia. Não é isso que estou propondo jogar fora.</p>
+        <p>O que eu encontrei foram <strong>limitações que se acumularam com o tempo</strong>. Cada uma provavelmente fez sentido quando foi feita. Juntas, hoje, elas deixam a compra mais lenta e mais difícil do que precisaria ser, principalmente no celular.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ 02 · O QUE CHAMOU ATENÇÃO ═══ -->
-  <section class="sec sec-muted">
+  <!-- ═══ 02 · MEDIÇÃO ═══ -->
+  <section class="band band--tint sec" data-here="Medição">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">02 · MEDIÇÃO</span>
@@ -546,12 +651,12 @@
         </div>
         <div class="figure">
           <p class="figure-val"><span class="num" data-count="49">49</span><span class="figure-unit">/100</span></p>
-          <p class="figure-cap">é a nota de velocidade do Google no computador. No celular, 53 de 100. As duas notas são da mesma medição.</p>
+          <p class="figure-cap">é a nota de velocidade do Google no computador. No celular, 53 de 100. As duas são da mesma medição.</p>
         </div>
       </div>
 
-      <div style="margin-top:2.5rem">
-        <div class="chart rv">
+      <div style="margin-top:3rem">
+        <div class="chart chart--spot rv">
           <p class="chart-q">Quanto tempo o cliente espera no celular?</p>
           <p class="chart-sub">O teste simula um celular comum em rede 4G. A barra verde é a referência de boa experiência publicada pelo Google, não uma medição do site novo.</p>
 
@@ -576,18 +681,18 @@
         </div>
 
         <div class="chart rv">
-          <p class="chart-q">Por que a página demora tanto para carregar?</p>
-          <p class="chart-sub">O navegador do seu cliente baixa 24,3 MB para abrir a home. Praticamente todo esse peso é imagem, em formato antigo e maior do que a tela precisa.</p>
+          <p class="chart-q">Por que a página demora tanto?</p>
+          <p class="chart-sub">O navegador do seu cliente baixa 24,3 MB para abrir a home. Quase todo esse peso é imagem, em formato antigo e maior do que a tela precisa.</p>
 
           <div class="stack" role="img" aria-label="Composição do peso da home: 23 megabytes em imagens e cerca de 1,3 megabyte no restante, de um total de 24,3 megabytes.">
             <div class="stack-seg seg-img"><span>23 MB em imagens</span></div>
-            <div class="stack-seg seg-rest"><span>1,3 MB</span></div>
+            <div class="stack-seg seg-rest"></div>
           </div>
           <div class="stack-legend">
             <span><i class="dot" style="background:var(--brand-600)"></i> Imagens: 23 MB em 78 arquivos</span>
-            <span><i class="dot" style="background:#2A3550"></i> Todo o resto da página: 1,3 MB</span>
+            <span><i class="dot" style="background:#93A4BF"></i> Todo o resto: 1,3 MB</span>
           </div>
-          <p style="margin-top:1.25rem;font-size:.93rem">Só para dar a dimensão: <strong>10 MB são o mesmo banner baixado duas vezes</strong>, com dois nomes de arquivo diferentes e conteúdo idêntico. E outros 930 KB são logos de fornecedor que o celular baixa mas nunca chega a mostrar.</p>
+          <p style="margin-top:1.25rem;font-size:.95rem">Para dar a dimensão: <strong>10 MB são o mesmo banner baixado duas vezes</strong>, com dois nomes de arquivo e conteúdo idêntico. Outros 930 KB são logos de fornecedor que o celular baixa e nunca chega a mostrar.</p>
 
           <details class="tech">
             <summary>Ver detalhe técnico</summary>
@@ -600,13 +705,13 @@
     </div>
   </section>
 
-  <!-- ═══ 03 · A JORNADA ═══ -->
-  <section class="sec">
+  <!-- ═══ 03 · JORNADA ═══ -->
+  <section class="band band--paper sec" data-here="A experiência de quem compra">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">03 · NA PRÁTICA</span>
         <h2>O que isso significa para quem está comprando</h2>
-        <p>Número solto não diz muita coisa. Então acompanhei o caminho que um cliente faz, do primeiro toque até o pedido.</p>
+        <p>Número solto não diz muita coisa. Acompanhei o caminho que um cliente faz, do primeiro toque até o pedido.</p>
       </div>
 
       <div class="journey rv">
@@ -614,7 +719,7 @@
           <span class="step-n num">01</span>
           <div>
             <h3>Ele abre o site pelo celular</h3>
-            <p>A tela fica praticamente em branco enquanto o telefone baixa os 24 MB. No teste, o conteúdo principal só apareceu depois de 22,7 segundos. Numa rede de loja ou num 4G fraco, a espera é essa.</p>
+            <p>A tela fica praticamente em branco enquanto o telefone baixa os 24 MB. No teste, o conteúdo principal só apareceu depois de 22,7 segundos.</p>
             <span class="step-ev num">22,7 s até ver o conteúdo</span>
           </div>
         </div>
@@ -622,8 +727,8 @@
         <div class="step">
           <span class="step-n num">02</span>
           <div>
-            <h3>Ele busca o produto que quer comprar</h3>
-            <p>Aqui está o ponto que mais me chamou atenção no site inteiro. Quem digita "cola" recebe dez biscoitos e balas de chocolate, porque as letras c-o-l-a aparecem no meio da palavra "chocolate". A busca procura o pedaço de texto, sem enxergar onde a palavra começa e termina.</p>
+            <h3>Ele busca o produto que quer</h3>
+            <p>Quem digita "cola" recebe dez itens de chocolate, porque as letras c-o-l-a aparecem no meio da palavra. É o ponto que mais me chamou atenção, e está detalhado logo abaixo.</p>
             <span class="step-ev num">"cola" → 10 resultados, todos de chocolate</span>
           </div>
         </div>
@@ -632,7 +737,7 @@
           <span class="step-n num">03</span>
           <div>
             <h3>Ele abre um produto e volta para a lista</h3>
-            <p>O botão "voltar" não devolve a página do jeito que estava. Ela é baixada de novo, inteira. Quem está montando um pedido grande faz esse caminho dezenas de vezes, e paga a espera em cada uma.</p>
+            <p>O botão "voltar" não devolve a página como estava: ela é baixada de novo, inteira. Quem monta um pedido grande faz esse caminho dezenas de vezes.</p>
             <span class="step-ev num">recarga completa a cada retorno</span>
           </div>
         </div>
@@ -640,8 +745,8 @@
         <div class="step">
           <span class="step-n num">04</span>
           <div>
-            <h3>Ele recebe o link da Arguto pelo WhatsApp</h3>
-            <p>Quando um vendedor de vocês manda o link, chega só o endereço cru, sem nome da empresa, sem imagem, sem descrição. O WhatsApp é canal de venda de vocês, tanto que existe um botão dele no site.</p>
+            <h3>Ele recebe o link pelo WhatsApp</h3>
+            <p>Quando um vendedor manda o link, chega só o endereço cru, sem nome da empresa e sem imagem.</p>
             <span class="step-ev num">link sem título e sem imagem</span>
           </div>
         </div>
@@ -649,8 +754,8 @@
         <div class="step">
           <span class="step-n num">05</span>
           <div>
-            <h3>Ele digita o endereço com "www" na frente</h3>
-            <p>O navegador mostra uma tela de aviso dizendo que a conexão não é segura, e o cliente não chega no site. Isso acontece porque o certificado de segurança cobre <span class="num">arguto.com.br</span>, mas não a versão com "www". Quem tem o site salvo nos favoritos assim, esbarra nisso toda vez.</p>
+            <h3>Ele digita o endereço com "www"</h3>
+            <p>O navegador mostra um aviso dizendo que a conexão não é segura, e o cliente não chega no site. Quem tem o site nos favoritos assim esbarra nisso toda vez.</p>
             <span class="step-ev num">www.arguto.com.br → tela de aviso</span>
           </div>
         </div>
@@ -658,8 +763,8 @@
     </div>
   </section>
 
-  <!-- ═══ 04 · A BUSCA ═══ -->
-  <section class="sec sec-muted">
+  <!-- ═══ 04 · BUSCA ═══ -->
+  <section class="band sec" data-here="A busca">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">04 · O CASO DA BUSCA</span>
@@ -667,7 +772,7 @@
         <p>Reproduzi a busca do site exatamente como o cliente faz. Estes são os resultados reais que voltaram hoje.</p>
       </div>
 
-      <div style="max-width:720px">
+      <div style="max-width:760px">
         <div class="search-demo rv">
           <div class="search-bar">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.3" y1="15.3" x2="21" y2="21"/></svg>
@@ -684,15 +789,15 @@
           </div>
         </div>
 
-        <p style="margin-top:1.5rem">Confirmei que não é caso isolado. Quem digita <strong>"coca"</strong> recebe quatro bombons de <strong>pa<em style="font-style:normal;color:var(--brand-400)">coca</em></strong>. Quem digita <strong>"ninho"</strong> recebe dez unidades de <strong>dano<em style="font-style:normal;color:var(--brand-400)">ninho</em></strong>. É sempre o mesmo mecanismo.</p>
+        <p style="margin-top:1.6rem">Não é caso isolado: <strong>"coca"</strong> devolve quatro bombons de pa<em class="search-mark">coca</em>, e <strong>"ninho"</strong> devolve dez unidades de dano<em class="search-mark">ninho</em>. Sempre o mesmo mecanismo.</p>
 
         <p style="margin-top:1.1rem">Num atacado, a busca é o balcão. O comprador que já sabe o que quer digita o nome e espera achar. Quando o resultado não faz sentido, ele liga, manda no WhatsApp, ou procura em outro lugar.</p>
 
-        <p style="margin-top:1.1rem;font-size:.95rem;color:var(--content-muted)">Para ser preciso: isso não é uma afirmação sobre o que existe ou falta no catálogo de vocês. É sobre o critério que a busca usa para decidir o que mostrar.</p>
+        <p style="margin-top:1.1rem;font-size:.93rem;color:var(--fg-muted)">Para ser preciso: isso não é uma afirmação sobre o que existe ou falta no catálogo de vocês. É sobre o critério que a busca usa para decidir o que mostrar.</p>
 
-        <div class="fix fix-inv" style="max-width:720px">
+        <div class="fix fix-inv">
           <i class="dot"></i>
-          <span>Precisa investigar junto com o sistema interno. A correção depende de como o catálogo está organizado, e por isso eu não prometo prazo sem antes olhar.</span>
+          <span>Precisa investigar junto com o sistema interno. A correção depende de como o catálogo está organizado.</span>
         </div>
 
         <details class="tech">
@@ -706,15 +811,15 @@
   </section>
 
   <!-- ═══ 05 · WHATSAPP ═══ -->
-  <section class="sec">
+  <section class="band band--paper sec" data-here="Compartilhamento">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">05 · COMPARTILHAMENTO</span>
         <h2>O link da Arguto no WhatsApp</h2>
-        <p>Todo site diz ao WhatsApp que nome, descrição e imagem mostrar quando alguém compartilha um link. O site atual não envia nenhuma dessas informações.</p>
+        <p>Todo site informa ao WhatsApp que nome, descrição e imagem mostrar quando alguém compartilha um link. O site atual não envia nenhuma dessas informações.</p>
       </div>
 
-      <div class="previews rv" style="max-width:760px">
+      <div class="previews rv" style="max-width:780px">
         <div class="preview-col">
           <h3>Como chega hoje</h3>
           <div class="wa-card">
@@ -737,212 +842,138 @@
         <i class="dot"></i>
         <span>Já previsto no site novo, sem custo adicional.</span>
       </div>
-
-      <details class="tech" style="max-width:720px">
-        <summary>Ver detalhe técnico</summary>
-        <div class="tech-body">
-          Inspeção do HTML da home: zero marcações Open Graph (<code>og:title</code>, <code>og:image</code>, <code>og:description</code>), zero Twitter Card e nenhum <code>&lt;link rel="canonical"&gt;</code>. Sem esses metadados, o WhatsApp, o LinkedIn e o Facebook não têm o que exibir e mostram apenas a URL.
-        </div>
-      </details>
     </div>
   </section>
 
-  <!-- ═══ 06 · DEMAIS ACHADOS ═══ -->
-  <section class="sec sec-muted">
+  <!-- ═══ 06 · DEMAIS PONTOS ═══ -->
+  <section class="band sec" data-here="Demais pontos">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">06 · DEMAIS PONTOS</span>
         <h2>O que mais apareceu na medição</h2>
-        <p>Agrupei pelo efeito que tem no dia a dia, e marquei em cada um qual é o caminho de solução.</p>
+        <p>Três pontos que merecem atenção separada, e depois a lista do que mais foi verificado.</p>
       </div>
 
       <div class="routes rv">
         <div class="route new">
           <h3>Já previsto no site novo</h3>
-          <p>Entra pronto na entrega, sem custo separado e sem depender de terceiros.</p>
+          <p>Entra pronto na entrega, sem custo separado.</p>
         </div>
         <div class="route cfg">
           <h3>Ajuste de configuração</h3>
-          <p>Não é redesenho. É uma configuração no servidor de vocês. Eu entrego a especificação exata e a hospedagem executa.</p>
+          <p>Não é redesenho. Eu entrego a especificação e a hospedagem executa.</p>
         </div>
         <div class="route inv">
           <h3>Precisa investigar</h3>
-          <p>Não dá para prometer solução sem antes entender a causa. Prefiro dizer isso do que prometer o que não sei.</p>
+          <p>Não dá para prometer solução sem antes entender a causa.</p>
         </div>
       </div>
 
-      <!-- grupo A -->
-      <div class="group">
-        <h3>Pontos que deixam a compra mais lenta</h3>
-        <div class="finds">
-          <div class="find rv">
-            <h4>O botão de comprar tem pouco contraste</h4>
-            <p>O texto "VER PREÇO" é branco sobre laranja claro. Numa tela de celular sob o sol, ou para quem tem alguma dificuldade de visão, ele fica difícil de ler. É o botão que aparece em todo card de produto.</p>
-            <p class="ev">contraste medido 2,59:1 · mínimo recomendado 4,5:1</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">Relação de contraste de 2,59:1 no elemento <code>.btn-preco</code>, contra o mínimo de 4,5:1 exigido pelo WCAG 2.1 nível AA para texto normal. O Lighthouse reporta 6 ocorrências. O item "OFERTAS" do menu tem 2,36:1.</div>
-            </details>
-          </div>
+      <div class="finds" style="margin-top:2.75rem">
+        <article class="find wide rv">
+          <h4>O endereço com "www" mostra aviso de conexão não segura</h4>
+          <p>É o ponto mais visível de todos, porque quem esbarra nele é o cliente. O certificado de segurança cobre o endereço sem "www", mas não a versão com. Quem digita por hábito, ou tem o favorito salvo assim, recebe o aviso do navegador e não entra.</p>
+          <p class="ev">https://www.arguto.com.br → falha de validação do certificado</p>
+          <div class="fix fix-cfg"><i class="dot"></i><span>Ajuste de configuração, resolvido em minutos</span></div>
+          <details class="tech">
+            <summary>Ver detalhe técnico</summary>
+            <div class="tech-body">O certificado TLS lista apenas <code>DNS:arguto.com.br</code> no campo Subject Alternative Name, enquanto o DNS resolve <code>www</code> para o mesmo servidor. Resultado: <code>curl</code> retorna exit 60 e o Chromium aborta com <code>ERR_CERT_COMMON_NAME_INVALID</code>. Vale registrar que o subdomínio <code>empresa.arguto.com.br</code> tem certificado próprio e válido, ou seja, emitir certificado já é rotina ali, só faltou incluir o <code>www</code> do domínio principal. Correção: reemitir incluindo o <code>www</code> no SAN e manter o redirecionamento para a raiz em HTTPS.</div>
+          </details>
+        </article>
 
-          <div class="find rv">
-            <h4>No tablet, o menu fica escrito por cima do banner</h4>
-            <p>Em telas entre 768 e 1024 pixels, que é o tamanho de um iPad em pé ou de uma janela não maximizada, o menu quebra em duas linhas e a segunda linha cai sobre a foto. "PET", "FORNECEDORES" e "OFERTAS" ficam ilegíveis.</p>
-            <p class="ev">confirmado por medição e captura de tela</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">Medição em 768px: a segunda linha do menu ocupa y=207 a 279, enquanto o banner começa em y=235. Três itens invadem a área do banner. No mesmo intervalo, o botão da busca se separa do campo e cai para uma linha própria.</div>
-            </details>
-          </div>
+        <article class="find rv">
+          <h4>No celular não há caminho até a Política de Privacidade</h4>
+          <p>Os links de Política de Privacidade, Pagamento e Trocas existem no rodapé, mas ficam ocultos na tela do celular. O único link de política que aparece leva para uma página que não existe mais.</p>
+          <p class="ev">links corretos ocultos · link visível retorna erro 404</p>
+          <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
+          <details class="tech">
+            <summary>Ver detalhe técnico</summary>
+            <div class="tech-body">Medição em 375px: os títulos "Institucional", "Minha Conta" e "Vendas Corporativas" têm largura computada zero. Os links <code>/PoliticaDePrivacidade/</code>, <code>/PoliticaDePagamento/</code> e <code>/TrocasDevolucoes/</code> retornam <code>visible: false</code>. O único link exibido aponta para <code>content.asp</code>, que responde HTTP 404. Transparência sobre tratamento de dados é exigência do Art. 9º da LGPD, e informação sobre trocas e devoluções é exigência do CDC.</div>
+          </details>
+        </article>
 
-          <div class="find rv">
-            <h4>O aviso de cookies cobre os botões de compra no celular</h4>
-            <p>Na tela pequena, a tarja de cookies fica por cima dos botões de produto. Para comprar, o cliente precisa primeiro aceitar, e a única opção que existe é "OK".</p>
-            <p class="ev">verificado em tela de 375 px</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-          </div>
+        <article class="find rv">
+          <h4>Durante a medição, o site ficou 19 minutos indisponível</h4>
+          <p>Entre 3h43 e 4h02 o site parou de responder. Confirmei de duas redes diferentes ao mesmo tempo. <strong>Não consegui determinar a causa</strong>, e não afirmo que a minha medição a tenha provocado. Por isso o encaminhamento não é uma correção, é passar a monitorar.</p>
+          <p class="ev">13 amostras consecutivas sem resposta</p>
+          <div class="fix fix-inv"><i class="dot"></i><span>Precisa investigar. O monitoramento eu já instalo.</span></div>
+          <details class="tech">
+            <summary>Ver detalhe técnico</summary>
+            <div class="tech-body">Amostragem a cada 20 segundos registrou 13 falhas consecutivas, com <code>HTTP 000</code> respondendo em 0,07 s, o que caracteriza conexão recusada no handshake e não lentidão ou timeout. Log completo em <code>docs/_uptime-arguto.log</code>. No mesmo instante, <code>example.com</code> carregou normalmente no mesmo navegador, e o teste foi confirmado também de um celular em 5G, com operadora e rota diferentes. Ressalva de rigor: foram cerca de 200 requisições em 6 minutos, volume comparável ao de um usuário navegando. Se isso derruba o site, é um achado de capacidade relevante, mas <strong>não está provado</strong>.</div>
+          </details>
+        </article>
+      </div>
 
-          <div class="find rv">
-            <h4>Cada letra digitada na busca é uma consulta ao sistema</h4>
-            <p>Digitar "arroz" dispara cinco consultas seguidas, uma por letra, sem esperar a pessoa terminar de escrever. Multiplicado por todo mundo que busca, é bastante trabalho desnecessário para o servidor.</p>
-            <p class="ev">5 letras = 5 consultas</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-          </div>
+      <h3 style="margin-top:3.25rem;font-size:1.1rem">Também verifiquei</h3>
+      <div class="mini rv">
+        <div class="mini-row">
+          <p class="mini-what">O botão de comprar tem pouco contraste
+            <em>"VER PREÇO" em branco sobre laranja claro fica difícil de ler no celular sob o sol. <span class="ev-inline">2,59:1, mínimo recomendado 4,5:1</span></em></p>
+          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">No tablet, o menu fica escrito por cima do banner
+            <em>Entre 768 e 1024 pixels o menu quebra em duas linhas e a segunda cai sobre a foto. "PET", "FORNECEDORES" e "OFERTAS" ficam ilegíveis.</em></p>
+          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">O aviso de cookies cobre os botões de compra no celular
+            <em>Para comprar, o cliente precisa aceitar primeiro. E a única opção que existe é "OK", sem como recusar nem escolher.</em></p>
+          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">O rastreamento começa antes de o cliente responder
+            <em>Ao abrir a home, os cookies de análise já são gravados e quatro registros de visita já foram enviados, antes de qualquer clique no aviso.</em></p>
+          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">A home não diz ao Google qual é o assunto dela
+            <em>Falta o título principal e o resumo que aparece embaixo do link nos resultados. O título da aba é "B2B Arguto", sem distribuidora, atacado ou Uberlândia.</em></p>
+          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">Os produtos não aparecem de forma completa nos resultados
+            <em>Falta o formato padrão que informa preço e disponibilidade ao Google. Isso não garante que ele exiba, mas hoje ele nem tem como.</em></p>
+          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">Quase nenhuma imagem tem descrição
+            <em>Afeta quem usa leitor de tela e tira do Google uma informação que ele usa para entender a página. <span class="ev-inline">118 de 119 imagens</span></em></p>
+          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">Cada letra digitada na busca é uma consulta ao sistema
+            <em>Digitar "arroz" dispara cinco consultas seguidas, sem esperar a pessoa terminar de escrever.</em></p>
+          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">A sessão do cliente logado pode receber uma proteção a mais
+            <em>Existe uma marcação padrão que garante que a sessão só trafegue por conexão criptografada. Hoje ela não está ativa.</em></p>
+          <span class="mini-tag t-cfg"><i class="dot"></i>Configuração</span>
+        </div>
+        <div class="mini-row">
+          <p class="mini-what">Faltam as proteções padrão de servidor
+            <em>São seis configurações que os navegadores usam para proteger o visitante de ataques conhecidos. O servidor também informa publicamente qual versão está rodando.</em></p>
+          <span class="mini-tag t-cfg"><i class="dot"></i>Configuração</span>
         </div>
       </div>
 
-      <!-- grupo B -->
-      <div class="group">
-        <h3>Google e WhatsApp podem trabalhar mais a favor da Arguto</h3>
-        <div class="finds">
-          <div class="find rv wide">
-            <h4>A home não diz ao Google qual é o assunto dela</h4>
-            <p>Toda página tem um título principal que resume do que ela trata. A home da Arguto não tem nenhum, e também não tem o resumo que aparece embaixo do link nos resultados de busca. O título que aparece na aba do navegador é "B2B Arguto", sem a palavra distribuidora, sem atacado e sem Uberlândia, que é o que um comprador digitaria.</p>
-            <p class="ev">nenhum título principal na página · sem resumo para o Google</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body"><code>document.querySelectorAll('h1').length</code> retorna 0. A hierarquia de títulos também está fora de ordem: começa em H5 no menu, desce para H4 e só então chega ao H2 das seções. Sem <code>meta description</code>, confirmado pelo Lighthouse. <code>&lt;title&gt;</code> com 11 caracteres. Os arquivos <code>robots.txt</code>, <code>sitemap.xml</code> e <code>favicon.ico</code> retornam 404.</div>
-            </details>
-          </div>
-
-          <div class="find rv">
-            <h4>Os produtos não aparecem de forma completa nos resultados</h4>
-            <p>Existe um formato padrão para o site informar ao Google dados como preço e disponibilidade de cada produto. O site atual não fornece nenhum deles. Isso não garante que o Google exiba essas informações, mas hoje ele nem tem como.</p>
-            <p class="ev">nenhum dado estruturado de produto</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">Nenhuma marcação JSON-LD (<code>Product</code>, <code>Organization</code>, <code>LocalBusiness</code>) no HTML. Dado estruturado torna a página <em>elegível</em> a resultados enriquecidos, com preço, disponibilidade e avaliação. A exibição continua sendo decisão do Google.</div>
-            </details>
-          </div>
-
-          <div class="find rv">
-            <h4>Quase nenhuma imagem tem descrição</h4>
-            <p>De 119 imagens do site, 118 não têm texto descritivo. Isso afeta quem usa leitor de tela e também tira do Google uma informação que ele usa para entender a página.</p>
-            <p class="ev">118 de 119 imagens sem descrição</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">118 de 119 imagens sem atributo <code>alt</code> na medição do DOM completo (o Lighthouse reporta 60 no viewport dele). Como consequência, 25 links que contêm apenas imagem ficam sem nome acessível, incluindo o logotipo. Dois botões também estão sem nome, um deles é o botão de busca do celular.</div>
-            </details>
-          </div>
+      <details class="tech" style="max-width:760px">
+        <summary>Ver o detalhe técnico destes dez pontos</summary>
+        <div class="tech-body">
+          <strong>Contraste:</strong> 2,59:1 no <code>.btn-preco</code>, contra 4,5:1 exigido pelo WCAG 2.1 AA; 6 ocorrências no Lighthouse. O item "OFERTAS" do menu tem 2,36:1.<br><br>
+          <strong>Tablet:</strong> em 768px a segunda linha do menu ocupa y=207 a 279 e o banner começa em y=235. Três itens invadem a área do banner. O botão da busca também se separa do campo.<br><br>
+          <strong>Cookies e rastreio:</strong> cookies <code>_ga</code> e dois identificadores de propriedade GA4 gravados antes de interação, com 7 eventos de <code>dataLayer</code> e 4 <code>page_view</code> enviados. Duas propriedades GA4 medem em paralelo, além do contêiner GTM. A LGPD (Arts. 7º e 8º) trata consentimento prévio para tratamento não essencial, e a orientação da ANPD é que recusar seja tão simples quanto aceitar.<br><br>
+          <strong>SEO:</strong> <code>document.querySelectorAll('h1').length</code> retorna 0; a hierarquia começa em H5 e desce para H4 antes do H2; sem <code>meta description</code>; <code>&lt;title&gt;</code> com 11 caracteres; <code>robots.txt</code>, <code>sitemap.xml</code> e <code>favicon.ico</code> retornam 404. Nenhuma marcação JSON-LD (<code>Product</code>, <code>Organization</code>, <code>LocalBusiness</code>): dado estruturado torna a página <em>elegível</em> a resultado enriquecido, a exibição segue sendo decisão do Google.<br><br>
+          <strong>Imagens e nomes acessíveis:</strong> 118 de 119 imagens sem <code>alt</code> na medição do DOM completo (o Lighthouse reporta 60 no viewport dele). Como consequência, 25 links que contêm apenas imagem ficam sem nome acessível, incluindo o logotipo, e dois botões também, um deles o de busca do celular.<br><br>
+          <strong>Sessão e cabeçalhos:</strong> cookie <code>ASP.NET_SessionId</code> com <code>secure: false</code>, verificado em conta real autenticada; sem <code>Strict-Transport-Security</code>; redirecionamento HTTP→HTTPS em 302 e não 301. É uma falha de configuração comprovada, <strong>não</strong> uma captura de sessão demonstrada. Ausentes também: <code>Content-Security-Policy</code>, <code>X-Frame-Options</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code> e <code>Permissions-Policy</code>. Os cabeçalhos expõem <code>Microsoft-IIS/10.0</code>, <code>ASP.NET 4.0.30319</code> e <code>PleskWin</code>; há arquivos <code>.debugger.js</code> em produção e três versões de jQuery carregadas juntas, uma de 2015 com CVEs públicos. Versão vulnerável não prova exploração, mas é pendência objetiva em <em>due diligence</em>.
         </div>
-      </div>
-
-      <!-- grupo C -->
-      <div class="group">
-        <h3>Privacidade e consentimento</h3>
-        <p class="group-sub">Não é um parecer jurídico, e eu não sou a pessoa para dar um. São práticas observadas que merecem ajuste para ficar alinhadas às boas práticas de consentimento e transparência orientadas pela ANPD.</p>
-        <div class="finds">
-          <div class="find rv wide">
-            <h4>No celular não há caminho até a Política de Privacidade</h4>
-            <p>Os links de Política de Privacidade, Política de Pagamento e Trocas e Devoluções existem no rodapé, mas ficam ocultos na tela do celular. O único link de política que aparece leva para uma página que não existe mais.</p>
-            <p class="ev">links corretos ocultos · link visível retorna erro 404</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">Medição em 375px: os títulos "Institucional", "Minha Conta" e "Vendas Corporativas" têm largura computada zero. Os links <code>/PoliticaDePrivacidade/</code>, <code>/PoliticaDePagamento/</code> e <code>/TrocasDevolucoes/</code> retornam <code>visible: false</code>. O único link exibido aponta para <code>content.asp</code>, que responde HTTP 404. Transparência sobre tratamento de dados é exigência do Art. 9º da LGPD, e informação sobre trocas e devoluções é exigência do CDC.</div>
-            </details>
-          </div>
-
-          <div class="find rv">
-            <h4>O rastreamento começa antes do cliente responder</h4>
-            <p>Ao abrir a home, os cookies de análise já são gravados e quatro registros de visita já foram enviados, tudo antes de qualquer clique no aviso de cookies.</p>
-            <p class="ev">4 envios de análise antes do aceite</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">Cookies <code>_ga</code> e dois identificadores de propriedade GA4 gravados antes de interação, com 7 eventos de <code>dataLayer</code> e 4 <code>page_view</code> enviados. Há duas propriedades GA4 medindo em paralelo, além do contêiner GTM, o que também duplica o dado. A LGPD (Arts. 7º e 8º) trata consentimento prévio para tratamento não essencial, e análise de audiência não é essencial ao funcionamento.</div>
-            </details>
-          </div>
-
-          <div class="find rv">
-            <h4>O aviso de cookies só tem a opção de aceitar</h4>
-            <p>Não existe botão de recusar, nem escolha por finalidade, nem link para a política. A orientação da ANPD é que recusar seja tão simples quanto aceitar.</p>
-            <p class="ev">1 opção: "OK"</p>
-            <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- grupo D -->
-      <div class="group">
-        <h3>Segurança e disponibilidade</h3>
-        <div class="finds">
-          <div class="find rv wide">
-            <h4>O endereço com "www" mostra aviso de conexão não segura</h4>
-            <p>É o ponto mais visível de todos, porque quem esbarra nele é o cliente. O certificado de segurança do site cobre o endereço sem "www", mas não a versão com. Quem digita por hábito, ou tem o favorito salvo assim, recebe a tela de aviso do navegador e não entra.</p>
-            <p class="ev">https://www.arguto.com.br → falha de validação do certificado</p>
-            <div class="fix fix-cfg"><i class="dot"></i><span>Ajuste de configuração, resolvido em minutos</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">O certificado TLS lista apenas <code>DNS:arguto.com.br</code> no campo Subject Alternative Name, enquanto o DNS resolve <code>www</code> para o mesmo servidor. Resultado: <code>curl</code> retorna exit 60 e o Chromium aborta com <code>ERR_CERT_COMMON_NAME_INVALID</code>. Vale registrar que o subdomínio <code>empresa.arguto.com.br</code> tem certificado próprio e válido, ou seja, emitir certificado já é rotina ali, só faltou incluir o <code>www</code> do domínio principal. Correção: reemitir incluindo o <code>www</code> no SAN e manter o redirecionamento para a raiz em HTTPS.</div>
-            </details>
-          </div>
-
-          <div class="find rv">
-            <h4>A sessão do cliente logado pode receber uma proteção a mais</h4>
-            <p>Existe uma marcação padrão que garante que a sessão de quem está logado só trafegue por conexão criptografada. Hoje ela não está ativa. É uma configuração, não uma reforma.</p>
-            <p class="ev">proteção de transporte da sessão ausente</p>
-            <div class="fix fix-cfg"><i class="dot"></i><span>Ajuste de configuração</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">Cookie <code>ASP.NET_SessionId</code> com <code>secure: false</code>, verificado em conta real autenticada. Sem cabeçalho <code>Strict-Transport-Security</code>, e o redirecionamento HTTP→HTTPS é 302 e não 301. Para ser preciso: isto é uma falha de configuração comprovada, <strong>não</strong> uma captura de sessão demonstrada. Navegadores modernos fazem upgrade automático para HTTPS, o que mitiga parte do risco. As três correções são de configuração: marcar o cookie como <code>Secure</code>, ativar HSTS e trocar o 302 por 301.</div>
-            </details>
-          </div>
-
-          <div class="find rv">
-            <h4>Faltam as proteções padrão de servidor</h4>
-            <p>Existe um conjunto de configurações que os navegadores usam para proteger o visitante de ataques conhecidos. Nenhuma delas está ativa hoje. O servidor também informa publicamente qual versão de software está rodando, o que não traz benefício nenhum.</p>
-            <p class="ev">6 proteções padrão ausentes</p>
-            <div class="fix fix-cfg"><i class="dot"></i><span>Ajuste de configuração</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">Ausentes: <code>Strict-Transport-Security</code>, <code>Content-Security-Policy</code>, <code>X-Frame-Options</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code> e <code>Permissions-Policy</code>. Os cabeçalhos expõem <code>Microsoft-IIS/10.0</code>, <code>ASP.NET 4.0.30319</code> e <code>PleskWin</code>. Também foram encontrados arquivos <code>.debugger.js</code> publicados em produção, e três versões de jQuery carregadas simultaneamente, uma delas de 2015 com CVEs públicos (CVE-2020-11022, CVE-2020-11023, CVE-2019-11358, CVE-2015-9251). Versão vulnerável não prova exploração, mas é pendência objetiva em qualquer <em>due diligence</em>.</div>
-            </details>
-          </div>
-
-          <div class="find rv wide">
-            <h4>Durante a medição, o site ficou 19 minutos indisponível</h4>
-            <p>Entre 3h43 e 4h02 o site parou de responder. Confirmei de duas redes diferentes ao mesmo tempo, uma banda larga e um celular em 5G, para descartar problema na minha conexão. <strong>Não consegui determinar a causa</strong>, e não afirmo que a minha medição tenha provocado a queda. Por isso o encaminhamento aqui não é uma correção, é passar a monitorar: se acontecer de novo, alguém precisa ser avisado na hora.</p>
-            <p class="ev">13 amostras consecutivas sem resposta · 03h43 às 04h02</p>
-            <div class="fix fix-inv"><i class="dot"></i><span>Precisa investigar. O monitoramento com alerta eu já instalo.</span></div>
-            <details class="tech">
-              <summary>Ver detalhe técnico</summary>
-              <div class="tech-body">Amostragem a cada 20 segundos registrou 13 falhas consecutivas, com <code>HTTP 000</code> respondendo em 0,07 s, o que caracteriza conexão recusada no handshake e não lentidão ou timeout. Log completo em <code>docs/_uptime-arguto.log</code>. No mesmo instante, <code>example.com</code> carregou normalmente no mesmo navegador. Ressalva de rigor: foram cerca de 200 requisições em 6 minutos, volume comparável ao de um usuário navegando. Se isso derruba o site, é um achado de capacidade relevante, mas <strong>não está provado</strong>.</div>
-            </details>
-          </div>
-        </div>
-      </div>
-
+      </details>
     </div>
   </section>
 
-  <!-- ═══ 07 · O QUE FICA ═══ -->
-  <section class="sec">
+  <!-- ═══ 07 · ESCOPO ═══ -->
+  <section class="band band--paper sec" data-here="O que muda">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">07 · ESCOPO</span>
@@ -955,56 +986,49 @@
           <h3>Continua exatamente como está</h3>
           <ul class="keep-list">
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>O Protheus, sem nenhuma alteração</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>O portal administrativo do B2B e a rotina de cadastro de produto</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>A integração entre o Protheus e o site</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>O portal administrativo e a rotina de cadastro de produto</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>As regras de preço por cliente, estoque, crédito e frete</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>O login dos clientes e a gravação do pedido</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>A rotina de trabalho da equipe. Ninguém precisa ser treinado de novo</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg><span>A rotina da equipe. Ninguém precisa ser treinado de novo</span></li>
           </ul>
         </div>
         <div class="keep-box changes">
           <h3>É reconstruído</h3>
           <ul class="keep-list">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>Tudo que o cliente vê antes de entrar na conta: home, categorias, produto, ofertas e páginas institucionais</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>Tudo que o cliente vê antes de entrar na conta: home, categorias, produto, ofertas e institucionais</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>A busca, o menu e o comportamento no celular</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>O tratamento das imagens, que é a origem dos 24 MB</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>Carrinho, checkout e Meus Pedidos recebem visual novo, mantendo o mesmo funcionamento por trás</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>Carrinho e checkout recebem visual novo, mantendo o mesmo funcionamento por trás</span></li>
           </ul>
         </div>
       </div>
 
-      <p style="margin-top:1.75rem;max-width:64ch">Em resumo: a parte que envolve dinheiro e regra de negócio continua rodando onde já roda hoje. O que é reconstruído é a camada que o cliente enxerga, que é justamente de onde vêm os problemas desta apresentação.</p>
+      <p style="margin-top:1.9rem;max-width:64ch">Em resumo: a parte que envolve dinheiro e regra de negócio continua rodando onde já roda hoje. O que é reconstruído é a camada que o cliente enxerga, que é de onde vêm os problemas desta apresentação.</p>
     </div>
   </section>
 
   <!-- ═══ 08 · ANTES / DEPOIS ═══ -->
-  <section class="sec sec-muted">
+  <section class="band band--tint sec" data-here="Antes e depois">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">08 · COMPARAÇÃO</span>
         <h2>Hoje e com a nova experiência</h2>
-        <p>Do lado direito está o que a entrega resolve. Onde eu ainda não medi um número, eu não invento um.</p>
+        <p>Onde eu ainda não medi um número, eu não invento um.</p>
       </div>
 
       <div class="ba rv">
         <div class="ba-head" aria-hidden="true"><span>HOJE</span><span></span><span>COM O SITE NOVO</span></div>
 
         <div class="ba-row">
-          <div class="ba-now"><b>Abrir no celular</b>22,7 s até o conteúdo principal aparecer, no teste</div>
+          <div class="ba-now"><b>Abrir no celular</b>22,7 s até o conteúdo principal aparecer</div>
           <span class="ba-arrow" aria-hidden="true">→</span>
-          <div class="ba-next">Uma página construída desde o começo para carregar rápido, com imagem moderna e carregamento sob demanda</div>
+          <div class="ba-next">Uma página construída desde o começo para carregar rápido, com imagem moderna e sob demanda</div>
         </div>
 
         <div class="ba-row">
           <div class="ba-now"><b>Peso da home</b>24,3 MB, sendo 23 MB de imagem, com um banner de 10 MB duplicado</div>
           <span class="ba-arrow" aria-hidden="true">→</span>
-          <div class="ba-next">Imagens no formato certo e no tamanho certo, cada arquivo servido uma única vez</div>
-        </div>
-
-        <div class="ba-row">
-          <div class="ba-now"><b>Voltar para a lista</b>A página inteira é baixada de novo</div>
-          <span class="ba-arrow" aria-hidden="true">→</span>
-          <div class="ba-next">O retorno volta instantâneo, do jeito que a pessoa deixou</div>
+          <div class="ba-next">Imagens no formato e no tamanho certos, cada arquivo servido uma única vez</div>
         </div>
 
         <div class="ba-row">
@@ -1020,28 +1044,22 @@
         </div>
 
         <div class="ba-row">
-          <div class="ba-now"><b>Encontrar no Google</b>Sem título principal, sem resumo e sem mapa do site</div>
-          <span class="ba-arrow" aria-hidden="true">→</span>
-          <div class="ba-next">Estrutura completa para o Google entender e indexar cada página</div>
-        </div>
-
-        <div class="ba-row">
           <div class="ba-now"><b>Buscar um produto</b>"cola" devolve dez itens de chocolate</div>
           <span class="ba-arrow" aria-hidden="true">→</span>
-          <div class="ba-next">A busca deixa de consultar a cada tecla. A relevância entra em diagnóstico dedicado, junto com o sistema interno</div>
+          <div class="ba-next">A busca deixa de consultar a cada tecla. A relevância entra em diagnóstico dedicado</div>
         </div>
 
         <div class="ba-row">
           <div class="ba-now"><b>Quando o site cai</b>Não há aviso automático</div>
           <span class="ba-arrow" aria-hidden="true">→</span>
-          <div class="ba-next">Monitoramento instalado, com alerta imediato em caso de indisponibilidade</div>
+          <div class="ba-next">Monitoramento instalado, com alerta imediato</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ 09 · MÉTODO ═══ -->
-  <section class="sec">
+  <section class="band band--paper sec" data-here="Como medimos">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">09 · MÉTODO</span>
@@ -1068,24 +1086,22 @@
         </div>
       </dl>
 
-      <p style="margin-top:2rem;max-width:64ch">Nota sobre as duas notas de velocidade: <strong>49 é a nota do computador e 53 a do celular</strong>, na mesma coleta. Pontuação de performance varia entre execuções, por isso deixei as duas visíveis em vez de escolher uma.</p>
-
-      <p style="margin-top:1.1rem;max-width:64ch">Os relatórios que vocês mesmos rodaram no PageSpeed estão públicos e podem ser comparados com o que apresentei aqui:</p>
+      <p style="margin-top:2rem;max-width:64ch">Sobre as duas notas de velocidade: <strong>49 é a nota do computador e 53 a do celular</strong>, na mesma coleta. Pontuação de performance varia entre execuções, por isso deixei as duas visíveis em vez de escolher uma.</p>
 
       <div class="links">
-        <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&form_factor=mobile" target="_blank" rel="noopener noreferrer">Relatório do celular</a>
-        <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&form_factor=desktop" target="_blank" rel="noopener noreferrer">Relatório do computador</a>
+        <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&amp;form_factor=mobile" target="_blank" rel="noopener noreferrer">Relatório do celular</a>
+        <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&amp;form_factor=desktop" target="_blank" rel="noopener noreferrer">Relatório do computador</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══ 10 · FECHAMENTO ═══ -->
-  <section class="sec sec-muted close">
+  <!-- ═══ 10 · FECHAMENTO · escuro ═══ -->
+  <section class="band band--dark sec close" data-here="Conversa">
     <div class="wrap">
       <h2 class="rv">O site atual cumpriu o papel dele. Agora dá para dar o próximo passo.</h2>
       <div class="prose rv">
         <p>O que eu encontrei não é descuido de ninguém. É tecnologia que envelheceu enquanto a forma de comprar mudou, e hoje boa parte do pedido começa no celular.</p>
-        <p>A maior parte desses pontos já está contemplada no redesenho. Alguns são configuração de servidor e eu passo a especificação exata, contratando ou não. E os dois que dependem de investigação, eu prefiro tratar como investigação a prometer prazo que não posso cumprir.</p>
+        <p>A maior parte desses pontos já está contemplada no redesenho. Alguns são configuração de servidor e eu passo a especificação exata, contratando ou não. E os que dependem de investigação, eu prefiro tratar como investigação a prometer prazo que não posso cumprir.</p>
       </div>
 
       <p class="signature rv">Do levantamento técnico até a entrega, quem acompanha o projeto sou eu. Vocês falam sempre com a mesma pessoa.</p>
@@ -1101,7 +1117,7 @@
 
 </main>
 
-<footer>
+<footer class="band band--dark band--deep">
   <div class="wrap foot-in">
     <div class="foot-brand">
       <svg viewBox="0 0 494.13 396.73" role="img" aria-label="dev.RR">
@@ -1134,8 +1150,7 @@
     var decimals = target.indexOf(',') > -1 ? 1 : 0;
     var value = parseFloat(target.replace(',', '.'));
     if (isNaN(value)) return;
-    var start = performance.now();
-    var duration = 900;
+    var start = performance.now(), duration = 900;
     function frame(now) {
       var p = Math.min((now - start) / duration, 1);
       var eased = 1 - Math.pow(1 - p, 3);
@@ -1153,22 +1168,32 @@
 
   if (reduce || !('IntersectionObserver' in window)) {
     for (var i = 0; i < revealables.length; i++) revealables[i].classList.add('in');
-    return;
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        activate(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+    for (var j = 0; j < revealables.length; j++) io.observe(revealables[j]);
   }
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      activate(entry.target);
-      io.unobserve(entry.target);
-    });
-  }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
-
-  for (var j = 0; j < revealables.length; j++) io.observe(revealables[j]);
+  // Nome da seção atual no cabeçalho: ajuda a se localizar num documento longo.
+  var here = document.getElementById('here');
+  var marked = document.querySelectorAll('[data-here]');
+  if (here && marked.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) here.textContent = e.target.getAttribute('data-here');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    for (var k = 0; k < marked.length; k++) spy.observe(marked[k]);
+  }
 
   // Imprimir sempre com tudo revelado, mesmo o que nunca entrou na tela.
   window.addEventListener('beforeprint', function () {
-    for (var k = 0; k < revealables.length; k++) revealables[k].classList.add('in');
+    for (var m = 0; m < revealables.length; m++) revealables[m].classList.add('in');
   });
 })();
 </script>
