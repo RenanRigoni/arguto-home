@@ -94,7 +94,9 @@
   }
   .skip:focus { top: 1rem; }
 
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+  /* Respiro lateral acompanha a largura da tela: apertado no celular,
+     generoso no notebook. Sem isso o conteúdo encosta na borda entre 900 e 1180px. */
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(1.25rem, 4.5vw, 4rem); }
   .col  { max-width: 720px; }
 
   /* ── TOPO ─────────────────────────────────────────── */
@@ -106,7 +108,9 @@
   }
   .topbar-in {
     display: flex; align-items: center; justify-content: space-between;
-    gap: .75rem 1.5rem; flex-wrap: wrap; padding: .95rem 0;
+    gap: .75rem 1.5rem; flex-wrap: wrap;
+    /* só vertical: o lateral vem do .wrap e não pode ser zerado aqui */
+    padding-top: .95rem; padding-bottom: .95rem;
   }
   .logo { height: 21px; width: auto; color: #fff; display: block; }
   .topbar-meta {
