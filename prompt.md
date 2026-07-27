@@ -1,450 +1,966 @@
-The copy and narrative are now significantly better.
+We are doing the FINAL refinement of the Arguto commercial diagnostic page.
+
+Current page:
+
+apresentacao/diagnostico-arguto.html
+
+IMPORTANT:
 
 Do NOT redo the technical audit.
-Do NOT rewrite the entire commercial argument again.
-Do NOT add new findings.
 
-This pass is primarily about VISUAL DIRECTION, READING COMFORT and PRESENTATION RHYTHM.
+Do NOT add findings without evidence.
 
-I reviewed the current page and I believe the biggest remaining problem is that the entire experience is too dark.
+Do NOT redesign the entire page from scratch.
 
-The current CSS confirms this:
+Do NOT return to an all-dark visual system.
 
-- main surface is nearly black;
-- muted surface is nearly black;
-- elevated surfaces are dark;
-- cards are dark;
-- footer is dark;
-- `color-scheme: dark`;
-- most of the long-form content is light text on dark backgrounds.
+Do NOT turn this into an academic UX report.
 
-This works for a short technology landing page.
+The current light-first direction is substantially better.
 
-It does NOT work as well for a long commercial presentation that a non-technical business owner may spend several minutes reading.
+This final pass should improve:
 
-The page currently feels closer to:
+- commercial persuasion;
+- visual rhythm;
+- credibility;
+- human language;
+- evidence hierarchy;
+- explanation of why user experience matters;
+- connection between established UX principles and the ACTUAL measured problems on Arguto's current website.
 
-cybersecurity report
-developer presentation
-technical SaaS
-AI/startup landing page
-
-than:
-
-premium commercial diagnosis prepared personally for Arguto.
-
-I want to keep the technological maturity, but make the presentation significantly lighter, more comfortable and more human.
+All customer-facing copy must remain in Brazilian Portuguese.
 
 ==================================================
-1. NEW VISUAL PRINCIPLE
+1. PRIMARY OBJECTIVE
 ==================================================
 
-Move from:
+This page will likely be presented to the owner/director of Arguto.
 
-DARK INTERFACE
+Assume that this person is:
 
-to:
+- experienced in business;
+- knowledgeable about Arguto's operation;
+- not necessarily technical;
+- not familiar with UX terminology;
+- interested in whether changing the website actually creates business value.
 
-LIGHT COMMERCIAL PRESENTATION
-WITH STRATEGIC DARK MOMENTS.
+The page should help this person understand:
 
-Do not simply invert all colors.
+1. what was measured;
+2. what is genuinely weak today;
+3. why those weaknesses matter to a buyer;
+4. what a better digital experience should provide;
+5. what will actually change;
+6. what will NOT change in the operation;
+7. why this modernization is worth discussing.
 
-Design a deliberate mixed visual system.
+The tone should feel like Renan explaining his work personally.
 
-The dark sections should become HIGH-IMPACT moments instead of the default background.
+Not:
 
-Conceptually:
-
-DARK
-Hero / opening
-
-LIGHT
-Narrative
-
-LIGHT / SOFT BLUE
-Measured data
-
-WHITE
-Customer impact
-
-LIGHT
-Findings
-
-OPTIONAL DARK SECTION
-Technical evidence or one high-impact data moment
-
-LIGHT
-What stays / what changes
-
-LIGHT
-Before / after
-
-DARK BLUE
-Closing CTA
-
-This is directional, not mandatory.
-
-Analyze the content and establish the best rhythm.
+AI-generated audit.
+Agency pitch deck.
+Developer report.
+Cybersecurity dashboard.
+Fear-based sales copy.
 
 ==================================================
-2. TARGET VISUAL FEEL
+2. REMOVE THE SEARCH FINDING COMPLETELY
 ==================================================
 
-The final experience should feel:
+The current dedicated search section involving examples such as:
 
-modern
-premium
-clear
-credible
-technological
-human
-commercial
+"cola" → chocolate
+"coca" → pacoca
+"ninho" → danoninho
 
-It should NOT feel:
+must be REMOVED from the commercial diagnostic.
 
-cybersecurity
-terminal
-developer dashboard
-crypto
-AI startup
-dark SaaS
-technical report
+Do not redesign it.
+Do not soften it.
+Do not replace it with another query example.
+Do not preserve the component because it looks visually good.
 
-Imagine an executive-level consulting presentation translated into a modern web experience.
+Substring matching is a legitimate search implementation strategy.
 
-The owner should feel comfortable reading the entire page.
+The existing evidence demonstrates how the search works but does NOT demonstrate
+that customers are failing to find products, abandoning purchases or receiving
+incorrect results when a correct product exists.
 
-==================================================
-3. LIGHT PALETTE
-==================================================
+Therefore it is not strong enough to be presented as a commercial problem.
 
-Develop a complementary light palette based on the existing blue identity.
+Remove:
 
-Explore something in the direction of:
+- the complete dedicated search section;
+- search-result examples;
+- references to it from the customer journey;
+- references presenting it as a major finding;
+- references in summaries or conclusions.
 
-white
-warm/off-white
-very light blue-gray
-deep navy typography
-neutral gray body text
-brand blue
-controlled orange/red/green only when semantically meaningful
+Renumber subsequent sections naturally.
 
-Example direction, NOT mandatory:
+Do NOT replace the removed section simply to maintain page length.
 
-#FFFFFF
-#F7F9FC
-#EEF3F8
+A shorter diagnostic with stronger evidence is better.
 
-headings around deep navy
-body around neutral slate
+The only search-related observation that MAY remain is the verified technical
+behavior that each keystroke generates a separate request without debounce.
 
-Keep the existing Arguto/dev.RR blue identity where appropriate.
+If kept, place this only among secondary technical optimizations.
 
-Do not introduce random purple gradients.
+Do not present it as evidence that search results are bad.
 
 ==================================================
-4. DARK SECTIONS
+3. ADD A NEW SECTION: WHAT A GOOD USER EXPERIENCE ACTUALLY MEANS
 ==================================================
 
-Preserve dark backgrounds only where they add actual impact.
+Add a concise, visually strong section explaining what "good user experience"
+means in practice.
 
-Strong candidates:
+This is strategically important.
 
-- Hero
-- one technical/data section if useful
-- final CTA/footer
+The owner may understand:
 
-Dark should now signal:
+"site slow"
 
-"pay attention to this"
+but may not understand why UX should influence the decision to modernize the
+platform.
 
-instead of:
+We need to explain this without jargon.
 
-"everything is dark."
+Possible section concept:
 
-Avoid multiple almost-identical black shades throughout the entire page.
+"O que uma boa experiência precisa entregar"
 
-==================================================
-5. REDUCE DARK CARDS
-==================================================
+or a better natural Brazilian Portuguese title.
 
-The current page has many:
+The section should explain that UX is NOT simply:
 
-dark background
-+
-dark elevated card
-+
-thin dark border
-+
-white text.
+- making the site prettier;
+- using modern colors;
+- adding animation;
+- changing fonts.
 
-This creates visual fatigue.
+Good UX means helping the customer accomplish what they came to do:
 
-On light sections, cards should use:
+find
+understand
+navigate
+buy
 
-white surface
-subtle border
-very subtle shadow where needed
-dark typography
-clear spacing
-
-Do not turn every paragraph into a white card.
-
-Continue reducing unnecessary card containers.
-
-Use editorial layouts, rules, spacing, typography and data visualization.
+with less friction.
 
 ==================================================
-6. TYPOGRAPHY
+4. USE REAL, AUTHORITATIVE UX SOURCES
 ==================================================
 
-Keep the current readable body typography.
+This new section MUST be grounded in credible external sources.
 
-Reduce the perception of "developer interface".
+Use official / primary or highly established UX research sources.
 
-Monospace should be reserved primarily for:
+At minimum evaluate:
 
-measured numbers
-technical evidence
-codes / URLs
-small technical annotations
+NIELSEN NORMAN GROUP
 
-Do NOT use monospaced typography as a general visual personality.
+Use principles from:
 
-The owner-facing story should feel natural and editorial.
+- The Definition of User Experience;
+- Usability 101;
+- 10 Usability Heuristics for User Interface Design.
 
-==================================================
-7. DATA SHOULD PROVIDE THE TECHNOLOGY
-==================================================
+Relevant principles include:
 
-Do not use a dark palette to make the page feel technological.
+- the experience should meet the customer's actual needs;
+- the system should speak the user's language;
+- users should know what is happening;
+- interaction should be efficient;
+- interfaces should remain focused on relevant information;
+- errors and friction should be prevented where possible.
 
-Technology should come from how we PRESENT REAL DATA.
+Do not show all ten heuristics to the business owner.
 
-Prioritize meaningful data visualization.
+Translate the relevant principles.
 
-Examples:
+--------------------------------------------------
 
-MOBILE LOADING TIME
+GOOGLE / WEB.DEV
 
-Google good-experience reference:
-2.5 seconds
+Use Core Web Vitals concepts.
 
-Current measured result:
-22.7 seconds
+Relevant current thresholds include:
 
-Use a clear horizontal comparison with an animated fill.
+LCP:
+good experience reference ≤ 2.5 seconds.
 
-The owner must understand the difference in less than two seconds.
+INP:
+good ≤ 200ms.
 
-PAGE WEIGHT
+CLS:
+good ≤ 0.1.
 
-24.3 MB total
+Do NOT introduce INP or CLS into the Arguto diagnosis unless they were actually
+measured.
 
-approximately 23 MB images
+They may be cited briefly as examples of how Google defines user-experience
+quality.
 
-Use a proportional stacked visualization.
+For Arguto, focus primarily on the actual measured LCP evidence.
 
-REQUESTS
+--------------------------------------------------
 
-Only include if it adds meaningful understanding.
+W3C / WCAG 2.2
 
-Do NOT create dashboard clutter.
+Use accessibility standards where applicable.
 
-2–3 strong visualizations are better than 10 small charts.
+Relevant verified criteria include:
 
-==================================================
-8. MOTION
-==================================================
+WCAG 2.2 AA text contrast:
+minimum 4.5:1 for normal text.
 
-The page should feel technologically polished through controlled interaction.
+Target Size Minimum:
+24 × 24 CSS pixels, subject to the WCAG exceptions.
 
-Consider:
+Again:
 
-- count-up of important measurements;
-- chart bars growing once when visible;
-- progressive reveal of comparison;
-- subtle scroll reveal;
-- active section indicator;
-- before/after transitions.
+do not add violations we did not measure.
 
-Keep movements subtle and explanatory.
+Use standards only where they map to verified findings.
 
-No:
+--------------------------------------------------
 
-particles
-parallax spectacle
-floating elements
-neon animation
-constant motion
+BAYMARD INSTITUTE
 
-Use lightweight native implementation whenever possible.
+Use Baymard as ecommerce-specific research.
 
-Respect `prefers-reduced-motion`.
+Their research should be used to support the general idea that product discovery,
+lists, filtering, navigation and purchasing interactions materially affect the
+ability of users to find and select products.
 
-==================================================
-9. PAGE NAVIGATION / PROGRESS
-==================================================
+Do not use Baymard to claim a specific Arguto failure unless we have evidence.
 
-Because this is a long diagnostic presentation, investigate adding a subtle progress/navigation system.
+Do not invent Baymard statistics.
 
-Potential sections:
-
-Visão geral
-Experiência
-Busca
-Confiança
-Solução
-
-This is NOT mandatory.
-
-Evaluate whether a discreet sticky progress navigation would:
-
-- make the long document easier to understand;
-- help during a presentation in a meeting;
-- give a more polished digital-product feeling.
-
-Do not create a large navigation bar that competes with the content.
-
-Desktop could use a subtle side indicator or compact sticky navigation.
-
-Mobile must remain simple.
+If citing numerical Baymard research, verify it directly before using it.
 
 ==================================================
-10. MAKE FINDINGS MORE VISUAL
+5. SHOW SOURCES OPENLY
 ==================================================
 
-Look for places where we currently use a text card but could communicate the same idea visually.
+This section should make clear that these principles are not Renan's personal
+opinion.
 
-Examples:
+Possible subtle label:
 
-SEARCH PROBLEM
+"Referências utilizadas"
 
-Instead of only describing the search issue, show:
+Then list, in a discreet professional way:
 
-USER SEARCH
-"café"
+Nielsen Norman Group
+Google web.dev / Core Web Vitals
+W3C WCAG 2.2
+Baymard Institute
 
-↓
-CURRENT RESULT
+Use real links to the exact official sources used.
 
-then explain what is happening.
+Do not clutter the section with academic citations.
 
-WHATSAPP
+A small source note / footnote area is enough.
 
-Show a clearly labeled illustrative comparison:
+The owner should understand:
 
-TODAY
-plain / weak share preview
-
-WITH CORRECT METADATA
-professional Arguto preview
-
-Do not create fake screenshots presented as real.
-
-Label simulations clearly.
-
-MOBILE SPEED
-
-Use visual scale instead of another card.
-
-The goal:
-
-less reading
-more understanding.
+"Existe uma régua conhecida para isso."
 
 ==================================================
-11. SECTION RHYTHM
+6. DO NOT MAKE THE UX SECTION A CLASS
 ==================================================
 
-The page should visually breathe.
+Keep the section concise.
 
-Review vertical spacing.
-
-Alternate content composition rather than mechanically alternating colors.
-
-Some sections can be:
-
-full-width data visualization
-
-Some:
-
-editorial text + visual
-
-Some:
-
-2-column findings
-
-Some:
-
-simple lists
-
-Some:
-
-before/after comparison
+The reader does NOT need to learn UX terminology.
 
 Avoid:
 
-card grid
-card grid
-card grid
-card grid
+heuristic #1
+heuristic #2
+cognitive load
+affordance
+information scent
+mental model
+interaction cost
+recognition over recall
 
-especially in a long presentation.
+unless absolutely necessary.
 
-==================================================
-12. KEEP THE HUMANIZED COPY
-==================================================
+Translate everything into practical language.
 
-Do NOT undo the copy improvements from the previous pass.
+A possible structure is four principles.
 
-Preserve:
+For example:
 
-- conversational Brazilian Portuguese;
-- non-technical explanations;
-- cautious claims;
-- owner-first language;
-- expandable technical evidence.
+RÁPIDO
 
-Continue removing any sentence that sounds like:
+The customer should see useful content quickly and not wait unnecessarily.
 
-AI marketing copy
-corporate jargon
-developer jargon
+FÁCIL DE USAR
 
-But this is NOT another full copy rewrite.
+Menus, buttons and content should behave predictably at any screen size.
 
-Visual hierarchy is the priority.
+FÁCIL DE COMPRAR
 
-==================================================
-13. PRESERVE TECHNICAL EVIDENCE
-==================================================
+Nothing should unnecessarily cover, hide or complicate purchasing actions.
 
-The page must remain credible.
+CLARO E ACESSÍVEL
 
-Keep exact:
+Text, buttons and important information should remain readable and usable for
+different people, devices and contexts.
 
-measurements
-methodology
-technical details
-audit dates
-PageSpeed links
-evidence
+These labels are only conceptual suggestions.
 
-But visually subordinate technical details.
-
-OWNER sees:
-
-problem → consequence → solution.
-
-IT can open:
-
-technical detail → evidence → implementation concern.
+Improve them if a more natural version works better.
 
 ==================================================
-14. USE THE INSTALLED SKILLS
+7. CONNECT EACH UX PRINCIPLE TO ARGUTO'S REAL EVIDENCE
+==================================================
+
+This is the most important part.
+
+Do NOT create a generic UX section detached from the audit.
+
+For every principle shown, connect it to something ACTUALLY verified in the
+current Arguto website.
+
+Example:
+
+GOOD EXPERIENCE:
+
+"The customer sees what they need quickly."
+
+ARGUTO TODAY:
+
+"On the mobile test, the main content took 22.7 seconds to appear."
+
+REFERENCE:
+
+"Google considers LCP up to 2.5 seconds a good experience."
+
+--------------------------------------------------
+
+GOOD EXPERIENCE:
+
+"The interface adapts to the device without elements interfering with each
+other."
+
+ARGUTO TODAY:
+
+"At measured tablet widths, navigation overlaps the campaign banner."
+
+--------------------------------------------------
+
+GOOD EXPERIENCE:
+
+"Buying controls must remain readable and easy to use."
+
+ARGUTO TODAY:
+
+"The 'VER PREÇO' button measured 2.59:1 contrast."
+
+REFERENCE:
+
+"WCAG AA requires at least 4.5:1 for normal text."
+
+--------------------------------------------------
+
+GOOD EXPERIENCE:
+
+"The buying flow should avoid unnecessary obstacles."
+
+ARGUTO TODAY:
+
+"On mobile, the cookie notice covers buying controls and only presents OK."
+
+Only use relationships supported by existing evidence.
+
+Do not force every UX principle to have an Arguto problem.
+
+==================================================
+8. IMPORTANT LANGUAGE RULE FOR THIS SECTION
+==================================================
+
+Do NOT write:
+
+"Arguto has bad UX."
+
+That is too broad and not demonstrated.
+
+Prefer:
+
+"The current site falls short in some important aspects of the experience."
+
+or:
+
+"When these principles are compared with the measurements, some gaps become
+clear."
+
+The diagnostic tested specific behaviors and technical conditions.
+
+It did NOT run a complete behavioral usability study with Arguto customers.
+
+Be precise about this.
+
+==================================================
+9. DISTINGUISH AUDIT FROM USER RESEARCH
+==================================================
+
+This is essential for credibility.
+
+Do not imply that we interviewed buyers or ran moderated usability sessions if
+we did not.
+
+The current work is based on:
+
+- technical measurement;
+- browser behavior;
+- responsive testing;
+- direct inspection;
+- reproducible interactions;
+- established UX guidelines.
+
+Not actual customer interviews.
+
+If useful, write something like:
+
+"Isso não substitui um teste com clientes reais, mas já mostra barreiras
+objetivas na experiência atual."
+
+This is honest and professional.
+
+==================================================
+10. VISUAL FORMAT FOR THE UX SECTION
+==================================================
+
+Do NOT make another grid of four generic icon cards.
+
+Avoid:
+
+icon
+title
+paragraph
+×4
+
+That was already identified as an AI/template pattern.
+
+Use a more editorial / comparative treatment.
+
+For example:
+
+left:
+
+WHAT GOOD EXPERIENCE ASKS FOR
+
+right:
+
+WHAT WE MEASURED TODAY
+
+or alternating horizontal rows:
+
+PRINCIPLE
+↓
+EVIDENCE
+
+Another possibility:
+
+GOOD EXPERIENCE
+
+Rapidez
+Clareza
+Facilidade de compra
+Consistência
+
+with a single continuous visual line connecting each principle to one measured
+example.
+
+Use frontend-design and Impeccable to find a distinctive treatment.
+
+It should look like a commercial argument, not an educational infographic.
+
+==================================================
+11. KEEP THE LIGHT-FIRST VISUAL SYSTEM
+==================================================
+
+The light redesign was an improvement.
+
+Do NOT return to a dark page.
+
+White and very light surfaces should remain the foundation for long reading.
+
+However, the current result may still be slightly too light / document-like.
+
+Introduce stronger visual rhythm.
+
+==================================================
+12. USE FOUR SURFACE INTENSITIES
+==================================================
+
+Use:
+
+LEVEL 1 — WHITE
+
+For long reading.
+
+LEVEL 2 — LIGHT BLUE / OFF-WHITE
+
+For section distinction.
+
+LEVEL 3 — BRAND BLUE
+
+For one or two major commercial moments.
+
+LEVEL 4 — NAVY
+
+Only for strongest moments such as opening and closing.
+
+Dark should not dominate.
+
+==================================================
+13. ADD BRAND-BLUE MOMENTS
+==================================================
+
+The current design moves between white/light and very dark.
+
+I want a middle visual state.
+
+Consider using a strong Arguto-like blue section.
+
+Possible candidates:
+
+- the new UX principles section;
+- "O que muda e o que não muda";
+- one major before/after moment.
+
+Do NOT make all three blue.
+
+Choose based on hierarchy.
+
+A rich brand blue section with white typography can provide technological
+character without returning to dark-mode fatigue.
+
+==================================================
+14. HERO
+==================================================
+
+Keep the hero visually strong.
+
+The opening can remain navy.
+
+But make sure it feels:
+
+professional
+personal
+consultative
+
+not:
+
+cybersecurity
+AI startup
+SaaS marketing page.
+
+Avoid excessive glow, grid effects or futuristic decoration.
+
+The hero should make the owner want to continue reading.
+
+==================================================
+15. PRIORITIZE ONLY THE STRONGEST COMMERCIAL ARGUMENTS
+==================================================
+
+The diagnostic should not feel like a list of everything technically imperfect.
+
+The strongest arguments should dominate.
+
+Current high-value evidence includes:
+
+1. MOBILE LOADING EXPERIENCE
+
+22.7 seconds for the main content to appear in the measured mobile test.
+
+2. PAGE WEIGHT
+
+24.3 MB transferred on the homepage, approximately 23 MB from images.
+
+3. RESPONSIVE / BUYING FRICTION
+
+Measured layout overlap, cookie interface and contrast problems.
+
+4. TECHNICAL AGE / ACCUMULATED DEBT
+
+Accessibility, SEO fundamentals, outdated frontend dependencies, metadata and
+server configuration.
+
+5. RELIABILITY / TRUST
+
+Verified www certificate warning and observed downtime, presented carefully with
+the existing caveats.
+
+Do not give equal visual importance to every technical finding.
+
+==================================================
+16. PERFORMANCE SECTION
+==================================================
+
+Keep the 22.7s vs 2.5s visualization.
+
+This is one of the strongest parts of the presentation.
+
+Make sure wording stays precise:
+
+22.7 seconds:
+measured Arguto result.
+
+2.5 seconds:
+Google's "good" reference threshold.
+
+Do not represent 2.5 seconds as the result promised for the redesigned site.
+
+The evidence itself is persuasive enough.
+
+==================================================
+17. PAGE WEIGHT SECTION
+==================================================
+
+Keep the visual showing:
+
+24.3 MB total
+
+approximately 23 MB images.
+
+This is easy for a business owner to understand.
+
+Do not overload the explanation with:
+
+request waterfalls
+hashes
+compression algorithms
+WebP internals
+
+in the main narrative.
+
+Technical details can remain expandable.
+
+The primary message is:
+
+"The browser downloads much more than necessary before the customer can use the
+page."
+
+==================================================
+18. CUSTOMER JOURNEY
+==================================================
+
+After removing the weak search example, review the customer journey.
+
+Only keep steps backed by useful verified findings.
+
+Possible flow:
+
+1. customer opens the website on mobile;
+2. customer navigates categories/products;
+3. customer opens a product and returns;
+4. customer interacts with buying controls;
+5. customer receives/shares a link;
+6. customer accesses the website through www.
+
+Do NOT force all six if the section becomes long.
+
+The journey should demonstrate friction naturally.
+
+Do not turn it into another checklist.
+
+==================================================
+19. WHATSAPP SECTION
+==================================================
+
+The current WhatsApp before/after concept is useful.
+
+Keep it if the evidence remains correct.
+
+Clearly differentiate:
+
+actual current behavior
+
+vs
+
+illustrative future preview.
+
+Do not present a simulated future card as a real screenshot.
+
+Use the section to explain a simple idea:
+
+When the commercial team shares Arguto, the link itself should help communicate
+trust and context.
+
+==================================================
+20. "WHAT CHANGES / WHAT DOESN'T" MUST BE A MAJOR COMMERCIAL MOMENT
+==================================================
+
+Increase the importance of this section.
+
+The owner may fear:
+
+"Will you replace Protheus?"
+
+"Will we need to register products again?"
+
+"Will employees change the way they work?"
+
+Use the approved architecture and scope.
+
+Make the answer immediate.
+
+A strong conceptual structure:
+
+THE OPERATION CONTINUES
+
+- Protheus
+- admin portal
+- product registration workflow
+- price rules
+- stock rules
+- credit
+- freight
+- order logic
+- employee routine
+
+THE CUSTOMER EXPERIENCE EVOLVES
+
+- website presentation
+- navigation
+- mobile experience
+- catalog frontend
+- images
+- product discovery
+- customer-facing interactions
+
+Do not add anything not confirmed by the project documentation.
+
+Consider giving this section a BRAND BLUE surface because commercially it is one
+of the most reassuring parts of the proposal.
+
+==================================================
+21. HUMAN COPY
+==================================================
+
+Review all visible copy again.
+
+Ask:
+
+"Would Renan naturally say this in a meeting?"
+
+Avoid:
+
+marketing jargon
+AI-style slogans
+technical vocabulary
+absolute claims
+dramatic accusations
+
+Prefer:
+
+short sentences
+specific examples
+measured numbers
+clear consequences
+
+Example philosophy:
+
+BAD:
+
+"Uma arquitetura ultrapassada compromete criticamente a jornada omnichannel."
+
+GOOD:
+
+"O site ainda depende de uma estrutura antiga, e isso aparece na experiência:
+carrega mais do que precisa, quebra em alguns tamanhos de tela e exige ajustes
+que hoje seriam básicos."
+
+Do not use this exact sentence unless it fits the evidence.
+
+==================================================
+22. REDUCE COPY WHERE DATA ALREADY EXPLAINS THE POINT
+==================================================
+
+The page will be presented by Renan.
+
+It does not need to contain his entire speech.
+
+Where a visual says:
+
+22.7s
+vs
+2.5s
+
+do not add four paragraphs.
+
+Where a diagram says:
+
+24.3 MB
+23 MB images
+
+use one concise conclusion.
+
+More space around good evidence increases its importance.
+
+==================================================
+23. SECONDARY FINDINGS
+==================================================
+
+Keep secondary findings compact.
+
+The current move from many cards to a short list was good.
+
+Do not turn them back into large cards.
+
+They should communicate:
+
+"These were also verified."
+
+not:
+
+"These are ten more catastrophic problems."
+
+Technical details should remain available to IT without dominating the business
+presentation.
+
+==================================================
+24. SECURITY LANGUAGE
+==================================================
+
+Continue being cautious.
+
+Do not imply that Arguto has been hacked.
+
+Do not imply customer data has actually been stolen.
+
+Configuration weaknesses should be described as configuration weaknesses.
+
+Examples:
+
+"Pode receber uma proteção adicional."
+
+"Configuração recomendada não está ativa."
+
+"Vale corrigir como parte da modernização."
+
+Then let the technical detail carry exact header/cookie evidence.
+
+==================================================
+25. PRIVACY / LGPD
+==================================================
+
+Do not give legal conclusions.
+
+Use:
+
+observed behavior
++
+recognized best practices / ANPD guidance
++
+recommendation to adjust.
+
+Do not say:
+
+"Arguto is violating the law."
+
+The page is a technical/commercial diagnostic, not a legal opinion.
+
+==================================================
+26. DATA SOURCES
+==================================================
+
+Every external benchmark or UX principle added to the presentation must have a
+traceable source.
+
+Use direct source links.
+
+Prioritize:
+
+official source
+original research organization
+standards body.
+
+Do not cite:
+
+random blog posts
+SEO agencies
+LinkedIn posts
+AI-generated articles.
+
+==================================================
+27. SOURCE PRESENTATION
+==================================================
+
+Keep citations visually discreet.
+
+Possible implementation:
+
+[1] Google / web.dev
+[2] Nielsen Norman Group
+[3] W3C WCAG 2.2
+[4] Baymard Institute
+
+Then a small:
+
+"Fontes e metodologia"
+
+section near the end.
+
+Clickable source names.
+
+Do not make the page look academic.
+
+==================================================
+28. CHAPTER NUMBERING
+==================================================
+
+Review whether every section needs:
+
+01 ·
+02 ·
+03 ·
+04 ·
+
+The numbering may help presentation structure.
+
+But excessive system-like numbering can make the page feel templated.
+
+Keep it only if it improves orientation.
+
+Do not use it mechanically.
+
+==================================================
+29. MOTION
+==================================================
+
+Keep motion restrained.
+
+Useful:
+
+- progress bar;
+- data bars growing once;
+- important numbers counting up;
+- before/after reveal;
+- subtle section entrance.
+
+Avoid:
+
+- animated backgrounds;
+- particles;
+- floating UI;
+- excessive parallax;
+- glowing objects;
+- animation on every card.
+
+Motion should help the presentation feel like a high-quality digital product.
+
+==================================================
+30. USE THE INSTALLED DESIGN SKILLS
 ==================================================
 
 Use:
@@ -453,49 +969,27 @@ frontend-design
 impeccable
 ui-ux-pro-max
 
-Perform a visual critique specifically asking:
+Run them specifically against:
 
-"Is this presentation visually exhausting because of prolonged dark-mode usage?"
+visual rhythm
+reading comfort
+commercial hierarchy
+human tone
+data visualization
+non-technical comprehension
+AI-pattern detection.
 
-"Does this feel like a commercial presentation or a developer/cybersecurity report?"
+Important:
 
-"Where can light surfaces improve comprehension?"
+Do not let a skill manufacture new findings.
 
-"Where does dark actually add value?"
-
-Do not use the skills to redesign content that is already strong.
-
-==================================================
-15. IMPORTANT: DO NOT MAKE IT GENERIC
-==================================================
-
-Switching to light mode must NOT result in:
-
-generic corporate landing page
-white SaaS template
-blue gradient startup site
-shadcn demo
-consulting template
-
-Maintain character through:
-
-typography
-information design
-real Arguto-specific evidence
-precise data visualization
-spacing
-layout
-controlled motion
-
-The content itself is distinctive.
-
-The UI does not need decorative gimmicks to be distinctive.
+The evidence remains authoritative.
 
 ==================================================
-16. RESPONSIVE
+31. MOBILE
 ==================================================
 
-Review the light/dark transition at:
+Review at least:
 
 375
 430
@@ -504,58 +998,130 @@ Review the light/dark transition at:
 1440
 1920
 
-Charts and visual comparisons must remain understandable on a phone.
+Especially:
 
-Do not rely on horizontal scrolling for important arguments when a vertical
-mobile representation is possible.
+UX principles comparison
+charts
+what changes / what stays
+before/after
+secondary findings
+source references.
 
-==================================================
-17. PRINT
-==================================================
-
-Preserve or improve the existing print experience.
-
-A lighter visual system should make the document substantially better when
-printed.
-
-Charts must remain understandable without motion.
+Nothing important should require horizontal scrolling to understand.
 
 ==================================================
-18. BEFORE IMPLEMENTING
+32. PRINT
 ==================================================
 
-First give me a concise visual audit:
+Preserve the strong print behavior.
 
-1. Where the current dark theme causes visual fatigue.
-2. Which sections should remain dark.
-3. Which sections should become light.
-4. Which card layouts can become simpler editorial layouts.
-5. Which 2–3 findings deserve visual/data treatment.
-6. Whether a progress navigation is worth adding.
-7. What current visual elements should be preserved.
+This diagnostic may eventually be printed or exported to PDF.
+
+All major arguments must remain understandable:
+
+without motion;
+without hover;
+without dark backgrounds;
+without interactive details being required.
+
+==================================================
+33. FINAL NARRATIVE TEST
+==================================================
+
+The story should now feel roughly like:
+
+I STUDIED THE CURRENT SITE.
+
+↓
+
+HERE IS WHAT STOOD OUT.
+
+↓
+
+THIS IS WHAT GOOD DIGITAL EXPERIENCE GENERALLY REQUIRES,
+BASED ON RECOGNIZED UX / ECOMMERCE / ACCESSIBILITY SOURCES.
+
+↓
+
+WHEN WE COMPARE THOSE PRINCIPLES TO THE ACTUAL MEASUREMENTS,
+SOME GAPS BECOME CLEAR.
+
+↓
+
+HERE IS WHAT THE CUSTOMER EXPERIENCES TODAY.
+
+↓
+
+HERE ARE THE MOST IMPORTANT VERIFIED PROBLEMS.
+
+↓
+
+THE INTERNAL OPERATION DOES NOT NEED TO BE REBUILT.
+
+↓
+
+HERE IS WHAT CHANGES FOR THE CUSTOMER.
+
+↓
+
+HERE IS THE OPPORTUNITY.
+
+This should feel like one argument.
+
+Not a collection of audit sections.
+
+==================================================
+34. BEFORE IMPLEMENTING
+==================================================
+
+First report:
+
+1. exactly where the search argument appears and what will be removed;
+2. which current sections are strongest;
+3. where the new UX-principles section should sit;
+4. which official sources you will use;
+5. which Arguto findings map legitimately to those principles;
+6. which claims should NOT be made;
+7. which section should become the stronger brand-blue visual moment;
+8. what you will preserve without modification.
 
 Then implement.
 
 ==================================================
-19. FINAL TEST
+35. AFTER IMPLEMENTING
 ==================================================
 
-When finished, scroll the full page and ask:
+Report:
 
-"Would a 50–60 year old non-technical business owner comfortably read this entire presentation on a laptop?"
+- content removed;
+- sections renumbered;
+- UX section added;
+- sources used;
+- external claims and their source;
+- Arguto evidence connected to each UX principle;
+- visual rhythm changes;
+- sections changed to brand blue;
+- copy shortened;
+- technical detail preserved;
+- any statement you intentionally refused to add because evidence was
+  insufficient.
 
-"Does it still feel modern?"
+==================================================
+36. FINAL PRINCIPLE
+==================================================
 
-"Does it still feel technically credible?"
+This page should NOT convince Arguto because it sounds dramatic.
 
-"Does it feel more like Renan personally prepared this for Arguto than an AI generated a technology report?"
+It should convince Arguto because the reasoning is difficult to argue with.
 
-"Does the eye get moments of rest?"
+The ideal reaction is:
 
-If any answer is no, refine.
+"Entendi o que uma experiência boa deveria entregar."
 
-FINAL PRINCIPLE:
+"Agora entendi onde nosso site fica abaixo disso."
 
-TECHNOLOGY SHOULD COME FROM THE QUALITY OF THE INFORMATION EXPERIENCE.
+"Os problemas são reais e dá para conferir."
 
-NOT FROM MAKING THE WHOLE SCREEN BLACK.
+"E pelo que estou vendo, melhorar isso não exige desmontar nossa operação."
+
+That is the final objective.

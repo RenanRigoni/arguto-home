@@ -6,7 +6,7 @@
 <title>Diagnóstico Técnico — arguto.com.br | dev.RR</title>
 <meta name="description" content="Estudo do site B2B da Arguto: o que acontece hoje quando um cliente entra pelo celular, busca um produto e finaliza a compra. Medições, evidências e caminhos de melhoria.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#07070F">
+<meta name="theme-color" content="#0B1729">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Diagnóstico Técnico — arguto.com.br | dev.RR">
 <meta property="og:description" content="O que acontece hoje quando um cliente entra no B2B da Arguto pelo celular. Estudo com medições reproduzíveis e caminhos práticos de melhoria.">
@@ -96,6 +96,24 @@
   }
   .band--paper { --bg: var(--paper); --card: var(--paper-warm); --card-shadow: none; }
   .band--tint  { --bg: var(--paper-tint); --card: #fff; --track: #D3DEEE; }
+  /* Nível intermediário entre o claro e o navy. Usado uma única vez, na
+     seção que mais precisa ser lembrada. C6D8FA e não um azul mais claro:
+     abaixo disso o texto secundário cai de 4,5:1 sobre o #1D4ED8. */
+  .band--brand {
+    --bg: var(--brand-700);
+    --fg: #DCE8FF;
+    --fg-strong: #FFFFFF;
+    --fg-muted: #C6D8FA;
+    --hair: rgba(255,255,255,.22);
+    --hair-soft: rgba(255,255,255,.14);
+    --card: rgba(255,255,255,.08);
+    --card-hair: rgba(255,255,255,.22);
+    --card-shadow: none;
+    --accent: #FFFFFF;
+    --accent-soft: rgba(255,255,255,.12);
+    --c-ok: #6EE7B7; --c-warn: #FCD34D; --c-bad: #FCA5A5;
+    --track: rgba(255,255,255,.2);
+  }
   .band--dark {
     --bg: var(--navy);
     --fg: var(--on-navy-body);
@@ -117,6 +135,8 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  /* o cabeçalho é fixo: sem isso o alvo do link de fonte para embaixo dele */
+  [id] { scroll-margin-top: 5.5rem; }
   body {
     font-family: var(--font-sans);
     background: var(--paper-warm);
@@ -130,13 +150,23 @@
   p { max-width: var(--measure); }
   strong { color: var(--fg-strong); font-weight: 600; }
   a { color: var(--accent); }
-  a:not(.cta):not(.footer-meta a) {
+  a:not(.cta):not(.ref):not(.footer-meta a) {
     text-decoration: underline; text-decoration-thickness: 1px;
     text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
   }
-  a:not(.cta):hover { text-decoration-color: currentColor; }
+  a:not(.cta):not(.ref):hover { text-decoration-color: currentColor; }
   :focus-visible { outline: 2px solid var(--brand-600); outline-offset: 3px; border-radius: 3px; }
-  .band--dark :focus-visible { outline-color: var(--brand-400); }
+  .band--dark :focus-visible, .band--brand :focus-visible { outline-color: #fff; }
+
+  /* Marcador de fonte. Discreto no texto, clicável, leva à lista no fim.
+     O padding vertical existe só para dar área de toque: em elemento
+     inline ele cresce a caixa de clique sem mexer na altura da linha. */
+  .ref {
+    font-family: var(--font-mono); font-size: .74em; vertical-align: .38em;
+    color: var(--accent); text-decoration: none;
+    padding: .45rem .3rem; margin: 0 -.24rem;
+  }
+  .ref:hover { text-decoration: underline; }
 
   .num { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
   .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -302,32 +332,45 @@
   .stack-legend span { display: flex; align-items: center; gap: .5rem; }
   .dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
 
-  /* ── DEMONSTRAÇÃO DE BUSCA ────────────────────────── */
-  .search-demo {
-    background: var(--card); border: 1px solid var(--card-hair);
-    border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--card-shadow);
+  /* ── A RÉGUA ──────────────────────────────────────────
+     Princípio à esquerda, medição à direita, ligados por um
+     fio vertical. O padding fica nos itens e não na linha,
+     para que o fio corra contínuo de uma linha à outra. */
+  .ruler { margin-top: 2.5rem; }
+  .ruler-head, .ruler-row { display: grid; grid-template-columns: 1fr minmax(14rem, 17rem); }
+  .ruler-head {
+    font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; color: var(--fg-muted);
   }
-  .band--paper .search-demo { --card: #fff; box-shadow: 0 1px 2px rgba(15,31,61,.04), 0 10px 30px rgba(15,31,61,.055); }
-  .search-bar {
-    display: flex; align-items: center; gap: .7rem;
-    padding: 1.05rem 1.3rem; border-bottom: 1px solid var(--hair);
-    background: var(--paper-warm);
+  .ruler-head span { padding-bottom: .75rem; }
+  .ruler-head span:last-child { padding-left: 2.5rem; border-left: 1px solid var(--hair); color: var(--accent); }
+  .ruler-row { border-top: 1px solid var(--hair); }
+  .ruler-row:last-child { border-bottom: 1px solid var(--hair); }
+  .ruler-ask { padding: 1.9rem 2.5rem 1.9rem 0; }
+  .ruler-got { padding: 1.9rem 0 1.9rem 2.5rem; border-left: 1px solid var(--hair); }
+  .ruler-ask h3 { font-size: 1.16rem; margin-bottom: .5rem; max-width: 30ch; }
+  .ruler-ask p { font-size: .99rem; max-width: 52ch; }
+  .ruler-val {
+    font-family: var(--font-mono); font-weight: 500; line-height: 1.05;
+    font-size: clamp(1.55rem, 3.2vw, 2rem); color: var(--fg-strong); margin-bottom: .5rem;
   }
-  .band--dark .search-bar, .band--paper .search-bar { background: var(--paper-tint); }
-  .band--dark .search-bar { background: rgba(255,255,255,.04); }
-  .search-bar svg { width: 17px; height: 17px; stroke: var(--fg-muted); fill: none; stroke-width: 2; flex-shrink: 0; }
-  .search-typed { font-family: var(--font-mono); font-size: 1.06rem; color: var(--fg-strong); }
-  .search-caret { display: inline-block; width: 1px; height: 1.05em; background: var(--brand-600); vertical-align: text-bottom; margin-left: 1px; }
-  .search-results { padding: .5rem 0; }
-  .search-results li { list-style: none; display: flex; align-items: flex-start; gap: .8rem; padding: .62rem 1.3rem; font-size: .93rem; }
-  .search-results li .x { color: var(--c-bad); flex-shrink: 0; line-height: 1.7; font-size: .85rem; }
-  .search-results li em { font-style: normal; color: var(--brand-700); background: rgba(37,99,235,.11); border-radius: 3px; padding: 0 .15em; font-weight: 600; }
-  .band--dark .search-results li em { color: var(--brand-400); background: rgba(96,165,250,.16); }
-  .search-foot { padding: 1.1rem 1.3rem; border-top: 1px solid var(--hair); font-size: .93rem; background: rgba(185,28,28,.045); }
-  .band--dark .search-foot { background: rgba(248,113,113,.07); }
-  .search-foot strong { color: var(--c-bad); }
-  .search-mark { font-style: normal; color: var(--brand-700); font-weight: 700; }
-  .band--dark .search-mark { color: var(--brand-400); }
+  .ruler-cap { font-size: .9rem; line-height: 1.55; }
+  @media (max-width: 860px) {
+    .ruler-head { display: none; }
+    .ruler-row { grid-template-columns: 1fr; padding: 1.6rem 0; }
+    .ruler-ask { padding: 0 0 1.15rem; }
+    .ruler-got { padding: 0; border-left: 0; }
+    .ruler-got::before {
+      content: 'MEDIDO NO SITE ATUAL'; display: block; margin-bottom: .45rem;
+      font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; color: var(--fg-muted);
+    }
+  }
+
+  /* ── FONTES ───────────────────────────────────────── */
+  .sources { list-style: none; display: grid; gap: 1rem; margin-top: 1.5rem; max-width: 68ch; }
+  .sources li { display: grid; grid-template-columns: 2.1rem 1fr; font-size: .95rem; }
+  .sources .n { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); padding-top: .3rem; }
+  .sources em { font-style: normal; display: block; font-size: .88rem; color: var(--fg-muted); }
+  .sources a { padding-block: .32rem; }   /* área de toque ≥ 24px, sem alterar o fluxo */
 
   /* ── PREVIEW WHATSAPP ─────────────────────────────── */
   .previews { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -343,7 +386,9 @@
   .band--dark .wa-card.good { border-left-color: var(--ok-d); }
   .wa-thumb {
     height: 96px; border-radius: var(--radius-sm); margin-bottom: .7rem;
-    background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+    /* 800→600 e não 700→500: na ponta clara do gradiente anterior o texto
+       branco de 11,5px caía para 3,67:1, abaixo do mínimo AA. */
+    background: linear-gradient(135deg, var(--brand-800), var(--brand-600));
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-family: var(--font-mono); font-size: .72rem; text-align: center; padding: .5rem;
   }
@@ -368,14 +413,6 @@
   @media (max-width: 600px) { .step { grid-template-columns: 1fr; gap: .5rem; } .step-n { padding-top: 0; } }
 
   /* ── ACHADOS ──────────────────────────────────────── */
-  .group { margin-top: 3.25rem; }
-  .group:first-of-type { margin-top: 2.25rem; }
-  .group > h3 {
-    font-size: 1.32rem; margin-bottom: .5rem; max-width: 34ch;
-    padding-bottom: .85rem; border-bottom: 2px solid var(--accent); display: inline-block;
-  }
-  .group > .group-sub { font-size: .99rem; margin: .95rem 0 1.6rem; }
-
   .finds { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; }
   @media (max-width: 820px) { .finds { grid-template-columns: 1fr; } }
   .find {
@@ -444,7 +481,6 @@
   .mini-tag .dot { width: 7px; height: 7px; border-radius: 50%; }
   .mini-tag.t-new .dot { background: var(--c-ok); }
   .mini-tag.t-cfg .dot { background: var(--c-warn); }
-  .mini-tag.t-inv .dot { background: var(--accent); }
   @media (max-width: 700px) {
     .mini-row { grid-template-columns: 1fr; gap: .5rem; }
     .mini-tag { order: -1; }
@@ -460,18 +496,18 @@
   .route h3 { font-size: 1rem; font-weight: 600; margin-bottom: .4rem; }
   .route p { font-size: .9rem; }
 
-  /* ── O QUE FICA / O QUE MUDA ──────────────────────── */
-  .keeps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2.25rem; }
-  @media (max-width: 820px) { .keeps { grid-template-columns: 1fr; } }
-  .keep-box {
-    border: 1px solid var(--card-hair); border-radius: var(--radius-lg);
-    padding: 1.65rem; background: var(--card); box-shadow: var(--card-shadow);
-  }
-  .keep-box.stays { border-top: 3px solid var(--c-ok); }
-  .keep-box.changes { border-top: 3px solid var(--accent); }
-  .keep-box h3 { font-size: 1.1rem; margin-bottom: 1.1rem; }
-  .keep-list { list-style: none; display: grid; gap: .7rem; }
-  .keep-list li { display: flex; gap: .7rem; font-size: .94rem; align-items: flex-start; }
+  /* ── O QUE FICA / O QUE MUDA ──────────────────────────
+     Sem caixa: só um filete grosso no topo de cada coluna.
+     Numa faixa de cor cheia, card translúcido pesa e não
+     acrescenta informação nenhuma. */
+  .keeps { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 3.25rem; margin-top: 2.5rem; }
+  @media (max-width: 820px) { .keeps { grid-template-columns: 1fr; gap: 2.25rem; } }
+  .keep-box { padding-top: 1.5rem; border-top: 3px solid; }
+  .keep-box.stays { border-color: var(--c-ok); }
+  .keep-box.changes { border-color: var(--accent); }
+  .keep-box h3 { font-size: 1.15rem; margin-bottom: 1.15rem; }
+  .keep-list { list-style: none; display: grid; gap: .75rem; }
+  .keep-list li { display: flex; gap: .7rem; font-size: .95rem; align-items: flex-start; }
   .keep-list svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: .4rem; stroke-width: 2.5; fill: none; }
   .stays .keep-list svg { stroke: var(--c-ok); }
   .changes .keep-list svg { stroke: var(--accent); }
@@ -559,7 +595,7 @@
     * { box-shadow: none !important; transition: none !important; animation: none !important; }
     body { background: #fff; color: #1c2637; font-size: 10.5pt; line-height: 1.5; }
     .progress, .skip { display: none !important; }
-    .band, .band--dark, .band--deep, .band--tint, .band--paper, .chart--spot {
+    .band, .band--dark, .band--deep, .band--tint, .band--paper, .band--brand, .chart--spot {
       --bg: #fff; --fg: #1c2637; --fg-strong: #0a1526; --fg-muted: #4a5666;
       --hair: #ccd4e0; --hair-soft: #e2e7ee; --card: #fff; --card-hair: #ccd4e0;
       --accent: #1d4ed8; --track: #e4e9f1;
@@ -571,7 +607,7 @@
     .hero::after { display: none; }
     .hero { padding: 1.5rem 0 2rem; }
     .sec { padding: 1.75rem 0; page-break-inside: auto; }
-    .find, .chart, .keep-box, .step, .search-demo, .figure, .ba-row { page-break-inside: avoid; }
+    .find, .chart, .keep-box, .step, .figure, .ba-row, .ruler-row, .sources li { page-break-inside: avoid; }
     .bar-track { border: 1px solid #b9c3d2; }
     .bar-current { background: #1d4ed8 !important; }
     .bar-ref, .band:not(.band--dark) .chart:not(.chart--spot) .bar-ref { background: #047857 !important; }
@@ -585,9 +621,18 @@
     .bar-fill.is-anim { transform: scaleX(var(--to)) !important; }
     .cta { background: #fff !important; color: #0a1526 !important; border: 1.5px solid #0a1526; box-shadow: none !important; }
     a { color: #1d4ed8 !important; }
-    .search-foot { background: #fdf3f3 !important; }
-    .search-bar { background: #f6f8fc !important; }
-    .search-results li em { background: #e6edfb !important; color: #1d4ed8 !important; }
+    /* No papel a régua vira tabela: o fio vertical some e a legenda
+       de celular assume, senão as duas colunas se confundem. */
+    .ruler-head { display: none !important; }
+    .ruler-row { grid-template-columns: 1fr !important; padding: .9rem 0 !important; }
+    .ruler-ask { padding: 0 0 .5rem !important; }
+    .ruler-got { padding: 0 !important; border-left: 0 !important; }
+    .ruler-got::before {
+      content: 'MEDIDO NO SITE ATUAL'; display: block;
+      font-family: var(--font-mono); font-size: 7pt; letter-spacing: .1em; color: #4a5666;
+    }
+    .ruler-val { font-size: 15pt; }
+    .keep-box { break-inside: avoid; }
   }
 </style>
 
@@ -705,11 +750,92 @@
     </div>
   </section>
 
-  <!-- ═══ 03 · JORNADA ═══ -->
-  <section class="band band--paper sec" data-here="A experiência de quem compra">
+  <!-- ═══ 03 · A RÉGUA ═══ -->
+  <section class="band band--paper sec" data-here="A régua">
     <div class="wrap">
       <div class="sec-head col">
-        <span class="sec-index">03 · NA PRÁTICA</span>
+        <span class="sec-index">03 · A RÉGUA</span>
+        <h2>O que uma boa experiência precisa entregar</h2>
+        <p>Antes de dizer o que está abaixo do esperado, vale combinar qual é o esperado.</p>
+      </div>
+
+      <div class="prose rv">
+        <p>Boa experiência não é o site ficar mais bonito, nem trocar de cor ou de fonte. É o cliente conseguir fazer o que veio fazer — achar, entender, escolher e pedir — com menos coisa no caminho.</p>
+        <p>E isso não é gosto meu. Tem régua publicada, de quem estuda o assunto há décadas, e dá para conferir cada número.</p>
+      </div>
+
+      <div class="ruler rv">
+        <div class="ruler-head" aria-hidden="true">
+          <span>O QUE A RÉGUA PEDE</span><span>O QUE EU MEDI HOJE</span>
+        </div>
+
+        <div class="ruler-row">
+          <div class="ruler-ask">
+            <h3>Abrir rápido</h3>
+            <p>O cliente precisa ver o que veio buscar em poucos segundos. O Google publica a referência: até 2,5 segundos para o conteúdo principal aparecer.<a class="ref" href="#fontes">[1]</a></p>
+          </div>
+          <div class="ruler-got">
+            <p class="ruler-val">22,7 s</p>
+            <p class="ruler-cap">no teste em celular. Cerca de nove vezes a referência.</p>
+          </div>
+        </div>
+
+        <div class="ruler-row">
+          <div class="ruler-ask">
+            <h3>Caber na tela de qualquer aparelho</h3>
+            <p>O pedido começa no celular, às vezes continua no tablet e fecha no computador. A tela muda de tamanho, e a página precisa se reorganizar sem que um elemento cubra o outro.<a class="ref" href="#fontes">[2]</a></p>
+          </div>
+          <div class="ruler-got">
+            <p class="ruler-val">768–1024 px</p>
+            <p class="ruler-cap">é a faixa em que o menu quebra em duas linhas e a segunda é escrita por cima do banner.</p>
+          </div>
+        </div>
+
+        <div class="ruler-row">
+          <div class="ruler-ask">
+            <h3>Nada no caminho de quem quer comprar</h3>
+            <p>Evitar atrito é princípio básico de usabilidade: o caminho até a ação principal não deve ser coberto, escondido, nem condicionado a outra coisa antes.<a class="ref" href="#fontes">[2]</a></p>
+          </div>
+          <div class="ruler-got">
+            <p class="ruler-val">só “OK”</p>
+            <p class="ruler-cap">é a única saída do aviso de cookies, que no celular fica por cima dos botões de compra.</p>
+          </div>
+        </div>
+
+        <div class="ruler-row">
+          <div class="ruler-ask">
+            <h3>Legível e clicável por qualquer pessoa</h3>
+            <p>Aqui existem números fechados. O W3C define no mínimo 4,5:1 de contraste para texto normal e alvos de toque de pelo menos 24 por 24 pixels.<a class="ref" href="#fontes">[3]</a></p>
+          </div>
+          <div class="ruler-got">
+            <p class="ruler-val">2,59:1</p>
+            <p class="ruler-cap">no botão “VER PREÇO”, que se repete em cada produto. O Lighthouse também apontou 15 alvos de toque pequenos ou muito juntos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:2.25rem">
+        <p>Vale dizer por que a última linha importa num atacado: pesquisa de usabilidade em e-commerce, feita com milhares de sessões de compradores reais, mostra que a forma de apresentar, filtrar e navegar o catálogo muda diretamente a chance de a pessoa achar e escolher o produto.<a class="ref" href="#fontes">[4]</a></p>
+        <p style="font-size:.95rem;color:var(--fg-muted)">Um recado de rigor: eu medi comportamento técnico, tela e navegação. Não entrevistei clientes de vocês nem fiz sessão de teste com usuário real, e isso não substitui esse tipo de estudo. Mas as quatro barreiras acima são objetivas, e dá para reproduzir cada uma hoje no site que está no ar.</p>
+      </div>
+
+      <details class="tech" style="max-width:760px">
+        <summary>Ver o detalhe técnico destas quatro medições</summary>
+        <div class="tech-body">
+          <strong>Velocidade:</strong> LCP de 22,7 s no perfil móvel do Lighthouse 12.8.2 (4G simulado), contra o limiar de 2,5 s que o Google publica como boa experiência, medido no percentil 75 dos carregamentos.<br><br>
+          <strong>Tablet:</strong> em 768px a segunda linha do menu ocupa y=207 a 279 e o banner começa em y=235. Três itens — "PET", "FORNECEDORES" e "OFERTAS" — invadem a área do banner. O botão da busca também se separa do campo.<br><br>
+          <strong>Aviso de cookies:</strong> no celular a faixa fica fixa sobre a área dos botões de compra e oferece um único controle, "OK". Não há recusar nem escolher por finalidade. A orientação da ANPD é que recusar seja tão simples quanto aceitar.<br><br>
+          <strong>Contraste e alvos:</strong> 2,59:1 em <code>.btn-preco</code> (branco sobre laranja <code>#F5821F</code>), contra os 4,5:1 do critério 1.4.3 do WCAG; 6 ocorrências no Lighthouse, todas no mesmo elemento. O item "OFERTAS" do menu tem 2,36:1. O Lighthouse registra ainda 15 alvos de toque com tamanho ou espaçamento insuficiente, contra os 24 × 24 px do critério 2.5.8.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══ 04 · JORNADA ═══ -->
+  <section class="band sec" data-here="A experiência de quem compra">
+    <div class="wrap">
+      <div class="sec-head col">
+        <span class="sec-index">04 · NA PRÁTICA</span>
         <h2>O que isso significa para quem está comprando</h2>
         <p>Número solto não diz muita coisa. Acompanhei o caminho que um cliente faz, do primeiro toque até o pedido.</p>
       </div>
@@ -727,15 +853,6 @@
         <div class="step">
           <span class="step-n num">02</span>
           <div>
-            <h3>Ele busca o produto que quer</h3>
-            <p>Quem digita "cola" recebe dez itens de chocolate, porque as letras c-o-l-a aparecem no meio da palavra. É o ponto que mais me chamou atenção, e está detalhado logo abaixo.</p>
-            <span class="step-ev num">"cola" → 10 resultados, todos de chocolate</span>
-          </div>
-        </div>
-
-        <div class="step">
-          <span class="step-n num">03</span>
-          <div>
             <h3>Ele abre um produto e volta para a lista</h3>
             <p>O botão "voltar" não devolve a página como estava: ela é baixada de novo, inteira. Quem monta um pedido grande faz esse caminho dezenas de vezes.</p>
             <span class="step-ev num">recarga completa a cada retorno</span>
@@ -743,7 +860,7 @@
         </div>
 
         <div class="step">
-          <span class="step-n num">04</span>
+          <span class="step-n num">03</span>
           <div>
             <h3>Ele recebe o link pelo WhatsApp</h3>
             <p>Quando um vendedor manda o link, chega só o endereço cru, sem nome da empresa e sem imagem.</p>
@@ -752,60 +869,13 @@
         </div>
 
         <div class="step">
-          <span class="step-n num">05</span>
+          <span class="step-n num">04</span>
           <div>
             <h3>Ele digita o endereço com "www"</h3>
             <p>O navegador mostra um aviso dizendo que a conexão não é segura, e o cliente não chega no site. Quem tem o site nos favoritos assim esbarra nisso toda vez.</p>
             <span class="step-ev num">www.arguto.com.br → tela de aviso</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ 04 · BUSCA ═══ -->
-  <section class="band sec" data-here="A busca">
-    <div class="wrap">
-      <div class="sec-head col">
-        <span class="sec-index">04 · O CASO DA BUSCA</span>
-        <h2>A busca procura pedaços de palavra</h2>
-        <p>Reproduzi a busca do site exatamente como o cliente faz. Estes são os resultados reais que voltaram hoje.</p>
-      </div>
-
-      <div style="max-width:760px">
-        <div class="search-demo rv">
-          <div class="search-bar">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.3" y1="15.3" x2="21" y2="21"/></svg>
-            <span class="search-typed">cola<span class="search-caret" aria-hidden="true"></span></span>
-          </div>
-          <ul class="search-results">
-            <li><span class="x" aria-hidden="true">✕</span><span>BALA ARCOR BUTTER TOFFEES CHO<em>COLA</em>TE 400G</span></li>
-            <li><span class="x" aria-hidden="true">✕</span><span>BISCOITO AYMORÉ MAIZENA CHO<em>COLA</em>TE 170G</span></li>
-            <li><span class="x" aria-hidden="true">✕</span><span>BISCOITO AYMORÉ DANIX RECHEADO CHO<em>COLA</em>TE 130G</span></li>
-          </ul>
-          <div class="search-foot">
-            <strong>Dez resultados, todos de chocolate.</strong><br>
-            A busca encontra as letras c-o-l-a no meio de "cho<strong>cola</strong>te" e trata isso como acerto. Ela não distingue uma palavra inteira de um pedaço de outra palavra.
-          </div>
-        </div>
-
-        <p style="margin-top:1.6rem">Não é caso isolado: <strong>"coca"</strong> devolve quatro bombons de pa<em class="search-mark">coca</em>, e <strong>"ninho"</strong> devolve dez unidades de dano<em class="search-mark">ninho</em>. Sempre o mesmo mecanismo.</p>
-
-        <p style="margin-top:1.1rem">Num atacado, a busca é o balcão. O comprador que já sabe o que quer digita o nome e espera achar. Quando o resultado não faz sentido, ele liga, manda no WhatsApp, ou procura em outro lugar.</p>
-
-        <p style="margin-top:1.1rem;font-size:.93rem;color:var(--fg-muted)">Para ser preciso: isso não é uma afirmação sobre o que existe ou falta no catálogo de vocês. É sobre o critério que a busca usa para decidir o que mostrar.</p>
-
-        <div class="fix fix-inv">
-          <i class="dot"></i>
-          <span>Precisa investigar junto com o sistema interno. A correção depende de como o catálogo está organizado.</span>
-        </div>
-
-        <details class="tech">
-          <summary>Ver detalhe técnico</summary>
-          <div class="tech-body">
-            Endpoint <code>/v1/_ajax_busca.aspx</code>, consultas retornando HTTP 200 com resposta válida. O comportamento é compatível com <code>LIKE %termo%</code>: casamento de substring em qualquer posição, sem limite de palavra (<em>word boundary</em>), sem ranqueamento por relevância, sem peso de categoria e sem tolerância a erro de digitação. Verificado em 27/07/2026: <code>cola</code> devolve 10 produtos, todos contendo "cho<strong>cola</strong>te"; <code>coca</code> devolve 4, todos "pa<strong>coca</strong>"; <code>ninho</code> devolve 10, todos "dano<strong>ninho</strong>". Também não há <em>debounce</em>: digitar "arroz" dispara cinco requisições, uma por tecla. Ressalva de rigor: termos como <code>arroz</code> e <code>condensado</code> retornaram vazio, o que pode refletir o catálogo real e por isso <strong>não</strong> é apresentado como falha. Os três casos acima independem de estoque, porque o site devolve resultados, e o critério de correspondência é que está errado.
-          </div>
-        </details>
       </div>
     </div>
   </section>
@@ -888,7 +958,7 @@
           <div class="fix fix-new"><i class="dot"></i><span>Já previsto no site novo</span></div>
           <details class="tech">
             <summary>Ver detalhe técnico</summary>
-            <div class="tech-body">Medição em 375px: os títulos "Institucional", "Minha Conta" e "Vendas Corporativas" têm largura computada zero. Os links <code>/PoliticaDePrivacidade/</code>, <code>/PoliticaDePagamento/</code> e <code>/TrocasDevolucoes/</code> retornam <code>visible: false</code>. O único link exibido aponta para <code>content.asp</code>, que responde HTTP 404. Transparência sobre tratamento de dados é exigência do Art. 9º da LGPD, e informação sobre trocas e devoluções é exigência do CDC.</div>
+            <div class="tech-body">Medição em 375px: os títulos "Institucional", "Minha Conta" e "Vendas Corporativas" têm largura computada zero. Os links <code>/PoliticaDePrivacidade/</code>, <code>/PoliticaDePagamento/</code> e <code>/TrocasDevolucoes/</code> retornam <code>visible: false</code>. O único link exibido aponta para <code>content.asp</code>, que responde HTTP 404. O Art. 9º da LGPD trata do direito do titular a informação clara sobre o tratamento dos seus dados, e o CDC trata da informação sobre trocas e devoluções — em ambos os casos, manter a página acessível também no celular é o caminho seguro.</div>
           </details>
         </article>
 
@@ -906,21 +976,6 @@
 
       <h3 style="margin-top:3.25rem;font-size:1.1rem">Também verifiquei</h3>
       <div class="mini rv">
-        <div class="mini-row">
-          <p class="mini-what">O botão de comprar tem pouco contraste
-            <em>"VER PREÇO" em branco sobre laranja claro fica difícil de ler no celular sob o sol. <span class="ev-inline">2,59:1, mínimo recomendado 4,5:1</span></em></p>
-          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
-        </div>
-        <div class="mini-row">
-          <p class="mini-what">No tablet, o menu fica escrito por cima do banner
-            <em>Entre 768 e 1024 pixels o menu quebra em duas linhas e a segunda cai sobre a foto. "PET", "FORNECEDORES" e "OFERTAS" ficam ilegíveis.</em></p>
-          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
-        </div>
-        <div class="mini-row">
-          <p class="mini-what">O aviso de cookies cobre os botões de compra no celular
-            <em>Para comprar, o cliente precisa aceitar primeiro. E a única opção que existe é "OK", sem como recusar nem escolher.</em></p>
-          <span class="mini-tag t-new"><i class="dot"></i>Já previsto</span>
-        </div>
         <div class="mini-row">
           <p class="mini-what">O rastreamento começa antes de o cliente responder
             <em>Ao abrir a home, os cookies de análise já são gravados e quatro registros de visita já foram enviados, antes de qualquer clique no aviso.</em></p>
@@ -959,10 +1014,8 @@
       </div>
 
       <details class="tech" style="max-width:760px">
-        <summary>Ver o detalhe técnico destes dez pontos</summary>
+        <summary>Ver o detalhe técnico destes sete pontos</summary>
         <div class="tech-body">
-          <strong>Contraste:</strong> 2,59:1 no <code>.btn-preco</code>, contra 4,5:1 exigido pelo WCAG 2.1 AA; 6 ocorrências no Lighthouse. O item "OFERTAS" do menu tem 2,36:1.<br><br>
-          <strong>Tablet:</strong> em 768px a segunda linha do menu ocupa y=207 a 279 e o banner começa em y=235. Três itens invadem a área do banner. O botão da busca também se separa do campo.<br><br>
           <strong>Cookies e rastreio:</strong> cookies <code>_ga</code> e dois identificadores de propriedade GA4 gravados antes de interação, com 7 eventos de <code>dataLayer</code> e 4 <code>page_view</code> enviados. Duas propriedades GA4 medem em paralelo, além do contêiner GTM. A LGPD (Arts. 7º e 8º) trata consentimento prévio para tratamento não essencial, e a orientação da ANPD é que recusar seja tão simples quanto aceitar.<br><br>
           <strong>SEO:</strong> <code>document.querySelectorAll('h1').length</code> retorna 0; a hierarquia começa em H5 e desce para H4 antes do H2; sem <code>meta description</code>; <code>&lt;title&gt;</code> com 11 caracteres; <code>robots.txt</code>, <code>sitemap.xml</code> e <code>favicon.ico</code> retornam 404. Nenhuma marcação JSON-LD (<code>Product</code>, <code>Organization</code>, <code>LocalBusiness</code>): dado estruturado torna a página <em>elegível</em> a resultado enriquecido, a exibição segue sendo decisão do Google.<br><br>
           <strong>Imagens e nomes acessíveis:</strong> 118 de 119 imagens sem <code>alt</code> na medição do DOM completo (o Lighthouse reporta 60 no viewport dele). Como consequência, 25 links que contêm apenas imagem ficam sem nome acessível, incluindo o logotipo, e dois botões também, um deles o de busca do celular.<br><br>
@@ -972,13 +1025,13 @@
     </div>
   </section>
 
-  <!-- ═══ 07 · ESCOPO ═══ -->
-  <section class="band band--paper sec" data-here="O que muda">
+  <!-- ═══ 07 · ESCOPO · azul de marca, o momento comercial ═══ -->
+  <section class="band band--brand sec" data-here="O que muda">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">07 · ESCOPO</span>
         <h2>O que muda e, principalmente, o que não muda</h2>
-        <p>Essa costuma ser a primeira preocupação quando se fala em site novo, então prefiro responder antes de vocês perguntarem.</p>
+        <p>Vão trocar o Protheus? Vamos ter que cadastrar produto de novo? A equipe muda de rotina? Não, não e não. Prefiro responder isso antes de vocês perguntarem.</p>
       </div>
 
       <div class="keeps rv">
@@ -996,7 +1049,7 @@
           <h3>É reconstruído</h3>
           <ul class="keep-list">
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>Tudo que o cliente vê antes de entrar na conta: home, categorias, produto, ofertas e institucionais</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>A busca, o menu e o comportamento no celular</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>A navegação, o menu e o comportamento no celular</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>O tratamento das imagens, que é a origem dos 24 MB</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg><span>Carrinho e checkout recebem visual novo, mantendo o mesmo funcionamento por trás</span></li>
           </ul>
@@ -1008,7 +1061,7 @@
   </section>
 
   <!-- ═══ 08 · ANTES / DEPOIS ═══ -->
-  <section class="band band--tint sec" data-here="Antes e depois">
+  <section class="band band--paper sec" data-here="Antes e depois">
     <div class="wrap">
       <div class="sec-head col">
         <span class="sec-index">08 · COMPARAÇÃO</span>
@@ -1044,9 +1097,15 @@
         </div>
 
         <div class="ba-row">
-          <div class="ba-now"><b>Buscar um produto</b>"cola" devolve dez itens de chocolate</div>
+          <div class="ba-now"><b>Comprar pelo celular</b>O aviso de cookies cobre os botões, e o "VER PREÇO" tem 2,59:1 de contraste</div>
           <span class="ba-arrow" aria-hidden="true">→</span>
-          <div class="ba-next">A busca deixa de consultar a cada tecla. A relevância entra em diagnóstico dedicado</div>
+          <div class="ba-next">Aviso que não cobre nada e permite recusar, com botão de compra legível ao sol</div>
+        </div>
+
+        <div class="ba-row">
+          <div class="ba-now"><b>No tablet</b>O menu quebra em duas linhas e escreve por cima do banner</div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-next">Um layout só, que se reorganiza de 320 a 1920 pixels sem sobreposição</div>
         </div>
 
         <div class="ba-row">
@@ -1058,11 +1117,11 @@
     </div>
   </section>
 
-  <!-- ═══ 09 · MÉTODO ═══ -->
-  <section class="band band--paper sec" data-here="Como medimos">
+  <!-- ═══ 09 · MÉTODO E FONTES ═══ -->
+  <section class="band sec" data-here="Método e fontes">
     <div class="wrap">
       <div class="sec-head col">
-        <span class="sec-index">09 · MÉTODO</span>
+        <span class="sec-index">09 · MÉTODO E FONTES</span>
         <h2>Como eu cheguei nesses números</h2>
         <p>Tudo aqui é reproduzível. Se vocês tiverem alguém de tecnologia, ele consegue conferir cada ponto.</p>
       </div>
@@ -1092,6 +1151,27 @@
         <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&amp;form_factor=mobile" target="_blank" rel="noopener noreferrer">Relatório do celular</a>
         <a href="https://pagespeed.web.dev/analysis/https-arguto-com-br/2ks1p4bfzo?hl=pt-br&amp;form_factor=desktop" target="_blank" rel="noopener noreferrer">Relatório do computador</a>
       </div>
+
+      <h3 id="fontes" style="margin-top:3rem;font-size:1.1rem">Referências utilizadas</h3>
+      <p style="margin-top:.5rem;font-size:.95rem">Os parâmetros de boa experiência citados na seção 03 não são critério meu. Vêm destas quatro fontes, todas públicas:</p>
+      <ul class="sources">
+        <li><span class="n">[1]</span><span>
+          <a href="https://web.dev/articles/lcp" target="_blank" rel="noopener noreferrer">Google · web.dev — Largest Contentful Paint</a>
+          <em>De onde vem o limiar de 2,5 s para o conteúdo principal aparecer, medido no percentil 75 dos carregamentos.</em>
+        </span></li>
+        <li><span class="n">[2]</span><span>
+          <a href="https://www.nngroup.com/articles/definition-user-experience/" target="_blank" rel="noopener noreferrer">Nielsen Norman Group — The Definition of User Experience</a>
+          <em>Definição de experiência do usuário por Don Norman e Jakob Nielsen, e as <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank" rel="noopener noreferrer">10 heurísticas de usabilidade</a> de onde saem os princípios de previsibilidade e prevenção de atrito.</em>
+        </span></li>
+        <li><span class="n">[3]</span><span>
+          <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" target="_blank" rel="noopener noreferrer">W3C · WCAG 2.2 — Contraste mínimo (1.4.3)</a>
+          <em>Os 4,5:1 para texto normal. O tamanho mínimo de alvo de toque, 24 × 24 px, vem do critério <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html" target="_blank" rel="noopener noreferrer">2.5.8</a>.</em>
+        </span></li>
+        <li><span class="n">[4]</span><span>
+          <a href="https://baymard.com/research" target="_blank" rel="noopener noreferrer">Baymard Institute — pesquisa de usabilidade em e-commerce</a>
+          <em>Instituto de pesquisa dedicado a e-commerce, com milhares de sessões de teste com compradores reais em catálogo, busca, filtro e checkout.</em>
+        </span></li>
+      </ul>
     </div>
   </section>
 
